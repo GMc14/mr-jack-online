@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Text;
+using System.Windows.Forms;
 
 namespace MrJack
 {
@@ -9,15 +10,22 @@ namespace MrJack
     {
         public FrmMain() {
             InitializeComponent();
+            this.AddVersionInfoToTitle();
         }
 
         private void FrmMain_Load(object sender, EventArgs e) {
-            this.AddVersionToTitle();
+            
         }
 
-        private void AddVersionToTitle() {
+        private void AddVersionInfoToTitle() {
             Version ver = Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text += " (Version " + ver.Major + "." + ver.Minor + " alpha)";
+            StringBuilder sb = new StringBuilder(this.Text);
+            sb.AppendFormat(" (Version {0}.{1})", ver.Major, ver.Minor);
+            this.Text = sb.ToString();
+        }
+
+        private void FrmMain_Paint(object sender, PaintEventArgs e) {
+
         }
     }
 }
