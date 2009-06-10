@@ -1,0 +1,7 @@
+D:\hurricangames\MrJackOnline\bin\Debug\MrJackOnline.exe
+D:\hurricangames\MrJackOnline\bin\Debug\MrJackOnline.pdb
+D:\hurricangames\MrJackOnline\obj\Debug\ResolveAssemblyReference.cache
+D:\hurricangames\MrJackOnline\obj\Debug\MrJack.FrmMain.resources
+D:\hurricangames\MrJackOnline\obj\Debug\MrJackOnline.csproj.GenerateResource.Cache
+D:\hurricangames\MrJackOnline\obj\Debug\MrJackOnline.exe
+D:\hurricangames\MrJackOnline\obj\Debug\MrJackOnline.pdb
