@@ -27,5 +27,17 @@ namespace MrJack
         private void FrmMain_Paint(object sender, PaintEventArgs e) {
 
         }
+
+        private void Board_MouseLeave(object sender, EventArgs e) {
+            this.PnlHelp.Visible = false;
+        }
+
+        private void Board_MouseMove(object sender, MouseEventArgs e) {
+            this.PnlHelp.Visible = e.X > 475 && e.Y > 460 && e.X < 505 && e.Y < 495;
+        }
+
+        private void CbxShowCoordinates_CheckedChanged(object sender, EventArgs e) {
+            this.Board.ShowCoordinates = (sender as CheckBox).Checked;
+        }
     }
 }
