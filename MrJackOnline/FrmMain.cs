@@ -14,7 +14,7 @@ namespace MrJack
         }
 
         private void FrmMain_Load(object sender, EventArgs e) {
-            
+
         }
 
         private void AddVersionInfoToTitle() {
