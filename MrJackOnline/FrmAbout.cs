@@ -21,7 +21,7 @@ namespace MrJack
         }
 
         private void BtnProjectSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            System.Diagnostics.Process.Start((sender as LinkLabel).Text); 
+            System.Diagnostics.Process.Start((sender as LinkLabel).Text);
         }
 
         private void BtnProjectSite_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e) {
