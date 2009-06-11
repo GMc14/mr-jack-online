@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+//using Microsoft.DirectX;
+using Microsoft.DirectX.AudioVideoPlayback;
 
 namespace MrJack
 {
@@ -17,7 +19,18 @@ namespace MrJack
         private const string commentsHeader = "<html><head><title>Blank</title><style>body{background-color:#1E3D46;overflow-x:hidden;overflow-y:auto;font-family:Arial, Helvetica;font-size:12px;text-align:center;margin:0;padding:0 0 0 2px;}.cmt{text-align:center;width:110px;color:#F1AF3B;margin:0;padding:0;float:left;}.ctext{color:#fff;font-style:italic;}</style></head><body style=\"background-color:#1E3D46;overflow-y:auto;overflow-x:hidden;margin:0;padding:0;\"><div class=\"cmt\">catsil wrote:<br><span class=\"ctext\">";
         private const string commentsFooter = "</span></div></body></html>";
 
+        private Audio gameSound;
+
+        private bool enableSound;
+        public bool EnableSound {
+            get { return this.enableSound; }
+            set { this.enableSound = value; }
+        }
+
         public FrmMain() {
+            this.gameSound = new Audio("newg.mid");
+            this.enableSound = true;
+
             InitializeComponent();
 
             this.FixLinkLableTabStop();
@@ -139,6 +152,19 @@ namespace MrJack
 
         private void BtnHostGame_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
+            try {
+                this.gameSound.Open("newg.mid", true);
+            } catch(Exception) { }
+        }
+
+        private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            bool value = (sender as CheckBox).Checked;
+            if(value && this.gameSound != null && this.gameSound.Playing) {
+                this.gameSound.Stop();
+            }
+            this.enableSound = !value;
+            (sender as CheckBox).Checked = !value;
         }
     }
 }

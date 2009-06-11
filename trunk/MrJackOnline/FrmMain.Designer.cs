@@ -41,6 +41,7 @@
             this.PbxJack = new System.Windows.Forms.PictureBox();
             this.LblInfo = new System.Windows.Forms.Label();
             this.PnlOption = new System.Windows.Forms.Panel();
+            this.CbxEnableSound = new System.Windows.Forms.CheckBox();
             this.CbxHightlightMoves = new System.Windows.Forms.CheckBox();
             this.CbxShowCoordinates = new System.Windows.Forms.CheckBox();
             this.PnlComment = new System.Windows.Forms.Panel();
@@ -98,7 +99,6 @@
             this.CbxPrivateComment = new System.Windows.Forms.CheckBox();
             this.LblInputCaption = new System.Windows.Forms.Label();
             this.Board = new MrJack.CtlBoard();
-            this.CbxEnableSound = new System.Windows.Forms.CheckBox();
             this.PnlHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard7)).BeginInit();
@@ -285,6 +285,22 @@
             this.PnlOption.Size = new System.Drawing.Size(143, 65);
             this.PnlOption.TabIndex = 63;
             // 
+            // CbxEnableSound
+            // 
+            this.CbxEnableSound.AutoSize = true;
+            this.CbxEnableSound.Checked = true;
+            this.CbxEnableSound.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbxEnableSound.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.CbxEnableSound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
+            this.CbxEnableSound.Location = new System.Drawing.Point(0, 40);
+            this.CbxEnableSound.Name = "CbxEnableSound";
+            this.CbxEnableSound.Size = new System.Drawing.Size(103, 19);
+            this.CbxEnableSound.TabIndex = 61;
+            this.CbxEnableSound.TabStop = false;
+            this.CbxEnableSound.Text = "Enable Sound";
+            this.CbxEnableSound.UseVisualStyleBackColor = true;
+            this.CbxEnableSound.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CbxEnableSound_MouseDown);
+            // 
             // CbxHightlightMoves
             // 
             this.CbxHightlightMoves.AutoSize = true;
@@ -302,7 +318,6 @@
             // 
             // CbxShowCoordinates
             // 
-            this.CbxShowCoordinates.AutoCheck = false;
             this.CbxShowCoordinates.AutoSize = true;
             this.CbxShowCoordinates.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.CbxShowCoordinates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
@@ -945,21 +960,6 @@
             this.Board.TabStop = false;
             this.Board.MouseLeave += new System.EventHandler(this.Board_MouseLeave);
             this.Board.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Board_MouseMove);
-            // 
-            // CbxEnableSound
-            // 
-            this.CbxEnableSound.AutoSize = true;
-            this.CbxEnableSound.Checked = true;
-            this.CbxEnableSound.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CbxEnableSound.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.CbxEnableSound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
-            this.CbxEnableSound.Location = new System.Drawing.Point(0, 40);
-            this.CbxEnableSound.Name = "CbxEnableSound";
-            this.CbxEnableSound.Size = new System.Drawing.Size(103, 19);
-            this.CbxEnableSound.TabIndex = 61;
-            this.CbxEnableSound.TabStop = false;
-            this.CbxEnableSound.Text = "Enable Sound";
-            this.CbxEnableSound.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
