@@ -769,6 +769,7 @@
             this.BtnAbout.TabStop = true;
             this.BtnAbout.Text = "About";
             this.BtnAbout.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnAbout_LinkClicked);
             // 
             // LblSp1
             // 

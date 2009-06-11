@@ -60,6 +60,13 @@ namespace MrJack.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap AboutLogo {
+            get {
+                object obj = ResourceManager.GetObject("AboutLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Board {
             get {
                 object obj = ResourceManager.GetObject("Board", resourceCulture);
