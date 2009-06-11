@@ -93,5 +93,10 @@ namespace MrJack
             (sender as CheckBox).Checked = value;
             this.Board.ShowCoordinates = value;
         }
+
+        private void BtnAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            FrmAbout frmAbout = new FrmAbout();
+            frmAbout.ShowDialog(this);
+        }
     }
 }
