@@ -98,5 +98,9 @@ namespace MrJack
             FrmAbout frmAbout = new FrmAbout();
             frmAbout.ShowDialog(this);
         }
+
+        private void BtnHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("http://www.hurricangames.com/data/pdf/Mr_Jack_GB.pdf");
+        }
     }
 }
