@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using System.IO;
 
 namespace MrJack
 {
@@ -29,7 +29,9 @@ namespace MrJack
         }
 
         private void FrmMain_Load(object sender, EventArgs e) {
+            //try {
             
+            //} catch(Exception) { }
         }
 
         private void FrmMain_Paint(object sender, PaintEventArgs e) {
@@ -46,14 +48,6 @@ namespace MrJack
                 e.Y > GameUIConsts.CardHelpBoardTop && 
                 e.X < GameUIConsts.CardHelpBoardLeft+GameUIConsts.CardHelpWidth && 
                 e.Y < GameUIConsts.CardHelpBoardTop+GameUIConsts.CardHelpHeight;
-        }
-
-        private void BtnTabMoves_Click(object sender, EventArgs e) {
-            this.SelectTabMoves();
-        }
-
-        private void BtnTabNotes_Click(object sender, EventArgs e) {
-            this.SelectTabNotes();
         }
 
         private void FixLinkLableTabStop() {
@@ -89,6 +83,14 @@ namespace MrJack
             this.TbxNotes.Focus();
         }
 
+        private void BtnTabMoves_MouseDown(object sender, MouseEventArgs e) {
+            this.SelectTabMoves();
+        }
+
+        private void BtnTabNotes_MouseDown(object sender, MouseEventArgs e) {
+            this.SelectTabNotes();
+        }
+
         private void CbxShowCoordinates_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
             bool value = !(sender as CheckBox).Checked;
@@ -96,21 +98,23 @@ namespace MrJack
             this.Board.ShowCoordinates = value;
         }
 
-        private void BtnAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            FrmAbout frmAbout = new FrmAbout();
-            frmAbout.ShowDialog(this);
-        }
-
-        private void BtnHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            
-        }
-
         private void CbxPrivateComment_MouseDown(object sender, MouseEventArgs e) {
             this.TbxComment.Focus();
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
 
-        private void BtnLoadReplay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        private void BtnAbout_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            FrmAbout frmAbout = new FrmAbout();
+            frmAbout.ShowDialog(this);
+        }
+
+        private void BtnHelp_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+        }
+
+        private void BtnLoadReplay_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
             DialogResult result = OfgReplay.ShowDialog();
             if(result == DialogResult.OK) {
                 //XmlSerializer xSerial = new XmlSerializer(typeof(GameReplay));
@@ -123,6 +127,18 @@ namespace MrJack
                 //    fs.Close();
                 //}
             }
+        }
+
+        private void BtnObserveGame_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+        }
+
+        private void BtnJoinGame_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+        }
+
+        private void BtnHostGame_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
         }
     }
 }
