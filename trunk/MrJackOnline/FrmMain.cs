@@ -20,6 +20,8 @@ namespace MrJack
         public FrmMain() {
             InitializeComponent();
 
+            this.FixLinkLableTabStop();
+
             this.MovesList.ObjectForScripting = this;
             this.CommentList.ObjectForScripting = this;
             this.MovesList.DocumentText = "<html><head><title>Blank</title></head><body style=\"background-color:#1E3D46;overflow-y:auto;overflow-x:hidden;margin:0;padding:0;\"><a href=\"#\" onclick=\"window.external.TestWoW();\" id=\"s1\"></a></body></html>";
@@ -46,16 +48,21 @@ namespace MrJack
                 e.Y < GameUIConsts.CardHelpBoardTop+GameUIConsts.CardHelpHeight;
         }
 
-        private void CbxShowCoordinates_CheckedChanged(object sender, EventArgs e) {
-            this.Board.ShowCoordinates = (sender as CheckBox).Checked;
-        }
-
         private void BtnTabMoves_Click(object sender, EventArgs e) {
             this.SelectTabMoves();
         }
 
         private void BtnTabNotes_Click(object sender, EventArgs e) {
             this.SelectTabNotes();
+        }
+
+        private void FixLinkLableTabStop() {
+            this.BtnHostGame.TabStop = false;
+            this.BtnJoinGame.TabStop = false;
+            this.BtnObserveGame.TabStop = false;
+            this.BtnLoadReplay.TabStop = false;
+            this.BtnHelp.TabStop = false;
+            this.BtnAbout.TabStop = false;
         }
 
         public void SelectTabMoves() {
@@ -78,6 +85,13 @@ namespace MrJack
 
             this.PnlNotes.Visible = true;
             this.PnlMoves.Visible = false;
+        }
+
+        private void CbxShowCoordinates_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            bool value = !(sender as CheckBox).Checked;
+            (sender as CheckBox).Checked = value;
+            this.Board.ShowCoordinates = value;
         }
     }
 }

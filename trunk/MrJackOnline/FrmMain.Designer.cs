@@ -61,9 +61,9 @@
             this.BtnFirst = new System.Windows.Forms.Button();
             this.MovesList = new System.Windows.Forms.WebBrowser();
             this.PnlNotes = new System.Windows.Forms.Panel();
+            this.TbxNotes = new System.Windows.Forms.TextBox();
             this.BtnSaveNotes = new System.Windows.Forms.Button();
             this.LblNotes = new System.Windows.Forms.Label();
-            this.TbxNotes = new System.Windows.Forms.TextBox();
             this.PnlCards = new System.Windows.Forms.Panel();
             this.PbxCard4 = new System.Windows.Forms.PictureBox();
             this.PbxCard3 = new System.Windows.Forms.PictureBox();
@@ -79,11 +79,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PbxWintessSelect = new System.Windows.Forms.PictureBox();
             this.BtnHostGame = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.BtnJoinGame = new System.Windows.Forms.LinkLabel();
+            this.BtnObserveGame = new System.Windows.Forms.LinkLabel();
+            this.BtnLoadReplay = new System.Windows.Forms.LinkLabel();
+            this.BtnHelp = new System.Windows.Forms.LinkLabel();
+            this.BtnAbout = new System.Windows.Forms.LinkLabel();
             this.LblSp1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -284,11 +284,13 @@
             this.CbxHightlightMoves.Name = "CbxHightlightMoves";
             this.CbxHightlightMoves.Size = new System.Drawing.Size(116, 19);
             this.CbxHightlightMoves.TabIndex = 60;
+            this.CbxHightlightMoves.TabStop = false;
             this.CbxHightlightMoves.Text = "Highlight moves";
             this.CbxHightlightMoves.UseVisualStyleBackColor = true;
             // 
             // CbxShowCoordinates
             // 
+            this.CbxShowCoordinates.AutoCheck = false;
             this.CbxShowCoordinates.AutoSize = true;
             this.CbxShowCoordinates.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.CbxShowCoordinates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
@@ -296,9 +298,10 @@
             this.CbxShowCoordinates.Name = "CbxShowCoordinates";
             this.CbxShowCoordinates.Size = new System.Drawing.Size(129, 19);
             this.CbxShowCoordinates.TabIndex = 59;
+            this.CbxShowCoordinates.TabStop = false;
             this.CbxShowCoordinates.Text = "Show coordinates";
             this.CbxShowCoordinates.UseVisualStyleBackColor = true;
-            this.CbxShowCoordinates.CheckedChanged += new System.EventHandler(this.CbxShowCoordinates_CheckedChanged);
+            this.CbxShowCoordinates.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CbxShowCoordinates_MouseDown);
             // 
             // PnlComment
             // 
@@ -322,6 +325,7 @@
             this.CommentList.ScriptErrorsSuppressed = true;
             this.CommentList.Size = new System.Drawing.Size(135, 90);
             this.CommentList.TabIndex = 0;
+            this.CommentList.TabStop = false;
             this.CommentList.WebBrowserShortcutsEnabled = false;
             // 
             // PnlPlayer
@@ -444,6 +448,7 @@
             this.BtnLast.Name = "BtnLast";
             this.BtnLast.Size = new System.Drawing.Size(26, 23);
             this.BtnLast.TabIndex = 21;
+            this.BtnLast.TabStop = false;
             this.BtnLast.Text = ">>";
             this.BtnLast.UseVisualStyleBackColor = false;
             // 
@@ -456,6 +461,7 @@
             this.BtnNext.Name = "BtnNext";
             this.BtnNext.Size = new System.Drawing.Size(26, 23);
             this.BtnNext.TabIndex = 20;
+            this.BtnNext.TabStop = false;
             this.BtnNext.Text = ">";
             this.BtnNext.UseVisualStyleBackColor = false;
             // 
@@ -468,6 +474,7 @@
             this.BtnPrev.Name = "BtnPrev";
             this.BtnPrev.Size = new System.Drawing.Size(26, 23);
             this.BtnPrev.TabIndex = 19;
+            this.BtnPrev.TabStop = false;
             this.BtnPrev.Text = "<";
             this.BtnPrev.UseVisualStyleBackColor = false;
             // 
@@ -480,6 +487,7 @@
             this.BtnFirst.Name = "BtnFirst";
             this.BtnFirst.Size = new System.Drawing.Size(26, 23);
             this.BtnFirst.TabIndex = 18;
+            this.BtnFirst.TabStop = false;
             this.BtnFirst.Text = "<<";
             this.BtnFirst.UseVisualStyleBackColor = false;
             // 
@@ -494,18 +502,31 @@
             this.MovesList.ScriptErrorsSuppressed = true;
             this.MovesList.Size = new System.Drawing.Size(135, 199);
             this.MovesList.TabIndex = 17;
+            this.MovesList.TabStop = false;
             this.MovesList.WebBrowserShortcutsEnabled = false;
             // 
             // PnlNotes
             // 
+            this.PnlNotes.Controls.Add(this.TbxNotes);
             this.PnlNotes.Controls.Add(this.BtnSaveNotes);
             this.PnlNotes.Controls.Add(this.LblNotes);
-            this.PnlNotes.Controls.Add(this.TbxNotes);
             this.PnlNotes.Location = new System.Drawing.Point(0, 0);
             this.PnlNotes.Name = "PnlNotes";
             this.PnlNotes.Size = new System.Drawing.Size(135, 229);
             this.PnlNotes.TabIndex = 79;
             this.PnlNotes.Visible = false;
+            // 
+            // TbxNotes
+            // 
+            this.TbxNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.TbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TbxNotes.Location = new System.Drawing.Point(2, 32);
+            this.TbxNotes.Multiline = true;
+            this.TbxNotes.Name = "TbxNotes";
+            this.TbxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TbxNotes.Size = new System.Drawing.Size(130, 158);
+            this.TbxNotes.TabIndex = 32;
+            this.TbxNotes.TabStop = false;
             // 
             // BtnSaveNotes
             // 
@@ -514,6 +535,7 @@
             this.BtnSaveNotes.Name = "BtnSaveNotes";
             this.BtnSaveNotes.Size = new System.Drawing.Size(75, 23);
             this.BtnSaveNotes.TabIndex = 28;
+            this.BtnSaveNotes.TabStop = false;
             this.BtnSaveNotes.Text = "Save";
             this.BtnSaveNotes.UseVisualStyleBackColor = true;
             // 
@@ -527,15 +549,6 @@
             this.LblNotes.Size = new System.Drawing.Size(71, 15);
             this.LblNotes.TabIndex = 27;
             this.LblNotes.Text = "Your notes:";
-            // 
-            // TbxNotes
-            // 
-            this.TbxNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.TbxNotes.Location = new System.Drawing.Point(2, 32);
-            this.TbxNotes.Multiline = true;
-            this.TbxNotes.Name = "TbxNotes";
-            this.TbxNotes.Size = new System.Drawing.Size(130, 158);
-            this.TbxNotes.TabIndex = 26;
             // 
             // PnlCards
             // 
@@ -677,85 +690,85 @@
             this.BtnHostGame.Location = new System.Drawing.Point(450, 20);
             this.BtnHostGame.Name = "BtnHostGame";
             this.BtnHostGame.Size = new System.Drawing.Size(69, 15);
-            this.BtnHostGame.TabIndex = 86;
+            this.BtnHostGame.TabIndex = 13;
             this.BtnHostGame.TabStop = true;
             this.BtnHostGame.Text = "Host Game";
             this.BtnHostGame.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel1
+            // BtnJoinGame
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(528, 20);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(67, 15);
-            this.linkLabel1.TabIndex = 87;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Join Game";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnJoinGame.ActiveLinkColor = System.Drawing.Color.White;
+            this.BtnJoinGame.AutoSize = true;
+            this.BtnJoinGame.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.BtnJoinGame.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.BtnJoinGame.LinkColor = System.Drawing.Color.White;
+            this.BtnJoinGame.Location = new System.Drawing.Point(528, 20);
+            this.BtnJoinGame.Name = "BtnJoinGame";
+            this.BtnJoinGame.Size = new System.Drawing.Size(67, 15);
+            this.BtnJoinGame.TabIndex = 14;
+            this.BtnJoinGame.TabStop = true;
+            this.BtnJoinGame.Text = "Join Game";
+            this.BtnJoinGame.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel2
+            // BtnObserveGame
             // 
-            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(604, 20);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(91, 15);
-            this.linkLabel2.TabIndex = 88;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Observe Game";
-            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnObserveGame.ActiveLinkColor = System.Drawing.Color.White;
+            this.BtnObserveGame.AutoSize = true;
+            this.BtnObserveGame.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.BtnObserveGame.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.BtnObserveGame.LinkColor = System.Drawing.Color.White;
+            this.BtnObserveGame.Location = new System.Drawing.Point(604, 20);
+            this.BtnObserveGame.Name = "BtnObserveGame";
+            this.BtnObserveGame.Size = new System.Drawing.Size(91, 15);
+            this.BtnObserveGame.TabIndex = 2;
+            this.BtnObserveGame.TabStop = true;
+            this.BtnObserveGame.Text = "Observe Game";
+            this.BtnObserveGame.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel3
+            // BtnLoadReplay
             // 
-            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLabel3.LinkColor = System.Drawing.Color.White;
-            this.linkLabel3.Location = new System.Drawing.Point(704, 20);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(76, 15);
-            this.linkLabel3.TabIndex = 89;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Load Replay";
-            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnLoadReplay.ActiveLinkColor = System.Drawing.Color.White;
+            this.BtnLoadReplay.AutoSize = true;
+            this.BtnLoadReplay.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.BtnLoadReplay.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.BtnLoadReplay.LinkColor = System.Drawing.Color.White;
+            this.BtnLoadReplay.Location = new System.Drawing.Point(704, 20);
+            this.BtnLoadReplay.Name = "BtnLoadReplay";
+            this.BtnLoadReplay.Size = new System.Drawing.Size(76, 15);
+            this.BtnLoadReplay.TabIndex = 3;
+            this.BtnLoadReplay.TabStop = true;
+            this.BtnLoadReplay.Text = "Load Replay";
+            this.BtnLoadReplay.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel4
+            // BtnHelp
             // 
-            this.linkLabel4.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLabel4.LinkColor = System.Drawing.Color.White;
-            this.linkLabel4.Location = new System.Drawing.Point(789, 20);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(32, 15);
-            this.linkLabel4.TabIndex = 90;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Help";
-            this.linkLabel4.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnHelp.ActiveLinkColor = System.Drawing.Color.White;
+            this.BtnHelp.AutoSize = true;
+            this.BtnHelp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.BtnHelp.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.BtnHelp.LinkColor = System.Drawing.Color.White;
+            this.BtnHelp.Location = new System.Drawing.Point(789, 20);
+            this.BtnHelp.Name = "BtnHelp";
+            this.BtnHelp.Size = new System.Drawing.Size(32, 15);
+            this.BtnHelp.TabIndex = 4;
+            this.BtnHelp.TabStop = true;
+            this.BtnHelp.Text = "Help";
+            this.BtnHelp.VisitedLinkColor = System.Drawing.Color.White;
             // 
-            // linkLabel5
+            // BtnAbout
             // 
-            this.linkLabel5.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLabel5.LinkColor = System.Drawing.Color.White;
-            this.linkLabel5.Location = new System.Drawing.Point(830, 20);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(40, 15);
-            this.linkLabel5.TabIndex = 91;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "About";
-            this.linkLabel5.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnAbout.ActiveLinkColor = System.Drawing.Color.White;
+            this.BtnAbout.AutoSize = true;
+            this.BtnAbout.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.BtnAbout.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.BtnAbout.LinkColor = System.Drawing.Color.White;
+            this.BtnAbout.Location = new System.Drawing.Point(830, 20);
+            this.BtnAbout.Name = "BtnAbout";
+            this.BtnAbout.Size = new System.Drawing.Size(40, 15);
+            this.BtnAbout.TabIndex = 5;
+            this.BtnAbout.TabStop = true;
+            this.BtnAbout.Text = "About";
+            this.BtnAbout.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // LblSp1
             // 
@@ -818,6 +831,7 @@
             this.Board.ShowCoordinates = false;
             this.Board.Size = new System.Drawing.Size(622, 505);
             this.Board.TabIndex = 0;
+            this.Board.TabStop = false;
             this.Board.MouseLeave += new System.EventHandler(this.Board_MouseLeave);
             this.Board.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Board_MouseMove);
             // 
@@ -826,14 +840,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(61)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(900, 632);
-            this.Controls.Add(this.linkLabel5);
-            this.Controls.Add(this.linkLabel4);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.BtnAbout);
+            this.Controls.Add(this.BtnHelp);
+            this.Controls.Add(this.BtnLoadReplay);
+            this.Controls.Add(this.BtnObserveGame);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.BtnJoinGame);
             this.Controls.Add(this.BtnHostGame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PbxRound);
@@ -953,19 +967,19 @@
         private System.Windows.Forms.Panel PnlNotes;
         private System.Windows.Forms.Button BtnSaveNotes;
         private System.Windows.Forms.Label LblNotes;
-        private System.Windows.Forms.TextBox TbxNotes;
         private System.Windows.Forms.PictureBox PbxLogo;
         private System.Windows.Forms.LinkLabel BtnHostGame;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel BtnJoinGame;
+        private System.Windows.Forms.LinkLabel BtnObserveGame;
+        private System.Windows.Forms.LinkLabel BtnLoadReplay;
+        private System.Windows.Forms.LinkLabel BtnHelp;
+        private System.Windows.Forms.LinkLabel BtnAbout;
         private System.Windows.Forms.Label LblSp1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TbxNotes;
 
 
 
