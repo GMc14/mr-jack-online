@@ -74,6 +74,13 @@ namespace MrJack.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap CardBack {
+            get {
+                object obj = ResourceManager.GetObject("CardBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap CardBert {
             get {
                 object obj = ResourceManager.GetObject("CardBert", resourceCulture);
