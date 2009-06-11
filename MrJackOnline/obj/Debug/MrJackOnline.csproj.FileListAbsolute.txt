@@ -14,3 +14,5 @@ E:\My Documents\Visual Studio 2008\Projects\MrJackOnline\MrJackOnline\obj\Debug\
 E:\My Documents\Visual Studio 2008\Projects\MrJackOnline\MrJackOnline\obj\Debug\MrJackOnline.csproj.GenerateResource.Cache
 E:\My Documents\Visual Studio 2008\Projects\MrJackOnline\MrJackOnline\obj\Debug\MrJack.CtlBoard.resources
 E:\My Documents\Visual Studio 2008\Projects\MrJackOnline\MrJackOnline\obj\Debug\MrJack.Properties.Resources.resources
+D:\hurricangames\MrJackOnline\obj\Debug\MrJack.CtlBoard.resources
+D:\hurricangames\MrJackOnline\obj\Debug\MrJack.Properties.Resources.resources

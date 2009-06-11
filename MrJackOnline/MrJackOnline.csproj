@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1691A854-C600-41BA-923D-C0B76FFF3A6F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -55,6 +55,7 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GameTypes.cs" />
+    <Compile Include="GameUIConsts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -138,5 +139,56 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\coords.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tabm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tabn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m_fI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m_fJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\j_Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t9.png" />
   </ItemGroup>
 </Project>
