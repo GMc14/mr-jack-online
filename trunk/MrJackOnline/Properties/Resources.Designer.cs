@@ -109,6 +109,34 @@ namespace MrJack.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap CardNoWitness {
+            get {
+                object obj = ResourceManager.GetObject("CardNoWitness", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap CardSelectInspector {
+            get {
+                object obj = ResourceManager.GetObject("CardSelectInspector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap CardSelectJack {
+            get {
+                object obj = ResourceManager.GetObject("CardSelectJack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap CardSelectWintess {
+            get {
+                object obj = ResourceManager.GetObject("CardSelectWintess", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap CardSmith {
             get {
                 object obj = ResourceManager.GetObject("CardSmith", resourceCulture);
@@ -126,6 +154,20 @@ namespace MrJack.Properties {
         internal static System.Drawing.Bitmap CardWatson {
             get {
                 object obj = ResourceManager.GetObject("CardWatson", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap CardWitness {
+            get {
+                object obj = ResourceManager.GetObject("CardWitness", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ClockShape {
+            get {
+                object obj = ResourceManager.GetObject("ClockShape", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -189,6 +231,83 @@ namespace MrJack.Properties {
         internal static System.Drawing.Bitmap JackWatson {
             get {
                 object obj = ResourceManager.GetObject("JackWatson", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap None {
+            get {
+                object obj = ResourceManager.GetObject("None", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Sub1 {
+            get {
+                object obj = ResourceManager.GetObject("Sub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Sub2 {
+            get {
+                object obj = ResourceManager.GetObject("Sub2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Sub3 {
+            get {
+                object obj = ResourceManager.GetObject("Sub3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Sub4 {
+            get {
+                object obj = ResourceManager.GetObject("Sub4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap t10 {
+            get {
+                object obj = ResourceManager.GetObject("t10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap t7 {
+            get {
+                object obj = ResourceManager.GetObject("t7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap t8 {
+            get {
+                object obj = ResourceManager.GetObject("t8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap t9 {
+            get {
+                object obj = ResourceManager.GetObject("t9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TabMoves {
+            get {
+                object obj = ResourceManager.GetObject("TabMoves", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TabNotes {
+            get {
+                object obj = ResourceManager.GetObject("TabNotes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
