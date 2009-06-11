@@ -754,6 +754,7 @@
             this.BtnHelp.TabStop = true;
             this.BtnHelp.Text = "Help";
             this.BtnHelp.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnHelp_LinkClicked);
             // 
             // BtnAbout
             // 
@@ -866,6 +867,7 @@
             this.Controls.Add(this.Board);
             this.Controls.Add(this.LblSp1);
             this.Controls.Add(this.PbxLogo);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

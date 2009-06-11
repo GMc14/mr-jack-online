@@ -17,3 +17,4 @@ E:\My Documents\Visual Studio 2008\Projects\MrJackOnline\MrJackOnline\obj\Debug\
 D:\hurricangames\MrJackOnline\obj\Debug\MrJack.CtlBoard.resources
 D:\hurricangames\MrJackOnline\obj\Debug\MrJack.Properties.Resources.resources
 D:\hurricangames\MrJackOnline\obj\Debug\MrJack.FrmAbout.resources
+E:\My Documents\Visual Studio 2008\Projects\MrJackOnline\MrJackOnline\obj\Debug\MrJack.FrmAbout.resources
