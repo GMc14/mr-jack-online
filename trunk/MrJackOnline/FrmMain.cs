@@ -102,7 +102,7 @@ namespace MrJack
         }
 
         private void BtnHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            System.Diagnostics.Process.Start("http://www.hurricangames.com/data/pdf/Mr_Jack_GB.pdf");
+            
         }
 
         private void CbxPrivateComment_MouseDown(object sender, MouseEventArgs e) {
