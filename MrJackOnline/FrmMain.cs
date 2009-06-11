@@ -20,7 +20,6 @@ namespace MrJack
         public FrmMain() {
             InitializeComponent();
 
-            this.AddVersionInfoToTitle();
             this.MovesList.ObjectForScripting = this;
             this.CommentList.ObjectForScripting = this;
             this.MovesList.DocumentText = "<html><head><title>Blank</title></head><body style=\"background-color:#1E3D46;overflow-y:auto;overflow-x:hidden;margin:0;padding:0;\"><a href=\"#\" onclick=\"window.external.TestWoW();\" id=\"s1\"></a></body></html>";
@@ -29,13 +28,6 @@ namespace MrJack
 
         private void FrmMain_Load(object sender, EventArgs e) {
             
-        }
-
-        private void AddVersionInfoToTitle() {
-            Version ver = Assembly.GetExecutingAssembly().GetName().Version;
-            StringBuilder sb = new StringBuilder(this.Text);
-            sb.AppendFormat(" (Version {0}.{1})", ver.Major, ver.Minor);
-            this.Text = sb.ToString();
         }
 
         private void FrmMain_Paint(object sender, PaintEventArgs e) {

@@ -191,4 +191,7 @@
   <ItemGroup>
     <None Include="Resources\t9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glogo.png" />
+  </ItemGroup>
 </Project>
