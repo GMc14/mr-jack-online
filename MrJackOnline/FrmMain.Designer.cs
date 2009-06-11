@@ -98,6 +98,7 @@
             this.CbxPrivateComment = new System.Windows.Forms.CheckBox();
             this.LblInputCaption = new System.Windows.Forms.Label();
             this.Board = new MrJack.CtlBoard();
+            this.CbxEnableSound = new System.Windows.Forms.CheckBox();
             this.PnlHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard7)).BeginInit();
@@ -276,6 +277,7 @@
             // 
             // PnlOption
             // 
+            this.PnlOption.Controls.Add(this.CbxEnableSound);
             this.PnlOption.Controls.Add(this.CbxHightlightMoves);
             this.PnlOption.Controls.Add(this.CbxShowCoordinates);
             this.PnlOption.Location = new System.Drawing.Point(622, 567);
@@ -414,7 +416,7 @@
             this.BtnTabNotes.TabIndex = 74;
             this.BtnTabNotes.Text = "Notes";
             this.BtnTabNotes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnTabNotes.Click += new System.EventHandler(this.BtnTabNotes_Click);
+            this.BtnTabNotes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnTabNotes_MouseDown);
             // 
             // BtnTabMoves
             // 
@@ -426,7 +428,7 @@
             this.BtnTabMoves.TabIndex = 73;
             this.BtnTabMoves.Text = "Moves";
             this.BtnTabMoves.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnTabMoves.Click += new System.EventHandler(this.BtnTabMoves_Click);
+            this.BtnTabMoves.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnTabMoves_MouseDown);
             // 
             // PbxTab
             // 
@@ -657,6 +659,7 @@
             this.BtnHostGame.TabStop = true;
             this.BtnHostGame.Text = "Host Game";
             this.BtnHostGame.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnHostGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnHostGame_MouseDown);
             // 
             // BtnJoinGame
             // 
@@ -672,6 +675,7 @@
             this.BtnJoinGame.TabStop = true;
             this.BtnJoinGame.Text = "Join Game";
             this.BtnJoinGame.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnJoinGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnJoinGame_MouseDown);
             // 
             // BtnObserveGame
             // 
@@ -687,6 +691,7 @@
             this.BtnObserveGame.TabStop = true;
             this.BtnObserveGame.Text = "Observe Game";
             this.BtnObserveGame.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnObserveGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnObserveGame_MouseDown);
             // 
             // BtnLoadReplay
             // 
@@ -702,7 +707,7 @@
             this.BtnLoadReplay.TabStop = true;
             this.BtnLoadReplay.Text = "Load Replay";
             this.BtnLoadReplay.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnLoadReplay.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnLoadReplay_LinkClicked);
+            this.BtnLoadReplay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnLoadReplay_MouseDown);
             // 
             // BtnHelp
             // 
@@ -718,7 +723,7 @@
             this.BtnHelp.TabStop = true;
             this.BtnHelp.Text = "Help";
             this.BtnHelp.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnHelp_LinkClicked);
+            this.BtnHelp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnHelp_MouseDown);
             // 
             // BtnAbout
             // 
@@ -734,7 +739,7 @@
             this.BtnAbout.TabStop = true;
             this.BtnAbout.Text = "About";
             this.BtnAbout.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnAbout_LinkClicked);
+            this.BtnAbout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnAbout_MouseDown);
             // 
             // LblSp1
             // 
@@ -865,6 +870,7 @@
             // BtnMove
             // 
             this.BtnMove.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BtnMove.Enabled = false;
             this.BtnMove.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.BtnMove.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BtnMove.Location = new System.Drawing.Point(69, 119);
@@ -939,6 +945,21 @@
             this.Board.TabStop = false;
             this.Board.MouseLeave += new System.EventHandler(this.Board_MouseLeave);
             this.Board.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Board_MouseMove);
+            // 
+            // CbxEnableSound
+            // 
+            this.CbxEnableSound.AutoSize = true;
+            this.CbxEnableSound.Checked = true;
+            this.CbxEnableSound.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbxEnableSound.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.CbxEnableSound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
+            this.CbxEnableSound.Location = new System.Drawing.Point(0, 40);
+            this.CbxEnableSound.Name = "CbxEnableSound";
+            this.CbxEnableSound.Size = new System.Drawing.Size(103, 19);
+            this.CbxEnableSound.TabIndex = 61;
+            this.CbxEnableSound.TabStop = false;
+            this.CbxEnableSound.Text = "Enable Sound";
+            this.CbxEnableSound.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -1098,6 +1119,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox CbxPrivateComment;
         private System.Windows.Forms.Label LblInputCaption;
+        private System.Windows.Forms.CheckBox CbxEnableSound;
 
 
 
