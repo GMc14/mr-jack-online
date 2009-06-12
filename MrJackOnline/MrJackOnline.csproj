@@ -212,4 +212,10 @@
   <ItemGroup>
     <None Include="Resources\g_Z.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\new.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\turn.mid" />
+  </ItemGroup>
 </Project>

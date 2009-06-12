@@ -106,8 +106,7 @@
             this.BtnProjectSite.TabIndex = 6;
             this.BtnProjectSite.TabStop = true;
             this.BtnProjectSite.Text = "http://code.google.com/p/mr-jack-online/";
-            this.BtnProjectSite.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.BtnProjectSite_PreviewKeyDown);
-            this.BtnProjectSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnProjectSite_LinkClicked);
+            this.BtnProjectSite.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnProjectSite_MouseDown);
             // 
             // FrmAbout
             // 
