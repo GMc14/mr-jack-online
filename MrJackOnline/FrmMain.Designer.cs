@@ -81,10 +81,10 @@
             this.BtnHelp = new System.Windows.Forms.LinkLabel();
             this.BtnAbout = new System.Windows.Forms.LinkLabel();
             this.LblSp1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LblSp2 = new System.Windows.Forms.Label();
+            this.LblSp3 = new System.Windows.Forms.Label();
+            this.LblSp4 = new System.Windows.Forms.Label();
+            this.LblSp5 = new System.Windows.Forms.Label();
             this.OfgReplay = new System.Windows.Forms.OpenFileDialog();
             this.PnlInput = new System.Windows.Forms.Panel();
             this.TbxComment = new System.Windows.Forms.TextBox();
@@ -93,11 +93,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.CbxPrivateComment = new System.Windows.Forms.CheckBox();
             this.LblInputCaption = new System.Windows.Forms.Label();
-            this.PbxRound = new System.Windows.Forms.PictureBox();
-            this.PbxSubRound = new System.Windows.Forms.PictureBox();
+            this.PbxLogo = new System.Windows.Forms.PictureBox();
+            this.PnlWitness = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PbxWintessSelect = new System.Windows.Forms.PictureBox();
-            this.PbxLogo = new System.Windows.Forms.PictureBox();
+            this.PnlRound = new System.Windows.Forms.Panel();
+            this.PbxRound = new System.Windows.Forms.PictureBox();
+            this.PbxSubRound = new System.Windows.Forms.PictureBox();
             this.Board = new MrJack.CtlBoard();
             this.PnlHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard8)).BeginInit();
@@ -128,11 +130,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).BeginInit();
             this.PnlInput.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).BeginInit();
+            this.PnlWitness.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).BeginInit();
+            this.PnlRound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlHelp
@@ -254,12 +258,10 @@
             this.LblJackName.Name = "LblJackName";
             this.LblJackName.Size = new System.Drawing.Size(58, 15);
             this.LblJackName.TabIndex = 38;
-            this.LblJackName.Text = "Watson";
             this.LblJackName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PbxJack
             // 
-            this.PbxJack.Image = global::MrJack.Properties.Resources.JackWatson;
             this.PbxJack.Location = new System.Drawing.Point(59, 13);
             this.PbxJack.Name = "PbxJack";
             this.PbxJack.Size = new System.Drawing.Size(58, 52);
@@ -766,45 +768,45 @@
             this.LblSp1.TabIndex = 92;
             this.LblSp1.Text = "|";
             // 
-            // label1
+            // LblSp2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Location = new System.Drawing.Point(594, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 15);
-            this.label1.TabIndex = 93;
-            this.label1.Text = "|";
+            this.LblSp2.AutoSize = true;
+            this.LblSp2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LblSp2.Location = new System.Drawing.Point(594, 20);
+            this.LblSp2.Name = "LblSp2";
+            this.LblSp2.Size = new System.Drawing.Size(10, 15);
+            this.LblSp2.TabIndex = 93;
+            this.LblSp2.Text = "|";
             // 
-            // label2
+            // LblSp3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.Location = new System.Drawing.Point(694, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 15);
-            this.label2.TabIndex = 94;
-            this.label2.Text = "|";
+            this.LblSp3.AutoSize = true;
+            this.LblSp3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LblSp3.Location = new System.Drawing.Point(694, 20);
+            this.LblSp3.Name = "LblSp3";
+            this.LblSp3.Size = new System.Drawing.Size(10, 15);
+            this.LblSp3.TabIndex = 94;
+            this.LblSp3.Text = "|";
             // 
-            // label3
+            // LblSp4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label3.Location = new System.Drawing.Point(779, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 15);
-            this.label3.TabIndex = 95;
-            this.label3.Text = "|";
+            this.LblSp4.AutoSize = true;
+            this.LblSp4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LblSp4.Location = new System.Drawing.Point(779, 20);
+            this.LblSp4.Name = "LblSp4";
+            this.LblSp4.Size = new System.Drawing.Size(10, 15);
+            this.LblSp4.TabIndex = 95;
+            this.LblSp4.Text = "|";
             // 
-            // label4
+            // LblSp5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label4.Location = new System.Drawing.Point(820, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(10, 15);
-            this.label4.TabIndex = 96;
-            this.label4.Text = "|";
+            this.LblSp5.AutoSize = true;
+            this.LblSp5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LblSp5.Location = new System.Drawing.Point(820, 20);
+            this.LblSp5.Name = "LblSp5";
+            this.LblSp5.Size = new System.Drawing.Size(10, 15);
+            this.LblSp5.TabIndex = 96;
+            this.LblSp5.Text = "|";
             // 
             // OfgReplay
             // 
@@ -899,41 +901,6 @@
             this.LblInputCaption.TabIndex = 0;
             this.LblInputCaption.Text = "Your comment:";
             // 
-            // PbxRound
-            // 
-            this.PbxRound.Image = global::MrJack.Properties.Resources.ClockShape;
-            this.PbxRound.Location = new System.Drawing.Point(74, 54);
-            this.PbxRound.Name = "PbxRound";
-            this.PbxRound.Size = new System.Drawing.Size(64, 81);
-            this.PbxRound.TabIndex = 84;
-            this.PbxRound.TabStop = false;
-            // 
-            // PbxSubRound
-            // 
-            this.PbxSubRound.BackgroundImage = global::MrJack.Properties.Resources.Sub1;
-            this.PbxSubRound.Location = new System.Drawing.Point(76, 137);
-            this.PbxSubRound.Name = "PbxSubRound";
-            this.PbxSubRound.Size = new System.Drawing.Size(58, 15);
-            this.PbxSubRound.TabIndex = 83;
-            this.PbxSubRound.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::MrJack.Properties.Resources.CardWitness;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 91);
-            this.pictureBox1.TabIndex = 81;
-            this.pictureBox1.TabStop = false;
-            // 
-            // PbxWintessSelect
-            // 
-            this.PbxWintessSelect.Location = new System.Drawing.Point(3, 50);
-            this.PbxWintessSelect.Name = "PbxWintessSelect";
-            this.PbxWintessSelect.Size = new System.Drawing.Size(69, 103);
-            this.PbxWintessSelect.TabIndex = 82;
-            this.PbxWintessSelect.TabStop = false;
-            // 
             // PbxLogo
             // 
             this.PbxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(39)))), ((int)(((byte)(48)))));
@@ -945,6 +912,60 @@
             this.PbxLogo.Size = new System.Drawing.Size(900, 48);
             this.PbxLogo.TabIndex = 85;
             this.PbxLogo.TabStop = false;
+            // 
+            // PnlWitness
+            // 
+            this.PnlWitness.Controls.Add(this.pictureBox1);
+            this.PnlWitness.Controls.Add(this.PbxWintessSelect);
+            this.PnlWitness.Location = new System.Drawing.Point(3, 50);
+            this.PnlWitness.Name = "PnlWitness";
+            this.PnlWitness.Size = new System.Drawing.Size(69, 103);
+            this.PnlWitness.TabIndex = 98;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::MrJack.Properties.Resources.CardWitness;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(59, 91);
+            this.pictureBox1.TabIndex = 83;
+            this.pictureBox1.TabStop = false;
+            // 
+            // PbxWintessSelect
+            // 
+            this.PbxWintessSelect.Location = new System.Drawing.Point(0, 0);
+            this.PbxWintessSelect.Name = "PbxWintessSelect";
+            this.PbxWintessSelect.Size = new System.Drawing.Size(69, 103);
+            this.PbxWintessSelect.TabIndex = 84;
+            this.PbxWintessSelect.TabStop = false;
+            // 
+            // PnlRound
+            // 
+            this.PnlRound.Controls.Add(this.PbxRound);
+            this.PnlRound.Controls.Add(this.PbxSubRound);
+            this.PnlRound.Location = new System.Drawing.Point(74, 54);
+            this.PnlRound.Name = "PnlRound";
+            this.PnlRound.Size = new System.Drawing.Size(64, 100);
+            this.PnlRound.TabIndex = 99;
+            // 
+            // PbxRound
+            // 
+            this.PbxRound.Image = global::MrJack.Properties.Resources.ClockShape;
+            this.PbxRound.Location = new System.Drawing.Point(0, 0);
+            this.PbxRound.Name = "PbxRound";
+            this.PbxRound.Size = new System.Drawing.Size(64, 81);
+            this.PbxRound.TabIndex = 86;
+            this.PbxRound.TabStop = false;
+            this.PbxRound.Paint += new System.Windows.Forms.PaintEventHandler(this.PbxRound_Paint);
+            // 
+            // PbxSubRound
+            // 
+            this.PbxSubRound.BackgroundImage = global::MrJack.Properties.Resources.Sub1;
+            this.PbxSubRound.Location = new System.Drawing.Point(2, 83);
+            this.PbxSubRound.Name = "PbxSubRound";
+            this.PbxSubRound.Size = new System.Drawing.Size(58, 15);
+            this.PbxSubRound.TabIndex = 85;
+            this.PbxSubRound.TabStop = false;
             // 
             // Board
             // 
@@ -966,21 +987,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(61)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(900, 632);
+            this.Controls.Add(this.PnlRound);
+            this.Controls.Add(this.PnlWitness);
             this.Controls.Add(this.PnlInput);
             this.Controls.Add(this.BtnAbout);
             this.Controls.Add(this.BtnHelp);
             this.Controls.Add(this.BtnLoadReplay);
             this.Controls.Add(this.BtnObserveGame);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblSp5);
+            this.Controls.Add(this.LblSp4);
+            this.Controls.Add(this.LblSp3);
             this.Controls.Add(this.BtnJoinGame);
             this.Controls.Add(this.BtnHostGame);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.PbxRound);
-            this.Controls.Add(this.PbxSubRound);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.PbxWintessSelect);
+            this.Controls.Add(this.LblSp2);
             this.Controls.Add(this.PnlCards);
             this.Controls.Add(this.PnlRecords);
             this.Controls.Add(this.PnlPlayer);
@@ -1036,11 +1055,13 @@
             this.PnlInput.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).EndInit();
+            this.PnlWitness.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).EndInit();
+            this.PnlRound.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1092,10 +1113,6 @@
         private System.Windows.Forms.PictureBox PbxCardSelect1;
         private System.Windows.Forms.PictureBox PbxCardSelect2;
         private System.Windows.Forms.PictureBox PbxCardSelect4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox PbxWintessSelect;
-        private System.Windows.Forms.PictureBox PbxSubRound;
-        private System.Windows.Forms.PictureBox PbxRound;
         private System.Windows.Forms.Panel PnlNotes;
         private System.Windows.Forms.Button BtnSaveNotes;
         private System.Windows.Forms.Label LblNotes;
@@ -1107,10 +1124,10 @@
         private System.Windows.Forms.LinkLabel BtnHelp;
         private System.Windows.Forms.LinkLabel BtnAbout;
         private System.Windows.Forms.Label LblSp1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblSp2;
+        private System.Windows.Forms.Label LblSp3;
+        private System.Windows.Forms.Label LblSp4;
+        private System.Windows.Forms.Label LblSp5;
         private System.Windows.Forms.TextBox TbxNotes;
         private System.Windows.Forms.OpenFileDialog OfgReplay;
         private System.Windows.Forms.Panel PnlInput;
@@ -1121,6 +1138,12 @@
         private System.Windows.Forms.CheckBox CbxPrivateComment;
         private System.Windows.Forms.Label LblInputCaption;
         private System.Windows.Forms.CheckBox CbxEnableSound;
+        private System.Windows.Forms.Panel PnlWitness;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PbxWintessSelect;
+        private System.Windows.Forms.Panel PnlRound;
+        private System.Windows.Forms.PictureBox PbxRound;
+        private System.Windows.Forms.PictureBox PbxSubRound;
 
 
 
