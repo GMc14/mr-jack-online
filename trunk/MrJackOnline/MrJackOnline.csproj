@@ -218,4 +218,142 @@
   <ItemGroup>
     <None Include="bin\Debug\turn.mid" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_W1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_W2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_W3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_W4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_W5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f_W6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hl_esc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hl_fr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hl_to.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hl_via.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_W1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_W2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_W3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_W4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_W5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_W6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\i_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hl_b.png" />
+  </ItemGroup>
 </Project>

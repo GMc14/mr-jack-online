@@ -225,5 +225,31 @@ namespace MrJack
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) {
             this.DeleteSounds();
         }
+
+        private void PbxRound_Paint(object sender, PaintEventArgs e) {
+            Graphics g = e.Graphics;
+            Bitmap round;
+            round = Properties.Resources.Round1;
+            //switch(game.CurMainRound) {
+            //    case 1: round = Properties.Resources.Round1; break;
+            //    case 2: round = Properties.Resources.Round2; break;
+            //    case 3: round = Properties.Resources.Round3; break;
+            //    case 4: round = Properties.Resources.Round4; break;
+            //    case 5: round = Properties.Resources.Round5; break;
+            //    case 6: round = Properties.Resources.Round6; break;
+            //    case 7: round = Properties.Resources.Round7; break;
+            //    case 8: round = Properties.Resources.Round8; break;
+            //    default: round = Properties.Resources.Round1; break;
+            //}
+            g.DrawImage(
+                round,
+                new Rectangle(
+                    GameUIConsts.RoundNumLeft,
+                    GameUIConsts.RoundNumTop,
+                    GameUIConsts.RoundNumWidth,
+                    GameUIConsts.RoundNumHeight
+                )
+            );
+        }
     }
 }
