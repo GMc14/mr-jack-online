@@ -263,6 +263,20 @@ namespace MrJack.Properties {
             }
         }
         
+        internal static byte[] SndNewGame {
+            get {
+                object obj = ResourceManager.GetObject("SndNewGame", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] SndTurn {
+            get {
+                object obj = ResourceManager.GetObject("SndTurn", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Sub1 {
             get {
                 object obj = ResourceManager.GetObject("Sub1", resourceCulture);

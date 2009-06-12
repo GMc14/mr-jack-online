@@ -8,6 +8,7 @@ namespace MrJack
     {
         public FrmAbout() {
             InitializeComponent();
+
             this.BtnProjectSite.TabStop = false;
             this.LblVersion.Text = string.Format("Version: {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
@@ -20,12 +21,9 @@ namespace MrJack
             this.Close();
         }
 
-        private void BtnProjectSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        private void BtnProjectSite_MouseDown(object sender, MouseEventArgs e) {
+            this.Close();
             System.Diagnostics.Process.Start((sender as LinkLabel).Text);
-        }
-
-        private void BtnProjectSite_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e) {
-            if(e.KeyCode == Keys.Escape) { this.Close(); }
         }
     }
 }
