@@ -16,8 +16,8 @@ namespace MrJack
         private const string sndNewName = "new.mid";
         private const string sndTurnName = "turn.mid";
 
-        public string SndNewPath;
-        public string SndTurnPath;
+        public string SndNewPath = string.Empty;
+        public string SndTurnPath = string.Empty;
 
         private const string movesHeader = "<html><head><title>Moves</title><style>body{background-color:#1E3D46;overflow-x:hidden;overflow-y:auto;margin:0;padding:0;}table{color:#EEC45A;background-color:#1E3D46;font-family:Arial, Helvetica;font-size:12px;margin:2px 0 4px 2px;padding:0;}.trnew{line-height:20px;color:#1E3D46;text-align:center;font-size:14px;font-weight:700;font-style:italic;background-color:#ccc;}.R{color:#FFF;}.tdr{vertical-align:top;}.W{padding-top:6px;color:#FFF;}.tw{vertical-align:top;padding-top:6px;padding-left:4px;}.p{padding-top:4px;}a:link,a:visited,a:hover,a:active,a:focus{background-color:#1E3D46;color:#FFF;font-family:Arial, Helvetica;font-size:12px;font-weight:400;text-decoration:none;margin:0;padding:0;}.I,a.I:link,a.I:visited,a.I:hover,a.I:active,a.I:focus{color:#EEC45A;}.J,a.J:link,a.J:visited,a.J:hover,a.J:active,a.J:focus{color:#CCC;}</style></head><body><table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"116\"><colgroup><col width=\"14px\" /><col width=\"102px\" /></colgroup>";
         private const string movesFooter = "<tr><td>&nbsp;</td></tr></table></body></html>";
@@ -25,7 +25,7 @@ namespace MrJack
         private const string commentsHeader = "<html><head><title>Blank</title><style>body{background-color:#1E3D46;overflow-x:hidden;overflow-y:auto;font-family:Arial, Helvetica;font-size:12px;text-align:center;margin:0;padding:0 0 0 2px;}.cmt{text-align:center;width:110px;color:#F1AF3B;margin:0;padding:0;float:left;}.ctext{color:#fff;font-style:italic;}</style></head><body style=\"background-color:#1E3D46;overflow-y:auto;overflow-x:hidden;margin:0;padding:0;\"><div class=\"cmt\">catsil wrote:<br><span class=\"ctext\">";
         private const string commentsFooter = "</span></div></body></html>";
 
-        private Audio gameSound;
+        private Audio gameSound = null;
 
         private bool enableSound;
         public bool EnableSound {
@@ -54,27 +54,38 @@ namespace MrJack
 
         private void LoadSounds() {
             string pathDir = Path.GetTempPath();
-            string path;
+            string path = string.Empty;
+            FileStream fs = null;
             try {
-                path = pathDir + "\\new.mid";
-                using(FileStream fs = new FileStream(path, FileMode.Create)) {
-                    fs.Write(Properties.Resources.SndNewGame, 0, Properties.Resources.SndNewGame.Length);
-                    this.SndNewPath = path;
-                }
-                path = pathDir + "\\turn.mid";
-                using(FileStream fs = new FileStream(path, FileMode.Create)) {
-                    fs.Write(Properties.Resources.SndTurn, 0, Properties.Resources.SndTurn.Length);
-                    this.SndTurnPath = path;
-                }
+                path = pathDir + "new.mid";
+                fs = new FileStream(path, FileMode.Create);
+                fs.Write(Properties.Resources.SndNewGame, 0, Properties.Resources.SndNewGame.Length);
+                this.SndNewPath = path;
+                fs.Close();
+                fs.Dispose();
+
+                path = pathDir + "turn.mid";
+                fs = new FileStream(path, FileMode.Create);
+                fs.Write(Properties.Resources.SndTurn, 0, Properties.Resources.SndTurn.Length);
+                this.SndTurnPath = path;
             } catch(Exception) {
+            } finally {
+                if(fs != null) {
+                    fs.Close();
+                    fs.Dispose();
+                }
             }
         }
         private void PlaySound(string path) {
             if(path != string.Empty && this.enableSound) {
                 if(this.gameSound == null) {
-                    this.gameSound = new Audio(path, true);
+                    if(File.Exists(path)) {
+                        this.gameSound = new Audio(path, true);
+                        this.gameSound.Volume = 0;
+                    }
                 } else {
                     this.gameSound.Open(path, true);
+                    this.gameSound.Volume = 0;
                 }
             }
         }
@@ -200,7 +211,7 @@ namespace MrJack
         private void BtnHostGame_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
 
-            this.PlaySound(this.SndNewPath);
+            this.PlaySound(this.SndTurnPath);
         }
 
         private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
