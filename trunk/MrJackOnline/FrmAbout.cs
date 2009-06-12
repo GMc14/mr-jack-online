@@ -22,7 +22,6 @@ namespace MrJack
         }
 
         private void BtnProjectSite_MouseDown(object sender, MouseEventArgs e) {
-            this.Close();
             System.Diagnostics.Process.Start((sender as LinkLabel).Text);
         }
     }

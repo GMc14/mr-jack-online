@@ -210,8 +210,6 @@ namespace MrJack
 
         private void BtnHostGame_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
-
-            this.PlaySound(this.SndTurnPath);
         }
 
         private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
