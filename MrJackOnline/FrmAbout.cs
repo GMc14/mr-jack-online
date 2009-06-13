@@ -14,7 +14,7 @@ namespace MrJack
         }
 
         private void FrmAbout_KeyPress(object sender, KeyPressEventArgs e) {
-            if(e.KeyChar == (char)27) {this.Close();}
+            this.Close();
         }
 
         private void CloseHandler_MouseDown(object sender, MouseEventArgs e) {

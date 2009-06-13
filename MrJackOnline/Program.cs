@@ -28,20 +28,20 @@ namespace MrJack
         static void Main() {
             bool createdNew = true;
             using(Mutex mutex = new Mutex(true, "Mr.JackOnline", out createdNew)) {
-                //if(createdNew) {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new FrmMain());
-                //} else {
-                //    Process current = Process.GetCurrentProcess();
-                //    foreach(Process process in Process.GetProcessesByName(current.ProcessName)) {
-                //        if(process.Id != current.Id) {
-                //            SetForegroundWindow(process.MainWindowHandle);
-                //            ShowWindowAsync(process.MainWindowHandle, SW_RESTORE);
-                //            break;
-                //        }
-                //    }
-                //}
+                if(createdNew) {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new FrmMain());
+                } else {
+                    Process current = Process.GetCurrentProcess();
+                    foreach(Process process in Process.GetProcessesByName(current.ProcessName)) {
+                        if(process.Id != current.Id) {
+                            SetForegroundWindow(process.MainWindowHandle);
+                            ShowWindowAsync(process.MainWindowHandle, SW_RESTORE);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

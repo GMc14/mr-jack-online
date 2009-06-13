@@ -65,25 +65,25 @@ namespace MrJack
             Graphics g = e.Graphics;
             string hexName = string.Empty;
             if(this.Game != null) {
+                for(int i = 0; i < this.Game.Covers.Length; i++) {
+                    hexName = this.Game.Covers[i];
+                    this.DrawCover(g, this.GetCoordXByCoordName(this.Game.Covers[i]), this.GetCoordYByCoordName(this.Game.Covers[i]));
+                }
+                for(int i = 0; i < this.Game.Gasslights.Length; i++) {
+                    hexName = this.Game.Gasslights[i];
+                    if(hexName != string.Empty) {
+                        this.DrawGasslight(g, this.GetCoordXByCoordName(this.Game.Gasslights[i]), this.GetCoordYByCoordName(this.Game.Gasslights[i]), i + 1);
+                    }
+                }
+                for(int i = 0; i < this.Game.Cordons.Length; i++) {
+                    hexName = this.Game.Cordons[i];
+                    this.DrawCordon(g, this.GetExitCoordByCoordName(this.Game.Cordons[i]));
+                }
                 for(int i = 0; i < this.Game.Characters.Length; i++) {
                     hexName = this.Game.Characters[i];
                     if(hexName != string.Empty) {
                         this.DrawCharacter(g, this.GetCoordXByCoordName(this.Game.Characters[i]), this.GetCoordYByCoordName(this.Game.Characters[i]), i);
                     }
-                }
-                for(int j = 0; j < this.Game.Covers.Length; j++) {
-                    hexName = this.Game.Covers[j];
-                    this.DrawCover(g, this.GetCoordXByCoordName(this.Game.Covers[j]), this.GetCoordYByCoordName(this.Game.Covers[j]));
-                }
-                for(int k = 0; k < this.Game.Gasslights.Length; k++) {
-                    hexName = this.Game.Gasslights[k];
-                    if(hexName != string.Empty) {
-                        this.DrawGasslight(g, this.GetCoordXByCoordName(this.Game.Gasslights[k]), this.GetCoordYByCoordName(this.Game.Gasslights[k]), k + 1);
-                    }
-                }
-                for(int l = 0; l < this.Game.Cordons.Length; l++) {
-                    hexName = this.Game.Cordons[l];
-                    this.DrawCordon(g, this.GetExitCoordByCoordName(this.Game.Cordons[l]));
                 }
             }
             g.DrawImage(
