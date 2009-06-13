@@ -282,8 +282,8 @@
             this.LblInfo.Name = "LblInfo";
             this.LblInfo.Size = new System.Drawing.Size(360, 59);
             this.LblInfo.TabIndex = 56;
-            this.LblInfo.Text = "Mr.Jack © Hurrican by Bruno Cathala && Ludovic Maublanc.\r\nYou can play it here on" +
-                "line in a turn based style. Have fun! :)";
+            this.LblInfo.Text = "Mr. Jack is a boardgame devised by Bruno Cathala and Ludovic Maublanc, illustrate" +
+                "d by Pierô, published by Hurrican.\r\nMr. Jack © Hurrican.";
             // 
             // PnlOption
             // 
