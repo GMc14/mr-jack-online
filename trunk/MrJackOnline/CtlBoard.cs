@@ -7,15 +7,12 @@ namespace MrJack
 {
     public partial class CtlBoard : UserControl
     {
-        // divide the board into rectanges, define the top-left rectange's position.
         private const int TopPos = -10;
         private const int LeftPos = -26;
 
-        // divide the board into coordinates, define the hex[0,0]'s position.
         private const int HexTopPos = 353;
         private const int HexLeftPos = 19;
 
-        // define the element of the game board.
         private static readonly int NONE = GameTypes.HexNone;
         private static readonly int EXIT = GameTypes.HexExit;
         private static readonly int BUILDING = GameTypes.HexBuilding;
@@ -23,7 +20,6 @@ namespace MrJack
         private static readonly int MANHOLE = GameTypes.HexManhole;
         private static readonly int STREET = GameTypes.HexStreet;
 
-        // define the empty board.
         private readonly int[,] EmptyBoard = new int[,]{
             {EXIT,EXIT,EXIT,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,EXIT},
             {EXIT,EXIT,EXIT,EXIT,NONE,NONE,MANHOLE,MANHOLE,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,EXIT,EXIT,EXIT,EXIT},
@@ -107,8 +103,6 @@ namespace MrJack
             }
         }
 
-        // divide the board into rectangles, this function check the current mouse position is in which rectange,
-        // return the rectange's coordniate.
         private Point GetClickedRectanglePos(int mouseX, int mouseY) {
             int dx = mouseX - LeftPos;
             int dy = mouseY - TopPos;
@@ -132,7 +126,6 @@ namespace MrJack
             return new Point(indexX, indexY);
         }
 
-        // convert the rectangle coordinate to hex coordinate.
         private Point ConvertRectanglePosToHexCoords(int x, int y) {
             int indexX = x - 1;
             int indexY = y;
