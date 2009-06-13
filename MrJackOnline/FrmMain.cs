@@ -26,6 +26,8 @@ namespace MrJack
         private const string commentsFooter = "</span></div></body></html>";
 
         private Audio gameSound = null;
+        private BoardStatus game = null;
+        private MoveController mCtrl = null;
 
         private bool enableSound;
         public bool EnableSound {
@@ -35,8 +37,12 @@ namespace MrJack
 
         public FrmMain() {
             this.enableSound = true;
+            this.game = new BoardStatus();
+            this.mCtrl = new MoveController(this.game);
 
             InitializeComponent();
+
+            this.Board.Game = this.game;
 
             this.FixLinkLableTabStop();
 
@@ -105,10 +111,6 @@ namespace MrJack
             } catch(Exception) { }
         }
 
-        private void FrmMain_Paint(object sender, PaintEventArgs e) {
-
-        }
-
         private void Board_MouseLeave(object sender, EventArgs e) {
             this.PnlHelp.Visible = false;
         }
@@ -119,6 +121,13 @@ namespace MrJack
                 e.Y > GameUIConsts.CardHelpBoardTop && 
                 e.X < GameUIConsts.CardHelpBoardLeft+GameUIConsts.CardHelpWidth && 
                 e.Y < GameUIConsts.CardHelpBoardTop+GameUIConsts.CardHelpHeight;
+        }
+
+        private void Board_MouseDown(object sender, MouseEventArgs e) {
+            GameHex hex = this.Board.GetClickedHex(e.X, e.Y);
+            if(hex != null) {
+                MessageBox.Show(hex.Name);
+            }
         }
 
         private void FixLinkLableTabStop() {
@@ -229,27 +238,32 @@ namespace MrJack
         private void PbxRound_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
             Bitmap round;
-            round = Properties.Resources.Round1;
-            //switch(game.CurMainRound) {
-            //    case 1: round = Properties.Resources.Round1; break;
-            //    case 2: round = Properties.Resources.Round2; break;
-            //    case 3: round = Properties.Resources.Round3; break;
-            //    case 4: round = Properties.Resources.Round4; break;
-            //    case 5: round = Properties.Resources.Round5; break;
-            //    case 6: round = Properties.Resources.Round6; break;
-            //    case 7: round = Properties.Resources.Round7; break;
-            //    case 8: round = Properties.Resources.Round8; break;
-            //    default: round = Properties.Resources.Round1; break;
-            //}
-            g.DrawImage(
-                round,
+            switch(this.game.CurMainRound) {
+                case 1: round = Properties.Resources.Round1; break;
+                case 2: round = Properties.Resources.Round2; break;
+                case 3: round = Properties.Resources.Round3; break;
+                case 4: round = Properties.Resources.Round4; break;
+                case 5: round = Properties.Resources.Round5; break;
+                case 6: round = Properties.Resources.Round6; break;
+                case 7: round = Properties.Resources.Round7; break;
+                case 8: round = Properties.Resources.Round8; break;
+                default: round = Properties.Resources.Round1; break;
+            }
+            g.DrawImage(round, 
                 new Rectangle(
                     GameUIConsts.RoundNumLeft,
-                    GameUIConsts.RoundNumTop,
-                    GameUIConsts.RoundNumWidth,
+                    GameUIConsts.RoundNumTop, 
+                    GameUIConsts.RoundNumWidth, 
                     GameUIConsts.RoundNumHeight
                 )
             );
+        }
+
+        private void CbxHightlightMoves_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            bool value = !(sender as CheckBox).Checked;
+            (sender as CheckBox).Checked = value;
+            this.Board.HighlightMoves = value;
         }
     }
 }

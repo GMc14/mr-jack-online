@@ -78,6 +78,7 @@
             this.LblMrJack.TabIndex = 4;
             this.LblMrJack.Text = "Mr. Jack Online";
             this.LblMrJack.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.LblMrJack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseHandler_MouseDown);
             // 
             // LblSub
             // 

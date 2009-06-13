@@ -16,29 +16,28 @@ namespace MrJack
         private const int HexLeftPos = 19;
 
         // define the element of the game board.
-        private const int NullIndex = -22;
-        private const int NONE = -1;
-        private const int EXIT = 0;
-        private const int BUILDING = 1;
-        private const int GASSLIGHT = 2;
-        private const int MANHOLE = 3;
-        private const int STREET = 4;
+        private static readonly int NONE = GameTypes.HexNone;
+        private static readonly int EXIT = GameTypes.HexExit;
+        private static readonly int BUILDING = GameTypes.HexBuilding;
+        private static readonly int GASSLIGHT = GameTypes.HexGasslight;
+        private static readonly int MANHOLE = GameTypes.HexManhole;
+        private static readonly int STREET = GameTypes.HexStreet;
 
         // define the empty board.
         private readonly int[,] EmptyBoard = new int[,]{
             {EXIT,EXIT,EXIT,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,EXIT},
             {EXIT,EXIT,EXIT,EXIT,NONE,NONE,MANHOLE,MANHOLE,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,EXIT,EXIT,EXIT,EXIT},
-            {NONE,EXIT,EXIT,STREET,STREET,STREET,STREET,NONE,NONE,NONE,NONE,STREET,STREET,GASSLIGHT,GASSLIGHT,STREET,STREET,EXIT,EXIT,EXIT},
-            {NONE,NONE,NONE,NONE,GASSLIGHT,GASSLIGHT,STREET,STREET,NONE,NONE,STREET,STREET,STREET,STREET,MANHOLE,MANHOLE,NONE,NONE,NONE,NONE},
-            {NONE,NONE,NONE,NONE,NONE,STREET,STREET,NONE,NONE,STREET,STREET,NONE,NONE,STREET,STREET,NONE,NONE,NONE,NONE,NONE},
+            {NONE,EXIT,EXIT,STREET,STREET,STREET,STREET,BUILDING,BUILDING,BUILDING,BUILDING,STREET,STREET,GASSLIGHT,GASSLIGHT,STREET,STREET,EXIT,EXIT,EXIT},
+            {NONE,NONE,NONE,NONE,GASSLIGHT,GASSLIGHT,STREET,STREET,BUILDING,BUILDING,STREET,STREET,STREET,STREET,MANHOLE,MANHOLE,NONE,NONE,NONE,NONE},
+            {NONE,NONE,NONE,BUILDING,BUILDING,STREET,STREET,BUILDING,BUILDING,STREET,STREET,BUILDING,BUILDING,STREET,STREET,NONE,NONE,NONE,NONE,NONE},
             {NONE,NONE,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,NONE,NONE,NONE,NONE},
-            {NONE,MANHOLE,MANHOLE,GASSLIGHT,GASSLIGHT,NONE,NONE,MANHOLE,MANHOLE,NONE,NONE,GASSLIGHT,GASSLIGHT,NONE,NONE,STREET,STREET,NONE,NONE,NONE},
+            {NONE,MANHOLE,MANHOLE,GASSLIGHT,GASSLIGHT,BUILDING,BUILDING,MANHOLE,MANHOLE,BUILDING,BUILDING,GASSLIGHT,GASSLIGHT,BUILDING,BUILDING,STREET,STREET,NONE,NONE,NONE},
             {NONE,NONE,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,NONE,NONE},
-            {NONE,NONE,NONE,STREET,STREET,NONE,NONE,GASSLIGHT,GASSLIGHT,NONE,NONE,MANHOLE,MANHOLE,NONE,NONE,GASSLIGHT,GASSLIGHT,MANHOLE,MANHOLE,NONE},
+            {NONE,NONE,NONE,STREET,STREET,BUILDING,BUILDING,GASSLIGHT,GASSLIGHT,BUILDING,BUILDING,MANHOLE,MANHOLE,BUILDING,BUILDING,GASSLIGHT,GASSLIGHT,MANHOLE,MANHOLE,NONE},
             {NONE,NONE,NONE,NONE,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,STREET,NONE,NONE},
-            {NONE,NONE,NONE,NONE,NONE,STREET,STREET,NONE,NONE,STREET,STREET,NONE,NONE,STREET,STREET,NONE,NONE,NONE,NONE,NONE},
-            {NONE,NONE,NONE,NONE,STREET,STREET,STREET,STREET,STREET,STREET,NONE,NONE,STREET,STREET,GASSLIGHT,GASSLIGHT,NONE,NONE,NONE,NONE},
-            {NONE,EXIT,EXIT,MANHOLE,MANHOLE,GASSLIGHT,GASSLIGHT,STREET,STREET,NONE,NONE,NONE,NONE,STREET,STREET,STREET,STREET,EXIT,EXIT,NONE},
+            {NONE,NONE,NONE,NONE,NONE,STREET,STREET,BUILDING,BUILDING,STREET,STREET,BUILDING,BUILDING,STREET,STREET,BUILDING,BUILDING,NONE,NONE,NONE},
+            {NONE,NONE,NONE,NONE,STREET,STREET,STREET,STREET,STREET,STREET,BUILDING,BUILDING,STREET,STREET,GASSLIGHT,GASSLIGHT,NONE,NONE,NONE,NONE},
+            {NONE,EXIT,EXIT,MANHOLE,MANHOLE,GASSLIGHT,GASSLIGHT,STREET,STREET,BUILDING,BUILDING,BUILDING,BUILDING,STREET,STREET,STREET,STREET,EXIT,EXIT,NONE},
             {EXIT,EXIT,EXIT,EXIT,STREET,STREET,STREET,STREET,STREET,STREET,MANHOLE,MANHOLE,STREET,STREET,NONE,NONE,EXIT,EXIT,EXIT,EXIT},
             {EXIT,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,NONE,EXIT,EXIT,EXIT}
         };
@@ -58,12 +57,39 @@ namespace MrJack
             set { this.highlightMoves = value; }
         }
 
+        public BoardStatus Game;
+        public GameHex SelectedHex;
+
         public CtlBoard() {
             InitializeComponent();
+            this.SelectedHex = new GameHex();
         }
 
         private void CtlBoard_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
+            string hexName = string.Empty;
+            if(this.Game != null) {
+                for(int i = 0; i < this.Game.Characters.Length; i++) {
+                    hexName = this.Game.Characters[i];
+                    if(hexName != string.Empty) {
+                        this.DrawCharacter(g, this.GetCoordXByCoordName(this.Game.Characters[i]), this.GetCoordYByCoordName(this.Game.Characters[i]), i);
+                    }
+                }
+                for(int j = 0; j < this.Game.Covers.Length; j++) {
+                    hexName = this.Game.Covers[j];
+                    this.DrawCover(g, this.GetCoordXByCoordName(this.Game.Covers[j]), this.GetCoordYByCoordName(this.Game.Covers[j]));
+                }
+                for(int k = 0; k < this.Game.Gasslights.Length; k++) {
+                    hexName = this.Game.Gasslights[k];
+                    if(hexName != string.Empty) {
+                        this.DrawGasslight(g, this.GetCoordXByCoordName(this.Game.Gasslights[k]), this.GetCoordYByCoordName(this.Game.Gasslights[k]), k + 1);
+                    }
+                }
+                for(int l = 0; l < this.Game.Cordons.Length; l++) {
+                    hexName = this.Game.Cordons[l];
+                    this.DrawCordon(g, this.GetExitCoordByCoordName(this.Game.Cordons[l]));
+                }
+            }
             g.DrawImage(
                 Properties.Resources.CardHelp,
                 new Rectangle(
@@ -127,105 +153,112 @@ namespace MrJack
             return new Point(indexX, indexY);
         }
 
-        public  Point GetClickedHexCoordsPos(int mouseX, int mouseY) {
+        private void HexClickHandler(int mouseX, int mouseY) {
             Point pos = this.GetClickedRectanglePos(mouseX, mouseY);
-            //if(EmptyBoard[pos.X, pos.Y] != NONE) {
-            //    this.selectedHex.HexType = EmptyBoard[pos.X, pos.Y];
-            //    if(EmptyBoard[pos.X, pos.Y] == EXIT) {
-            //        this.selectedHex.X = -1;
-            //        if(pos.X <= 2) {
-            //            if(pos.Y <= 3) {
-            //                this.selectedHex.Y = GameTypes.ExitDirectionType.NW;
-            //                return new Point(-1, GameTypes.ExitDirectionType.NW);
-            //            } else {
-            //                this.selectedHex.Y = GameTypes.ExitDirectionType.SW;
-            //                return new Point(-1, GameTypes.ExitDirectionType.SW);
-            //            }
-            //        } else {
-            //            if(pos.Y <= 3) {
-            //                this.selectedHex.Y = GameTypes.ExitDirectionType.NE;
-            //                return new Point(-1, GameTypes.ExitDirectionType.NE);
-            //            } else {
-            //                this.selectedHex.Y = GameTypes.ExitDirectionType.SE;
-            //                return new Point(-1, GameTypes.ExitDirectionType.SE);
-            //            }
-            //        }
-            //    } else {
-            //        Point hex = this.ConvertRectanglePosToHexCoords(pos.X, pos.Y);
-            //        this.selectedHex.X = hex.X;
-            //        this.selectedHex.Y = hex.Y;
-            //        return hex;
-            //    }
-            //} else {
-                return new Point(NullIndex, NullIndex);
-            //}
+            if(EmptyBoard[pos.X, pos.Y] != NONE) {
+                if(this.SelectedHex == null) {
+                    this.SelectedHex = new GameHex();
+                }
+                this.SelectedHex.HexType = EmptyBoard[pos.X, pos.Y];
+                if(EmptyBoard[pos.X, pos.Y] == EXIT) {
+                    this.SelectedHex.X = -1;
+                    if(pos.X <= 2) {
+                        if(pos.Y <= 3) {
+                            this.SelectedHex.Y = GameTypes.ExitNW;
+                        } else {
+                            this.SelectedHex.Y = GameTypes.ExitSW;
+                        }
+                    } else {
+                        if(pos.Y <= 3) {
+                            this.SelectedHex.Y = GameTypes.ExitNE;
+                        } else {
+                            this.SelectedHex.Y = GameTypes.ExitSE;
+                        }
+                    }
+                } else {
+                    Point hex = this.ConvertRectanglePosToHexCoords(pos.X, pos.Y);
+                    this.SelectedHex.X = hex.X;
+                    this.SelectedHex.Y = hex.Y;
+                }
+            } else {
+                this.SelectedHex = null;
+            }
         }
 
-        private void DrawCharacter(Graphics g, int x, int y, GameTypes.CharacterType character) {
+        public GameHex GetClickedHex(int mouseX, int mouseY) {
+            this.HexClickHandler(mouseX, mouseY);
+            if(this.SelectedHex != null) {
+                return this.SelectedHex;
+            } else {
+                return null;
+            }
+        }
+
+        private void DrawCharacter(Graphics g, int x, int y, int character) {
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
             Bitmap person = Properties.Resources.None;
             switch(character) {
-                case GameTypes.CharacterType.Bert: person = Properties.Resources.Bert; break;
-                case GameTypes.CharacterType.BertInnocent: person = Properties.Resources.BertInnocent; break;
-                case GameTypes.CharacterType.Goodley: person = Properties.Resources.Goodley; break;
-                case GameTypes.CharacterType.GoodleyInnocent: person = Properties.Resources.GoodleyInnocent; break;
-                case GameTypes.CharacterType.Gull: person = Properties.Resources.Gull; break;
-                case GameTypes.CharacterType.GullInnocent: person = Properties.Resources.GullInnocent; break;
-                case GameTypes.CharacterType.Holmes: person = Properties.Resources.Holmes; break;
-                case GameTypes.CharacterType.HolmesInnocent: person = Properties.Resources.HolmesInnocent; break;
-                case GameTypes.CharacterType.Lestrade: person = Properties.Resources.Lestrade; break;
-                case GameTypes.CharacterType.LestradeInnocent: person = Properties.Resources.LestradeInnocent; break;
-                case GameTypes.CharacterType.Smith: person = Properties.Resources.Smith; break;
-                case GameTypes.CharacterType.SmithInnocent: person = Properties.Resources.SmithInnocent; break;
-                case GameTypes.CharacterType.Stealthy: person = Properties.Resources.Stealthy; break;
-                case GameTypes.CharacterType.StealthyInnocent: person = Properties.Resources.StealthyInnocent; break;
-                case GameTypes.CharacterType.Watson1: person = Properties.Resources.Watson1; break;
-                case GameTypes.CharacterType.WatsonInnocent1: person = Properties.Resources.WatsonInnocent1; break;
-                case GameTypes.CharacterType.Watson2: person = Properties.Resources.Watson2; break;
-                case GameTypes.CharacterType.WatsonInnocent2: person = Properties.Resources.WatsonInnocent2; break;
-                case GameTypes.CharacterType.Watson3: person = Properties.Resources.Watson3; break;
-                case GameTypes.CharacterType.WatsonInnocent3: person = Properties.Resources.WatsonInnocent3; break;
-                case GameTypes.CharacterType.Watson4: person = Properties.Resources.Watson4; break;
-                case GameTypes.CharacterType.WatsonInnocent4: person = Properties.Resources.WatsonInnocent4; break;
-                case GameTypes.CharacterType.Watson5: person = Properties.Resources.Watson5; break;
-                case GameTypes.CharacterType.WatsonInnocent5: person = Properties.Resources.WatsonInnocent5; break;
-                case GameTypes.CharacterType.Watson6: person = Properties.Resources.Watson6; break;
-                case GameTypes.CharacterType.WatsonInnocent6: person = Properties.Resources.WatsonInnocent6; break;
+                case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
+                case GameTypes.CharacterBertInnocent: person = Properties.Resources.BertInnocent; break;
+                case GameTypes.CharacterGoodley: person = Properties.Resources.Goodley; break;
+                case GameTypes.CharacterGoodleyInnocent: person = Properties.Resources.GoodleyInnocent; break;
+                case GameTypes.CharacterGull: person = Properties.Resources.Gull; break;
+                case GameTypes.CharacterGullInnocent: person = Properties.Resources.GullInnocent; break;
+                case GameTypes.CharacterHolmes: person = Properties.Resources.Holmes; break;
+                case GameTypes.CharacterHolmesInnocent: person = Properties.Resources.HolmesInnocent; break;
+                case GameTypes.CharacterLestrade: person = Properties.Resources.Lestrade; break;
+                case GameTypes.CharacterLestradeInnocent: person = Properties.Resources.LestradeInnocent; break;
+                case GameTypes.CharacterSmith: person = Properties.Resources.Smith; break;
+                case GameTypes.CharacterSmithInnocent: person = Properties.Resources.SmithInnocent; break;
+                case GameTypes.CharacterStealthy: person = Properties.Resources.Stealthy; break;
+                case GameTypes.CharacterStealthyInnocent: person = Properties.Resources.StealthyInnocent; break;
+                case GameTypes.CharacterWatson1: person = Properties.Resources.Watson1; break;
+                case GameTypes.CharacterWatsonInnocent1: person = Properties.Resources.WatsonInnocent1; break;
+                case GameTypes.CharacterWatson2: person = Properties.Resources.Watson2; break;
+                case GameTypes.CharacterWatsonInnocent2: person = Properties.Resources.WatsonInnocent2; break;
+                case GameTypes.CharacterWatson3: person = Properties.Resources.Watson3; break;
+                case GameTypes.CharacterWatsonInnocent3: person = Properties.Resources.WatsonInnocent3; break;
+                case GameTypes.CharacterWatson4: person = Properties.Resources.Watson4; break;
+                case GameTypes.CharacterWatsonInnocent4: person = Properties.Resources.WatsonInnocent4; break;
+                case GameTypes.CharacterWatson5: person = Properties.Resources.Watson5; break;
+                case GameTypes.CharacterWatsonInnocent5: person = Properties.Resources.WatsonInnocent5; break;
+                case GameTypes.CharacterWatson6: person = Properties.Resources.Watson6; break;
+                case GameTypes.CharacterWatsonInnocent6: person = Properties.Resources.WatsonInnocent6; break;
                 default: person = Properties.Resources.None; break;
             }
             g.DrawImage(person, rect);
         }
-        private void DrawGasslight(Graphics g, int x, int y, GameTypes.GasslightType gasslight) {
+        private void DrawGasslight(Graphics g, int x, int y, int gasslight) {
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
             Bitmap light;
             switch(gasslight) {
-                case GameTypes.GasslightType.Light1: light = Properties.Resources.Light1; break;
-                case GameTypes.GasslightType.Light2: light = Properties.Resources.Light2; break;
-                case GameTypes.GasslightType.Light3: light = Properties.Resources.Light3; break;
-                case GameTypes.GasslightType.Light4: light = Properties.Resources.Light4; break;
-                case GameTypes.GasslightType.Light5:
-                case GameTypes.GasslightType.Light6: light = Properties.Resources.LightAlways; break;
+                case GameTypes.Gasslight1: light = Properties.Resources.Light1; break;
+                case GameTypes.Gasslight2: light = Properties.Resources.Light2; break;
+                case GameTypes.Gasslight3: light = Properties.Resources.Light3; break;
+                case GameTypes.Gasslight4: light = Properties.Resources.Light4; break;
+                case GameTypes.Gasslight5:
+                case GameTypes.Gasslight6: light = Properties.Resources.LightAlways; break;
                 default: light = Properties.Resources.None; break;
             }
             g.DrawImage(light, rect);
         }
-        private void DrawCordon(Graphics g, GameTypes.ExitDirectionType direction) {
+        private void DrawCordon(Graphics g, int direction) {
             Rectangle rect = new Rectangle();
             switch(direction) {
-                case GameTypes.ExitDirectionType.NW: rect = new Rectangle(27, 24, 52, 29); break;
-                case GameTypes.ExitDirectionType.NE: rect = new Rectangle(536, 24, 52, 29); break;
-                case GameTypes.ExitDirectionType.SW: rect = new Rectangle(52, 448, 52, 29); break;
-                case GameTypes.ExitDirectionType.SE: rect = new Rectangle(546, 446, 52, 29); break;
+                case GameTypes.ExitNW: rect = new Rectangle(27, 24, 52, 29); break;
+                case GameTypes.ExitNE: rect = new Rectangle(536, 24, 52, 29); break;
+                case GameTypes.ExitSW: rect = new Rectangle(52, 448, 52, 29); break;
+                case GameTypes.ExitSE: rect = new Rectangle(546, 446, 52, 29); break;
             }
             g.DrawImage(Properties.Resources.Cordon, rect);
         }
-        private void DrawCordonPath(Graphics g, GameTypes.ExitDirectionType direction) {
+        private void DrawCordonPath(Graphics g, int direction) {
             Rectangle rect = new Rectangle();
             switch(direction) {
-                case GameTypes.ExitDirectionType.NW: rect = new Rectangle(25, 22, 56, 33); break;
-                case GameTypes.ExitDirectionType.NE: rect = new Rectangle(534, 22, 56, 33); break;
-                case GameTypes.ExitDirectionType.SW: rect = new Rectangle(50, 446, 56, 33); break;
-                case GameTypes.ExitDirectionType.SE: rect = new Rectangle(544, 444, 56, 33); break;
+                case GameTypes.ExitNW: rect = new Rectangle(25, 22, 56, 33); break;
+                case GameTypes.ExitNE: rect = new Rectangle(534, 22, 56, 33); break;
+                case GameTypes.ExitSW: rect = new Rectangle(50, 446, 56, 33); break;
+                case GameTypes.ExitSE: rect = new Rectangle(544, 444, 56, 33); break;
             }
             g.DrawImage(Properties.Resources.CordonPath, rect);
         }
@@ -245,22 +278,50 @@ namespace MrJack
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
             g.DrawImage(Properties.Resources.HexTo, rect);
         }
-        private void DrawEscape(Graphics g, GameTypes.CharacterType charactor, GameTypes.ExitDirectionType direction) {
+        private void DrawEscape(Graphics g, int charactor, int direction) {
             Rectangle rect = new Rectangle();
             Rectangle rectShape = new Rectangle();
             switch(direction) {
-                case GameTypes.ExitDirectionType.NW: rect = new Rectangle(23, 14, 58, 52); rectShape = new Rectangle(23, 11, 59, 59); break;
-                case GameTypes.ExitDirectionType.NE: rect = new Rectangle(536, 12, 58, 52); rectShape = new Rectangle(536, 9, 59, 59); break;
-                case GameTypes.ExitDirectionType.SW: rect = new Rectangle(49, 438, 58, 52); rectShape = new Rectangle(49, 435, 59, 59); break;
-                case GameTypes.ExitDirectionType.SE: rect = new Rectangle(546, 436, 58, 52); rectShape = new Rectangle(546, 433, 59, 59); break;
+                case GameTypes.ExitNW: rect = new Rectangle(23, 14, 58, 52); rectShape = new Rectangle(23, 11, 59, 59); break;
+                case GameTypes.ExitNE: rect = new Rectangle(536, 12, 58, 52); rectShape = new Rectangle(536, 9, 59, 59); break;
+                case GameTypes.ExitSW: rect = new Rectangle(49, 438, 58, 52); rectShape = new Rectangle(49, 435, 59, 59); break;
+                case GameTypes.ExitSE: rect = new Rectangle(546, 436, 58, 52); rectShape = new Rectangle(546, 433, 59, 59); break;
             }
             Bitmap person = Properties.Resources.None;
             switch(charactor) {
-                case GameTypes.CharacterType.Bert: person = Properties.Resources.Bert; break;
+                case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
                 default: person = Properties.Resources.None; break;
             }
             g.DrawImage(person, rect);
             g.DrawImage(Properties.Resources.Escape, rectShape);
+        }
+
+        private int GetCoordXByCoordName(string name) {
+            try {
+                char numChar = char.Parse(name.Substring(0, 1));
+                int x = (int)numChar - 97;
+                return x;
+            } catch(Exception) { }
+            return -1;
+        }
+
+        private int GetCoordYByCoordName(string name) {
+            string numStr = name.Substring(1);
+            try {
+                int y = Int32.Parse(numStr) - 1;
+                return y;
+            } catch(Exception) { }
+            return -1;
+        }
+
+        private int GetExitCoordByCoordName(string name) {
+            switch(name) {
+                case "NE": return GameTypes.ExitNE;
+                case "NW": return GameTypes.ExitNW;
+                case "SE": return GameTypes.ExitSE;
+                case "SW": return GameTypes.ExitSW;
+                default: return -1;
+            }
         }
     }
 }

@@ -55,16 +55,15 @@
             this.BtnTabNotes = new System.Windows.Forms.Label();
             this.BtnTabMoves = new System.Windows.Forms.Label();
             this.PbxTab = new System.Windows.Forms.PictureBox();
+            this.PnlNotes = new System.Windows.Forms.Panel();
+            this.TbxNotes = new System.Windows.Forms.TextBox();
+            this.LblNotes = new System.Windows.Forms.Label();
             this.PnlMoves = new System.Windows.Forms.Panel();
             this.BtnLast = new System.Windows.Forms.Button();
             this.BtnNext = new System.Windows.Forms.Button();
             this.BtnPrev = new System.Windows.Forms.Button();
             this.BtnFirst = new System.Windows.Forms.Button();
             this.WbrMovesList = new System.Windows.Forms.WebBrowser();
-            this.PnlNotes = new System.Windows.Forms.Panel();
-            this.TbxNotes = new System.Windows.Forms.TextBox();
-            this.BtnSaveNotes = new System.Windows.Forms.Button();
-            this.LblNotes = new System.Windows.Forms.Label();
             this.PnlCards = new System.Windows.Forms.Panel();
             this.PbxCard4 = new System.Windows.Forms.PictureBox();
             this.PbxCard3 = new System.Windows.Forms.PictureBox();
@@ -117,8 +116,8 @@
             this.PnlPlayer.SuspendLayout();
             this.PnlRecords.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxTab)).BeginInit();
-            this.PnlMoves.SuspendLayout();
             this.PnlNotes.SuspendLayout();
+            this.PnlMoves.SuspendLayout();
             this.PnlCards.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxCard4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxCard3)).BeginInit();
@@ -176,6 +175,7 @@
             // PbxHelpCard6
             // 
             this.PbxHelpCard6.BackgroundImage = global::MrJack.Properties.Resources.CardGull;
+            this.PbxHelpCard6.Image = global::MrJack.Properties.Resources.CardGoodley;
             this.PbxHelpCard6.Location = new System.Drawing.Point(163, 134);
             this.PbxHelpCard6.Name = "PbxHelpCard6";
             this.PbxHelpCard6.Size = new System.Drawing.Size(119, 90);
@@ -185,6 +185,7 @@
             // PbxHelpCard5
             // 
             this.PbxHelpCard5.BackgroundImage = global::MrJack.Properties.Resources.CardGoodley;
+            this.PbxHelpCard5.Image = global::MrJack.Properties.Resources.CardGull;
             this.PbxHelpCard5.Location = new System.Drawing.Point(20, 134);
             this.PbxHelpCard5.Name = "PbxHelpCard5";
             this.PbxHelpCard5.Size = new System.Drawing.Size(119, 90);
@@ -194,6 +195,7 @@
             // PbxHelpCard4
             // 
             this.PbxHelpCard4.BackgroundImage = global::MrJack.Properties.Resources.CardSmith;
+            this.PbxHelpCard4.Image = global::MrJack.Properties.Resources.CardSmith;
             this.PbxHelpCard4.Location = new System.Drawing.Point(429, 20);
             this.PbxHelpCard4.Name = "PbxHelpCard4";
             this.PbxHelpCard4.Size = new System.Drawing.Size(119, 90);
@@ -203,6 +205,7 @@
             // PbxHelpCard3
             // 
             this.PbxHelpCard3.BackgroundImage = global::MrJack.Properties.Resources.CardLestrade;
+            this.PbxHelpCard3.Image = global::MrJack.Properties.Resources.CardLestrade;
             this.PbxHelpCard3.Location = new System.Drawing.Point(296, 20);
             this.PbxHelpCard3.Name = "PbxHelpCard3";
             this.PbxHelpCard3.Size = new System.Drawing.Size(119, 90);
@@ -212,6 +215,7 @@
             // PbxHelpCard2
             // 
             this.PbxHelpCard2.BackgroundImage = global::MrJack.Properties.Resources.CardBert;
+            this.PbxHelpCard2.Image = global::MrJack.Properties.Resources.CardBert;
             this.PbxHelpCard2.Location = new System.Drawing.Point(163, 20);
             this.PbxHelpCard2.Name = "PbxHelpCard2";
             this.PbxHelpCard2.Size = new System.Drawing.Size(119, 90);
@@ -221,6 +225,7 @@
             // PbxHelpCard1
             // 
             this.PbxHelpCard1.BackgroundImage = global::MrJack.Properties.Resources.CardHolmes;
+            this.PbxHelpCard1.Image = global::MrJack.Properties.Resources.CardHolmes;
             this.PbxHelpCard1.Location = new System.Drawing.Point(20, 20);
             this.PbxHelpCard1.Name = "PbxHelpCard1";
             this.PbxHelpCard1.Size = new System.Drawing.Size(119, 90);
@@ -276,6 +281,8 @@
             this.LblInfo.Name = "LblInfo";
             this.LblInfo.Size = new System.Drawing.Size(360, 59);
             this.LblInfo.TabIndex = 56;
+            this.LblInfo.Text = "Mr.Jack © Hurrican by Bruno Cathala && Ludovic Maublanc.\r\nThis is a turn base gam" +
+                "e, have fun!";
             // 
             // PnlOption
             // 
@@ -296,10 +303,10 @@
             this.CbxEnableSound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
             this.CbxEnableSound.Location = new System.Drawing.Point(0, 40);
             this.CbxEnableSound.Name = "CbxEnableSound";
-            this.CbxEnableSound.Size = new System.Drawing.Size(103, 19);
+            this.CbxEnableSound.Size = new System.Drawing.Size(102, 19);
             this.CbxEnableSound.TabIndex = 61;
             this.CbxEnableSound.TabStop = false;
-            this.CbxEnableSound.Text = "Enable Sound";
+            this.CbxEnableSound.Text = "Enable sound";
             this.CbxEnableSound.UseVisualStyleBackColor = true;
             this.CbxEnableSound.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CbxEnableSound_MouseDown);
             // 
@@ -317,6 +324,7 @@
             this.CbxHightlightMoves.TabStop = false;
             this.CbxHightlightMoves.Text = "Highlight moves";
             this.CbxHightlightMoves.UseVisualStyleBackColor = true;
+            this.CbxHightlightMoves.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CbxHightlightMoves_MouseDown);
             // 
             // CbxShowCoordinates
             // 
@@ -415,8 +423,8 @@
             this.PnlRecords.Controls.Add(this.BtnTabNotes);
             this.PnlRecords.Controls.Add(this.BtnTabMoves);
             this.PnlRecords.Controls.Add(this.PbxTab);
-            this.PnlRecords.Controls.Add(this.PnlMoves);
             this.PnlRecords.Controls.Add(this.PnlNotes);
+            this.PnlRecords.Controls.Add(this.PnlMoves);
             this.PnlRecords.Location = new System.Drawing.Point(765, 228);
             this.PnlRecords.Name = "PnlRecords";
             this.PnlRecords.Size = new System.Drawing.Size(135, 253);
@@ -455,6 +463,39 @@
             this.PbxTab.Size = new System.Drawing.Size(135, 26);
             this.PbxTab.TabIndex = 72;
             this.PbxTab.TabStop = false;
+            // 
+            // PnlNotes
+            // 
+            this.PnlNotes.Controls.Add(this.TbxNotes);
+            this.PnlNotes.Controls.Add(this.LblNotes);
+            this.PnlNotes.Location = new System.Drawing.Point(0, 0);
+            this.PnlNotes.Name = "PnlNotes";
+            this.PnlNotes.Size = new System.Drawing.Size(135, 229);
+            this.PnlNotes.TabIndex = 79;
+            this.PnlNotes.Visible = false;
+            // 
+            // TbxNotes
+            // 
+            this.TbxNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.TbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TbxNotes.Location = new System.Drawing.Point(2, 32);
+            this.TbxNotes.Multiline = true;
+            this.TbxNotes.Name = "TbxNotes";
+            this.TbxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TbxNotes.Size = new System.Drawing.Size(130, 189);
+            this.TbxNotes.TabIndex = 32;
+            this.TbxNotes.TabStop = false;
+            // 
+            // LblNotes
+            // 
+            this.LblNotes.AutoSize = true;
+            this.LblNotes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
+            this.LblNotes.Location = new System.Drawing.Point(6, 12);
+            this.LblNotes.Name = "LblNotes";
+            this.LblNotes.Size = new System.Drawing.Size(71, 15);
+            this.LblNotes.TabIndex = 27;
+            this.LblNotes.Text = "Your notes:";
             // 
             // PnlMoves
             // 
@@ -534,51 +575,6 @@
             this.WbrMovesList.TabStop = false;
             this.WbrMovesList.WebBrowserShortcutsEnabled = false;
             // 
-            // PnlNotes
-            // 
-            this.PnlNotes.Controls.Add(this.TbxNotes);
-            this.PnlNotes.Controls.Add(this.BtnSaveNotes);
-            this.PnlNotes.Controls.Add(this.LblNotes);
-            this.PnlNotes.Location = new System.Drawing.Point(0, 0);
-            this.PnlNotes.Name = "PnlNotes";
-            this.PnlNotes.Size = new System.Drawing.Size(135, 229);
-            this.PnlNotes.TabIndex = 79;
-            this.PnlNotes.Visible = false;
-            // 
-            // TbxNotes
-            // 
-            this.TbxNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.TbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TbxNotes.Location = new System.Drawing.Point(2, 32);
-            this.TbxNotes.Multiline = true;
-            this.TbxNotes.Name = "TbxNotes";
-            this.TbxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TbxNotes.Size = new System.Drawing.Size(130, 158);
-            this.TbxNotes.TabIndex = 32;
-            this.TbxNotes.TabStop = false;
-            // 
-            // BtnSaveNotes
-            // 
-            this.BtnSaveNotes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnSaveNotes.Location = new System.Drawing.Point(30, 199);
-            this.BtnSaveNotes.Name = "BtnSaveNotes";
-            this.BtnSaveNotes.Size = new System.Drawing.Size(75, 23);
-            this.BtnSaveNotes.TabIndex = 28;
-            this.BtnSaveNotes.TabStop = false;
-            this.BtnSaveNotes.Text = "Save";
-            this.BtnSaveNotes.UseVisualStyleBackColor = true;
-            // 
-            // LblNotes
-            // 
-            this.LblNotes.AutoSize = true;
-            this.LblNotes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.LblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
-            this.LblNotes.Location = new System.Drawing.Point(6, 12);
-            this.LblNotes.Name = "LblNotes";
-            this.LblNotes.Size = new System.Drawing.Size(71, 15);
-            this.LblNotes.TabIndex = 27;
-            this.LblNotes.Text = "Your notes:";
-            // 
             // PnlCards
             // 
             this.PnlCards.Controls.Add(this.PbxCard4);
@@ -596,7 +592,7 @@
             // 
             // PbxCard4
             // 
-            this.PbxCard4.Image = global::MrJack.Properties.Resources.CardSmith;
+            this.PbxCard4.Image = global::MrJack.Properties.Resources.CardHolmes;
             this.PbxCard4.Location = new System.Drawing.Point(5, 318);
             this.PbxCard4.Name = "PbxCard4";
             this.PbxCard4.Size = new System.Drawing.Size(119, 90);
@@ -605,7 +601,7 @@
             // 
             // PbxCard3
             // 
-            this.PbxCard3.Image = global::MrJack.Properties.Resources.CardLestrade;
+            this.PbxCard3.Image = global::MrJack.Properties.Resources.CardGull;
             this.PbxCard3.Location = new System.Drawing.Point(5, 214);
             this.PbxCard3.Name = "PbxCard3";
             this.PbxCard3.Size = new System.Drawing.Size(119, 90);
@@ -614,7 +610,7 @@
             // 
             // PbxCard2
             // 
-            this.PbxCard2.Image = global::MrJack.Properties.Resources.CardBert;
+            this.PbxCard2.Image = global::MrJack.Properties.Resources.CardGoodley;
             this.PbxCard2.Location = new System.Drawing.Point(5, 110);
             this.PbxCard2.Name = "PbxCard2";
             this.PbxCard2.Size = new System.Drawing.Size(119, 90);
@@ -623,7 +619,7 @@
             // 
             // PbxCard1
             // 
-            this.PbxCard1.Image = global::MrJack.Properties.Resources.CardHolmes;
+            this.PbxCard1.Image = global::MrJack.Properties.Resources.CardBert;
             this.PbxCard1.Location = new System.Drawing.Point(5, 6);
             this.PbxCard1.Name = "PbxCard1";
             this.PbxCard1.Size = new System.Drawing.Size(119, 90);
@@ -672,7 +668,7 @@
             this.BtnHostGame.Location = new System.Drawing.Point(450, 20);
             this.BtnHostGame.Name = "BtnHostGame";
             this.BtnHostGame.Size = new System.Drawing.Size(69, 15);
-            this.BtnHostGame.TabIndex = 13;
+            this.BtnHostGame.TabIndex = 0;
             this.BtnHostGame.TabStop = true;
             this.BtnHostGame.Text = "Host Game";
             this.BtnHostGame.VisitedLinkColor = System.Drawing.Color.White;
@@ -688,7 +684,7 @@
             this.BtnJoinGame.Location = new System.Drawing.Point(528, 20);
             this.BtnJoinGame.Name = "BtnJoinGame";
             this.BtnJoinGame.Size = new System.Drawing.Size(67, 15);
-            this.BtnJoinGame.TabIndex = 14;
+            this.BtnJoinGame.TabIndex = 1;
             this.BtnJoinGame.TabStop = true;
             this.BtnJoinGame.Text = "Join Game";
             this.BtnJoinGame.VisitedLinkColor = System.Drawing.Color.White;
@@ -973,14 +969,16 @@
             this.Board.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Board.BackgroundImage")));
             this.Board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Board.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Board.HighlightMoves = false;
             this.Board.Location = new System.Drawing.Point(143, 58);
             this.Board.Name = "Board";
             this.Board.ShowCoordinates = false;
             this.Board.Size = new System.Drawing.Size(622, 505);
-            this.Board.TabIndex = 0;
+            this.Board.TabIndex = 16;
             this.Board.TabStop = false;
             this.Board.MouseLeave += new System.EventHandler(this.Board_MouseLeave);
             this.Board.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Board_MouseMove);
+            this.Board.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Board_MouseDown);
             // 
             // FrmMain
             // 
@@ -1019,7 +1017,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mr. Jack Online | Bruno Cathala & Ludovic Maublanc";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.PnlHelp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard8)).EndInit();
@@ -1039,9 +1036,9 @@
             this.PnlPlayer.PerformLayout();
             this.PnlRecords.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbxTab)).EndInit();
-            this.PnlMoves.ResumeLayout(false);
             this.PnlNotes.ResumeLayout(false);
             this.PnlNotes.PerformLayout();
+            this.PnlMoves.ResumeLayout(false);
             this.PnlCards.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbxCard4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxCard3)).EndInit();
@@ -1114,7 +1111,6 @@
         private System.Windows.Forms.PictureBox PbxCardSelect2;
         private System.Windows.Forms.PictureBox PbxCardSelect4;
         private System.Windows.Forms.Panel PnlNotes;
-        private System.Windows.Forms.Button BtnSaveNotes;
         private System.Windows.Forms.Label LblNotes;
         private System.Windows.Forms.PictureBox PbxLogo;
         private System.Windows.Forms.LinkLabel BtnHostGame;
