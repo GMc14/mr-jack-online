@@ -27,7 +27,9 @@ namespace MrJack
 
         private Audio gameSound = null;
         private BoardStatus game = null;
+        private GameController gCtrl = null;
         private MoveController mCtrl = null;
+        private GameNetwork network = null;
 
         private bool enableSound;
         public bool EnableSound {
@@ -38,8 +40,11 @@ namespace MrJack
         public FrmMain() {
             this.enableSound = true;
             this.game = new BoardStatus();
+            this.gCtrl = new GameController(this);
             this.mCtrl = new MoveController(this.game);
+            this.network = new GameNetwork(this.gCtrl);
 
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
 
             this.Board.Game = this.game;
@@ -183,12 +188,6 @@ namespace MrJack
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
 
-        private void BtnAbout_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-            FrmAbout frmAbout = new FrmAbout();
-            frmAbout.ShowDialog(this);
-        }
-
         private void BtnHelp_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
         }
@@ -217,10 +216,6 @@ namespace MrJack
             this.Board.Focus();
         }
 
-        private void BtnHostGame_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-        }
-
         private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
             bool value = (sender as CheckBox).Checked;
@@ -233,6 +228,7 @@ namespace MrJack
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) {
             this.DeleteSounds();
+            this.network.StopHost();
         }
 
         private void PbxRound_Paint(object sender, PaintEventArgs e) {
@@ -264,6 +260,22 @@ namespace MrJack
             bool value = !(sender as CheckBox).Checked;
             (sender as CheckBox).Checked = value;
             this.Board.HighlightMoves = value;
+        }
+
+        private void BtnHostGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.Board.Focus();
+            this.network.StartHost();
+            this.gCtrl.GameStatus = GameTypes.GameStatusWaitingPlayer;
+        }
+
+        private void BtnAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.Board.Focus();
+            FrmAbout frmAbout = new FrmAbout();
+            frmAbout.ShowDialog(this);
+        }
+
+        private void BtnJoinGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.network.SendMessage("127.0.0.1", "Hello!");
         }
     }
 }

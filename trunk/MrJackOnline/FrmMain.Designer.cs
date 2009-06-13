@@ -89,7 +89,7 @@
             this.TbxComment = new System.Windows.Forms.TextBox();
             this.BtnMove = new System.Windows.Forms.Button();
             this.BtnReset = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PnlInputHeader = new System.Windows.Forms.Panel();
             this.CbxPrivateComment = new System.Windows.Forms.CheckBox();
             this.LblInputCaption = new System.Windows.Forms.Label();
             this.PbxLogo = new System.Windows.Forms.PictureBox();
@@ -128,7 +128,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).BeginInit();
             this.PnlInput.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.PnlInputHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).BeginInit();
             this.PnlWitness.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -483,7 +483,7 @@
             this.TbxNotes.Multiline = true;
             this.TbxNotes.Name = "TbxNotes";
             this.TbxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TbxNotes.Size = new System.Drawing.Size(130, 189);
+            this.TbxNotes.Size = new System.Drawing.Size(130, 180);
             this.TbxNotes.TabIndex = 32;
             this.TbxNotes.TabStop = false;
             // 
@@ -673,7 +673,7 @@
             this.BtnHostGame.TabStop = true;
             this.BtnHostGame.Text = "Host Game";
             this.BtnHostGame.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnHostGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnHostGame_MouseDown);
+            this.BtnHostGame.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnHostGame_LinkClicked);
             // 
             // BtnJoinGame
             // 
@@ -689,6 +689,7 @@
             this.BtnJoinGame.TabStop = true;
             this.BtnJoinGame.Text = "Join Game";
             this.BtnJoinGame.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnJoinGame.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnJoinGame_LinkClicked);
             this.BtnJoinGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnJoinGame_MouseDown);
             // 
             // BtnObserveGame
@@ -753,7 +754,7 @@
             this.BtnAbout.TabStop = true;
             this.BtnAbout.Text = "About";
             this.BtnAbout.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnAbout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnAbout_MouseDown);
+            this.BtnAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnAbout_LinkClicked);
             // 
             // LblSp1
             // 
@@ -816,7 +817,7 @@
             this.PnlInput.Controls.Add(this.TbxComment);
             this.PnlInput.Controls.Add(this.BtnMove);
             this.PnlInput.Controls.Add(this.BtnReset);
-            this.PnlInput.Controls.Add(this.panel1);
+            this.PnlInput.Controls.Add(this.PnlInputHeader);
             this.PnlInput.Location = new System.Drawing.Point(765, 480);
             this.PnlInput.Name = "PnlInput";
             this.PnlInput.Size = new System.Drawing.Size(135, 152);
@@ -861,15 +862,15 @@
             this.BtnReset.Text = "Reset";
             this.BtnReset.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // PnlInputHeader
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(39)))), ((int)(((byte)(48)))));
-            this.panel1.Controls.Add(this.CbxPrivateComment);
-            this.panel1.Controls.Add(this.LblInputCaption);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(135, 38);
-            this.panel1.TabIndex = 54;
+            this.PnlInputHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(39)))), ((int)(((byte)(48)))));
+            this.PnlInputHeader.Controls.Add(this.CbxPrivateComment);
+            this.PnlInputHeader.Controls.Add(this.LblInputCaption);
+            this.PnlInputHeader.Location = new System.Drawing.Point(0, 0);
+            this.PnlInputHeader.Name = "PnlInputHeader";
+            this.PnlInputHeader.Size = new System.Drawing.Size(135, 38);
+            this.PnlInputHeader.TabIndex = 54;
             // 
             // CbxPrivateComment
             // 
@@ -1051,8 +1052,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).EndInit();
             this.PnlInput.ResumeLayout(false);
             this.PnlInput.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PnlInputHeader.ResumeLayout(false);
+            this.PnlInputHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).EndInit();
             this.PnlWitness.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1131,7 +1132,7 @@
         private System.Windows.Forms.TextBox TbxComment;
         private System.Windows.Forms.Button BtnMove;
         private System.Windows.Forms.Button BtnReset;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PnlInputHeader;
         private System.Windows.Forms.CheckBox CbxPrivateComment;
         private System.Windows.Forms.Label LblInputCaption;
         private System.Windows.Forms.CheckBox CbxEnableSound;
