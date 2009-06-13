@@ -241,7 +241,6 @@
             this.PnlJack.Name = "PnlJack";
             this.PnlJack.Size = new System.Drawing.Size(114, 65);
             this.PnlJack.TabIndex = 55;
-            this.PnlJack.Visible = false;
             // 
             // LblJackCaption
             // 
@@ -263,10 +262,12 @@
             this.LblJackName.Name = "LblJackName";
             this.LblJackName.Size = new System.Drawing.Size(58, 15);
             this.LblJackName.TabIndex = 38;
+            this.LblJackName.Text = "Watson";
             this.LblJackName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PbxJack
             // 
+            this.PbxJack.Image = global::MrJack.Properties.Resources.JackWatson;
             this.PbxJack.Location = new System.Drawing.Point(59, 13);
             this.PbxJack.Name = "PbxJack";
             this.PbxJack.Size = new System.Drawing.Size(58, 52);
@@ -281,8 +282,8 @@
             this.LblInfo.Name = "LblInfo";
             this.LblInfo.Size = new System.Drawing.Size(360, 59);
             this.LblInfo.TabIndex = 56;
-            this.LblInfo.Text = "Mr.Jack © Hurrican by Bruno Cathala && Ludovic Maublanc.\r\nThis is a turn base gam" +
-                "e, have fun!";
+            this.LblInfo.Text = "Mr.Jack © Hurrican by Bruno Cathala && Ludovic Maublanc.\r\nYou can play it here on" +
+                "line in a turn based style. Have fun! :)";
             // 
             // PnlOption
             // 
