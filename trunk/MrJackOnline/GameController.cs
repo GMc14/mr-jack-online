@@ -5,7 +5,6 @@ namespace MrJack
     public class GameController
     {
         private FrmMain game;
-        private FrmWaiting frmWait;
 
         private int gameStatus;
         public int GameStatus {
@@ -24,11 +23,8 @@ namespace MrJack
         public void Update() {
             switch(this.gameStatus) {
                 case GameTypes.GameStatusWaitingPlayer:
-                    frmWait = new FrmWaiting(this);
-                    frmWait.ShowDialog(game);
                     break;
                 case GameTypes.GameStatusPlayerJoined:
-                    frmWait.Close();
                     break;
             }
         }
