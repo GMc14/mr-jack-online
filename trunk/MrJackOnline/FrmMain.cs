@@ -13,6 +13,7 @@ namespace MrJack
     [System.Runtime.InteropServices.ComVisible(true)]
     public partial class FrmMain : Form
     {
+        private const string initInfoText = "Mr. Jack is a boardgame devised by Bruno Cathala and Ludovic Maublanc, illustrated by Pierô, published by Hurrican.\nMr. Jack © Hurrican.";
         private const string sndNewName = "new.mid";
         private const string sndTurnName = "turn.mid";
 
@@ -48,7 +49,7 @@ namespace MrJack
             InitializeComponent();
 
             this.Board.Game = this.game;
-
+            this.SetInfoText(initInfoText);
             this.FixLinkLableTabStop();
 
             this.WbrMovesList.ObjectForScripting = this;
@@ -87,7 +88,7 @@ namespace MrJack
                 }
             }
         }
-        private void PlaySound(string path) {
+        public void PlaySound(string path) {
             if(path != string.Empty && this.enableSound) {
                 if(this.gameSound == null) {
                     if(File.Exists(path)) {
@@ -114,6 +115,10 @@ namespace MrJack
                     File.Delete(this.SndTurnPath);
                 }
             } catch(Exception) { }
+        }
+
+        public void SetInfoText(string text) {
+            this.LblInfo.Text = text;
         }
 
         private void Board_MouseLeave(object sender, EventArgs e) {
