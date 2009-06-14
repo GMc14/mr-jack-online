@@ -27,7 +27,8 @@ namespace MrJack
         private const string commentsFooter = "</span></div></body></html>";
 
         private Audio gameSound = null;
-        private BoardStatus game = null;
+        private BoardStatus gameBoard = null;
+        private BoardStatus replayBoard = null;
         private GameController gCtrl = null;
         private MoveController mCtrl = null;
         private GameNetwork network = null;
@@ -40,15 +41,16 @@ namespace MrJack
 
         public FrmMain() {
             this.enableSound = true;
-            this.game = new BoardStatus();
-            this.gCtrl = new GameController(this);
-            this.mCtrl = new MoveController(this.game);
+            this.gameBoard = new BoardStatus();
+            this.replayBoard = new BoardStatus();
+            this.gCtrl = new GameController(this, this.gameBoard, this.replayBoard);
+            this.mCtrl = new MoveController(this.gCtrl);
             this.network = new GameNetwork(this.gCtrl);
 
             CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
 
-            this.Board.Game = this.game;
+            this.Board.Game = this.gameBoard;
             this.SetInfoText(initInfoText);
             this.FixLinkLableTabStop();
 
@@ -199,30 +201,6 @@ namespace MrJack
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
 
-        private void BtnHelp_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-        }
-
-        private void BtnLoadReplay_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-            DialogResult result = OfgReplay.ShowDialog();
-            if(result == DialogResult.OK) {
-                //XmlSerializer xSerial = new XmlSerializer(typeof(GameReplay));
-                //FileStream fs = new FileStream(OfgReplay.FileName, FileMode.Open);
-                //try {
-                //    this.replay = (GameReplay)xSerial.Deserialize(fs);
-                //} catch(Exception) {
-                //    MessageBox.Show("Error loading \"" + OfgReplay.SafeFileName + "\",\nThis file is not a vaild Mr. Jack replay file.", "Mr. Jack", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //} finally {
-                //    fs.Close();
-                //}
-            }
-        }
-
-        private void BtnJoinGame_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-        }
-
         private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
             bool value = (sender as CheckBox).Checked;
@@ -239,27 +217,29 @@ namespace MrJack
         }
 
         private void PbxRound_Paint(object sender, PaintEventArgs e) {
-            Graphics g = e.Graphics;
-            Bitmap round;
-            switch(this.game.CurMainRound) {
-                case 1: round = Properties.Resources.Round1; break;
-                case 2: round = Properties.Resources.Round2; break;
-                case 3: round = Properties.Resources.Round3; break;
-                case 4: round = Properties.Resources.Round4; break;
-                case 5: round = Properties.Resources.Round5; break;
-                case 6: round = Properties.Resources.Round6; break;
-                case 7: round = Properties.Resources.Round7; break;
-                case 8: round = Properties.Resources.Round8; break;
-                default: round = Properties.Resources.Round1; break;
+            if(this.gameBoard != null) {
+                Graphics g = e.Graphics;
+                Bitmap round;
+                switch(this.gameBoard.CurMainRound) {
+                    case 1: round = Properties.Resources.Round1; break;
+                    case 2: round = Properties.Resources.Round2; break;
+                    case 3: round = Properties.Resources.Round3; break;
+                    case 4: round = Properties.Resources.Round4; break;
+                    case 5: round = Properties.Resources.Round5; break;
+                    case 6: round = Properties.Resources.Round6; break;
+                    case 7: round = Properties.Resources.Round7; break;
+                    case 8: round = Properties.Resources.Round8; break;
+                    default: round = Properties.Resources.Round1; break;
+                }
+                g.DrawImage(round,
+                    new Rectangle(
+                        GameUIConsts.RoundNumLeft,
+                        GameUIConsts.RoundNumTop,
+                        GameUIConsts.RoundNumWidth,
+                        GameUIConsts.RoundNumHeight
+                    )
+                );
             }
-            g.DrawImage(round, 
-                new Rectangle(
-                    GameUIConsts.RoundNumLeft,
-                    GameUIConsts.RoundNumTop, 
-                    GameUIConsts.RoundNumWidth, 
-                    GameUIConsts.RoundNumHeight
-                )
-            );
         }
 
         private void CbxHightlightMoves_MouseDown(object sender, MouseEventArgs e) {
@@ -272,7 +252,6 @@ namespace MrJack
         private void BtnHostGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             this.Board.Focus();
             this.network.StartHost();
-            this.gCtrl.GameStatus = GameTypes.GameStatusWaitingPlayer;
         }
 
         private void BtnAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
@@ -282,11 +261,39 @@ namespace MrJack
         }
 
         private void BtnJoinGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            this.network.SendMessage("127.0.0.1", "Hello!");
+            this.network.HostIP = "127.0.0.1";
+            this.network.SendMessageToHost("Hello!");
         }
 
         private void BtnObserveGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             this.network.StopHost();
+        }
+
+        private void BtnLoadReplay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.Board.Focus();
+            DialogResult result = OfgReplay.ShowDialog();
+            if(result == DialogResult.OK) {
+                //XmlSerializer xSerial = new XmlSerializer(typeof(GameReplay));
+                //FileStream fs = new FileStream(OfgReplay.FileName, FileMode.Open);
+                //try {
+                //    this.replay = (GameReplay)xSerial.Deserialize(fs);
+                //} catch(Exception) {
+                //    MessageBox.Show("Error loading \"" + OfgReplay.SafeFileName + "\",\nThis file is not a vaild Mr. Jack replay file.", "Mr. Jack", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //} finally {
+                //    fs.Close();
+                //}
+            }
+        }
+
+        private void SetAllPanelsVisible(bool value) {
+            this.PnlWitness.Visible = value;
+            this.PnlRound.Visible = value;
+            this.PnlCards.Visible = value;
+            this.PnlPlayer.Visible = value;
+            this.PnlRecords.Visible = value;
+            this.PnlComment.Visible = value;
+            this.PnlInput.Visible = value;
+            this.PnlJack.Visible = value;
         }
     }
 }

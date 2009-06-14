@@ -299,11 +299,13 @@ namespace MrJack
         }
 
         private int GetCoordYByCoordName(string name) {
-            string numStr = name.Substring(1);
-            try {
-                int y = Int32.Parse(numStr) - 1;
-                return y;
-            } catch(Exception) { }
+            if(name != string.Empty) {
+                string numStr = name.Substring(1);
+                try {
+                    int y = Int32.Parse(numStr) - 1;
+                    return y;
+                } catch(Exception) { }
+            }
             return -1;
         }
 

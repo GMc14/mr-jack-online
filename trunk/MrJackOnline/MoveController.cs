@@ -4,7 +4,10 @@ namespace MrJack
 {
     public class MoveController
     {
-        public MoveController(BoardStatus game) {
+        private GameController gCtrl;
+
+        public MoveController(GameController gCtrl) {
+            this.gCtrl = gCtrl;
         }
     }
 }

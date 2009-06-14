@@ -80,6 +80,8 @@
     </Compile>
     <Compile Include="GameController.cs" />
     <Compile Include="GameHex.cs" />
+    <Compile Include="GameMessage.cs" />
+    <Compile Include="GameMove.cs" />
     <Compile Include="GameNetwork.cs" />
     <Compile Include="GameTypes.cs" />
     <Compile Include="GameUIConsts.cs" />

@@ -61,9 +61,5 @@ namespace MrJack
         public const int ResultCaughtWrong = 2;
         public const int ResultSlipAway = 3;
         public const int ResultTimeout = 4;
-
-        public const int GameStatusIdle = 0;
-        public const int GameStatusWaitingPlayer = 1;
-        public const int GameStatusPlayerJoined = 2;
     }
 }
