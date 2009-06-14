@@ -241,6 +241,7 @@
             this.PnlJack.Name = "PnlJack";
             this.PnlJack.Size = new System.Drawing.Size(114, 65);
             this.PnlJack.TabIndex = 55;
+            this.PnlJack.Visible = false;
             // 
             // LblJackCaption
             // 
@@ -477,11 +478,11 @@
             // 
             this.TbxNotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.TbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TbxNotes.Location = new System.Drawing.Point(2, 32);
+            this.TbxNotes.Location = new System.Drawing.Point(2, 28);
             this.TbxNotes.Multiline = true;
             this.TbxNotes.Name = "TbxNotes";
             this.TbxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TbxNotes.Size = new System.Drawing.Size(130, 180);
+            this.TbxNotes.Size = new System.Drawing.Size(130, 193);
             this.TbxNotes.TabIndex = 32;
             this.TbxNotes.TabStop = false;
             // 
@@ -490,7 +491,7 @@
             this.LblNotes.AutoSize = true;
             this.LblNotes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.LblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(196)))), ((int)(((byte)(90)))));
-            this.LblNotes.Location = new System.Drawing.Point(6, 12);
+            this.LblNotes.Location = new System.Drawing.Point(6, 8);
             this.LblNotes.Name = "LblNotes";
             this.LblNotes.Size = new System.Drawing.Size(71, 15);
             this.LblNotes.TabIndex = 27;
@@ -591,7 +592,7 @@
             // 
             // PbxCard4
             // 
-            this.PbxCard4.Image = global::MrJack.Properties.Resources.CardHolmes;
+            this.PbxCard4.Image = global::MrJack.Properties.Resources.CardSmith;
             this.PbxCard4.Location = new System.Drawing.Point(5, 318);
             this.PbxCard4.Name = "PbxCard4";
             this.PbxCard4.Size = new System.Drawing.Size(119, 90);
@@ -600,7 +601,7 @@
             // 
             // PbxCard3
             // 
-            this.PbxCard3.Image = global::MrJack.Properties.Resources.CardGull;
+            this.PbxCard3.Image = global::MrJack.Properties.Resources.CardLestrade;
             this.PbxCard3.Location = new System.Drawing.Point(5, 214);
             this.PbxCard3.Name = "PbxCard3";
             this.PbxCard3.Size = new System.Drawing.Size(119, 90);
@@ -609,7 +610,7 @@
             // 
             // PbxCard2
             // 
-            this.PbxCard2.Image = global::MrJack.Properties.Resources.CardGoodley;
+            this.PbxCard2.Image = global::MrJack.Properties.Resources.CardBert;
             this.PbxCard2.Location = new System.Drawing.Point(5, 110);
             this.PbxCard2.Name = "PbxCard2";
             this.PbxCard2.Size = new System.Drawing.Size(119, 90);
@@ -618,7 +619,7 @@
             // 
             // PbxCard1
             // 
-            this.PbxCard1.Image = global::MrJack.Properties.Resources.CardBert;
+            this.PbxCard1.Image = global::MrJack.Properties.Resources.CardHolmes;
             this.PbxCard1.Location = new System.Drawing.Point(5, 6);
             this.PbxCard1.Name = "PbxCard1";
             this.PbxCard1.Size = new System.Drawing.Size(119, 90);
@@ -688,7 +689,6 @@
             this.BtnJoinGame.Text = "Join Game";
             this.BtnJoinGame.VisitedLinkColor = System.Drawing.Color.White;
             this.BtnJoinGame.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnJoinGame_LinkClicked);
-            this.BtnJoinGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnJoinGame_MouseDown);
             // 
             // BtnObserveGame
             // 
@@ -720,7 +720,7 @@
             this.BtnLoadReplay.TabStop = true;
             this.BtnLoadReplay.Text = "Load Replay";
             this.BtnLoadReplay.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnLoadReplay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnLoadReplay_MouseDown);
+            this.BtnLoadReplay.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnLoadReplay_LinkClicked);
             // 
             // BtnHelp
             // 
@@ -736,7 +736,6 @@
             this.BtnHelp.TabStop = true;
             this.BtnHelp.Text = "Help";
             this.BtnHelp.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnHelp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnHelp_MouseDown);
             // 
             // BtnAbout
             // 
@@ -869,6 +868,7 @@
             this.PnlInputHeader.Name = "PnlInputHeader";
             this.PnlInputHeader.Size = new System.Drawing.Size(135, 38);
             this.PnlInputHeader.TabIndex = 54;
+            this.PnlInputHeader.Visible = false;
             // 
             // CbxPrivateComment
             // 

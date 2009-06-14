@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using System.Text;
+using System.Threading;
 
 namespace MrJack
 {
@@ -14,24 +15,35 @@ namespace MrJack
         private UdpClient client = null;
         private Thread theadServer = null;
 
+        private string hostIP = string.Empty;
+        public string HostIP {
+            get { return this.hostIP; }
+            set { this.hostIP = value; }
+        }
+
+        private string opponentIP = string.Empty;
+        public string OpponentIP {
+            get { return this.opponentIP; }
+            set { this.opponentIP = value; }
+        }
+
+        public List<string> Observers;
+
         private GameController gCtrl = null;
 
         public GameNetwork(GameController gc) {
             this.gCtrl = gc;
+            this.Observers = new List<string>();
             this.client = new UdpClient();
         }
 
         private void StartServer() {
-            if(this.server == null) {
-                this.server = new UdpClient(DefaultPort);
-            }
+            this.server = new UdpClient(DefaultPort);
             IPEndPoint ep = new IPEndPoint(IPAddress.Any, DefaultPort);
             while(true) {
-                if(this.server.Client.Available > 0) {
-                    string text = Encoding.UTF8.GetString(this.server.Receive(ref ep));
-                    this.gCtrl.CheckMessage(text + "from" + ep.Address.ToString());
-                }
-            } 
+                string text = Encoding.UTF8.GetString(this.server.Receive(ref ep));
+                this.gCtrl.CheckMessage(text + "from" + ep.Address.ToString());
+            }
         }
 
         public void StartHost() {
@@ -44,14 +56,40 @@ namespace MrJack
 
         public void StopHost() {
             if(this.theadServer != null && this.theadServer.IsAlive) {
+                this.server.Close();
                 this.theadServer.Abort();
-                this.theadServer.Join();
             }
         }
 
-        public void SendMessage(string host, string msg) {
+        private void SendMessage(string host, string msg, int port) {
             byte[] bytes = Encoding.UTF8.GetBytes(msg);
-            this.client.Send(bytes, bytes.Length, host, DefaultPort);
+            this.client.Send(bytes, bytes.Length, host, port);
+        }
+        public void SendMessageToHost(string msg, int port) {
+            if(this.hostIP != string.Empty) {
+                this.SendMessage(this.hostIP, msg, port);
+            }
+        }
+        public void SendMessageToHost(string msg) {
+            this.SendMessageToHost(msg, DefaultPort);
+        }
+        public void SendMessageToOpponent(string msg, int port) {
+            if(this.opponentIP != string.Empty) {
+                this.SendMessage(this.opponentIP, msg, port);
+            }
+        }
+        public void SendMessageToOpponent(string msg) {
+            this.SendMessageToOpponent(this.opponentIP, DefaultPort);
+        }
+        public void SendMessageToObservers(string msg, int port) {
+            foreach(string observer in this.Observers) {
+                this.SendMessage(observer, msg, port);
+            }
+        }
+        public void SendMessageToObservers(string msg) {
+            foreach(string observer in this.Observers) {
+                this.SendMessage(observer, msg, DefaultPort);
+            }
         }
 
     }

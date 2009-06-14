@@ -5,28 +5,13 @@ namespace MrJack
     public class GameController
     {
         private FrmMain game;
+        private BoardStatus gameBoard;
+        private BoardStatus replayBoard;
 
-        private int gameStatus;
-        public int GameStatus {
-            get { return this.gameStatus; }
-            set {
-                this.gameStatus = value;
-                this.Update();   
-            }
-        }
-
-        public GameController(FrmMain game) {
+        public GameController(FrmMain game, BoardStatus gameBoard, BoardStatus replayBoard) {
             this.game = game;
-            this.GameStatus = GameTypes.GameStatusIdle;
-        }
-
-        public void Update() {
-            switch(this.gameStatus) {
-                case GameTypes.GameStatusWaitingPlayer:
-                    break;
-                case GameTypes.GameStatusPlayerJoined:
-                    break;
-            }
+            this.gameBoard = gameBoard;
+            this.replayBoard = replayBoard;
         }
 
         public void CheckMessage(string msg) {

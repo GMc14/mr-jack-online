@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Threading;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MrJack
 {
