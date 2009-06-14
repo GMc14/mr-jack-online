@@ -19,8 +19,6 @@ namespace MrJack
         public GameNetwork(GameController gc) {
             this.gCtrl = gc;
             this.client = new UdpClient();
-            this.theadServer = new Thread(new ThreadStart(StartServer));
-            this.theadServer.IsBackground = true;
         }
 
         private void StartServer() {
@@ -29,23 +27,28 @@ namespace MrJack
             }
             IPEndPoint ep = new IPEndPoint(IPAddress.Any, DefaultPort);
             while(true) {
-                string text = Encoding.UTF8.GetString(this.server.Receive(ref ep));
-                this.gCtrl.CheckMessage(text + "from" + ep.Address.ToString());
+                if(this.server.Client.Available > 0) {
+                    string text = Encoding.UTF8.GetString(this.server.Receive(ref ep));
+                    this.gCtrl.CheckMessage(text + "from" + ep.Address.ToString());
+                }
             } 
         }
 
         public void StartHost() {
-            if(!this.theadServer.IsAlive) {
+            if(this.theadServer == null || !this.theadServer.IsAlive) {
                 this.theadServer = new Thread(new ThreadStart(StartServer));
                 this.theadServer.IsBackground = true;
                 this.theadServer.Start();
             }
         }
+
         public void StopHost() {
-            if(this.theadServer != null) {
+            if(this.theadServer != null && this.theadServer.IsAlive) {
                 this.theadServer.Abort();
+                this.theadServer.Join();
             }
         }
+
         public void SendMessage(string host, string msg) {
             byte[] bytes = Encoding.UTF8.GetBytes(msg);
             this.client.Send(bytes, bytes.Length, host, DefaultPort);
