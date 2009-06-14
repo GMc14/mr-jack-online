@@ -27,9 +27,18 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.PnlHelp = new System.Windows.Forms.Panel();
+            this.PbxHelpCard8 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard7 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard6 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard5 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard4 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard3 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard2 = new System.Windows.Forms.PictureBox();
+            this.PbxHelpCard1 = new System.Windows.Forms.PictureBox();
             this.PnlJack = new System.Windows.Forms.Panel();
             this.LblJackCaption = new System.Windows.Forms.Label();
             this.LblJackName = new System.Windows.Forms.Label();
+            this.PbxJack = new System.Windows.Forms.PictureBox();
             this.LblInfo = new System.Windows.Forms.Label();
             this.PnlOption = new System.Windows.Forms.Panel();
             this.CbxEnableSound = new System.Windows.Forms.CheckBox();
@@ -45,6 +54,7 @@
             this.PnlRecords = new System.Windows.Forms.Panel();
             this.BtnTabNotes = new System.Windows.Forms.Label();
             this.BtnTabMoves = new System.Windows.Forms.Label();
+            this.PbxTab = new System.Windows.Forms.PictureBox();
             this.PnlNotes = new System.Windows.Forms.Panel();
             this.TbxNotes = new System.Windows.Forms.TextBox();
             this.LblNotes = new System.Windows.Forms.Label();
@@ -55,6 +65,14 @@
             this.BtnFirst = new System.Windows.Forms.Button();
             this.WbrMovesList = new System.Windows.Forms.WebBrowser();
             this.PnlCards = new System.Windows.Forms.Panel();
+            this.PbxCard4 = new System.Windows.Forms.PictureBox();
+            this.PbxCard3 = new System.Windows.Forms.PictureBox();
+            this.PbxCard2 = new System.Windows.Forms.PictureBox();
+            this.PbxCard1 = new System.Windows.Forms.PictureBox();
+            this.PbxCardSelect3 = new System.Windows.Forms.PictureBox();
+            this.PbxCardSelect1 = new System.Windows.Forms.PictureBox();
+            this.PbxCardSelect2 = new System.Windows.Forms.PictureBox();
+            this.PbxCardSelect4 = new System.Windows.Forms.PictureBox();
             this.BtnHostGame = new System.Windows.Forms.LinkLabel();
             this.BtnJoinGame = new System.Windows.Forms.LinkLabel();
             this.BtnObserveGame = new System.Windows.Forms.LinkLabel();
@@ -75,58 +93,14 @@
             this.CbxPrivateComment = new System.Windows.Forms.CheckBox();
             this.LblInputCaption = new System.Windows.Forms.Label();
             this.PnlWitness = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PbxWintessSelect = new System.Windows.Forms.PictureBox();
             this.PnlRound = new System.Windows.Forms.Panel();
             this.PbxRound = new System.Windows.Forms.PictureBox();
             this.PbxSubRound = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PbxWintessSelect = new System.Windows.Forms.PictureBox();
-            this.PbxCard4 = new System.Windows.Forms.PictureBox();
-            this.PbxCard3 = new System.Windows.Forms.PictureBox();
-            this.PbxCard2 = new System.Windows.Forms.PictureBox();
-            this.PbxCard1 = new System.Windows.Forms.PictureBox();
-            this.PbxCardSelect3 = new System.Windows.Forms.PictureBox();
-            this.PbxCardSelect1 = new System.Windows.Forms.PictureBox();
-            this.PbxCardSelect2 = new System.Windows.Forms.PictureBox();
-            this.PbxCardSelect4 = new System.Windows.Forms.PictureBox();
-            this.PbxTab = new System.Windows.Forms.PictureBox();
-            this.PbxJack = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard8 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard7 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard6 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard5 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard4 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard3 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard2 = new System.Windows.Forms.PictureBox();
-            this.PbxHelpCard1 = new System.Windows.Forms.PictureBox();
             this.PbxLogo = new System.Windows.Forms.PictureBox();
             this.Board = new MrJack.CtlBoard();
             this.PnlHelp.SuspendLayout();
-            this.PnlJack.SuspendLayout();
-            this.PnlOption.SuspendLayout();
-            this.PnlComment.SuspendLayout();
-            this.PnlPlayer.SuspendLayout();
-            this.PnlRecords.SuspendLayout();
-            this.PnlNotes.SuspendLayout();
-            this.PnlMoves.SuspendLayout();
-            this.PnlCards.SuspendLayout();
-            this.PnlInput.SuspendLayout();
-            this.PnlInputHeader.SuspendLayout();
-            this.PnlWitness.SuspendLayout();
-            this.PnlRound.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxTab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxJack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard6)).BeginInit();
@@ -135,6 +109,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard1)).BeginInit();
+            this.PnlJack.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxJack)).BeginInit();
+            this.PnlOption.SuspendLayout();
+            this.PnlComment.SuspendLayout();
+            this.PnlPlayer.SuspendLayout();
+            this.PnlRecords.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxTab)).BeginInit();
+            this.PnlNotes.SuspendLayout();
+            this.PnlMoves.SuspendLayout();
+            this.PnlCards.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).BeginInit();
+            this.PnlInput.SuspendLayout();
+            this.PnlInputHeader.SuspendLayout();
+            this.PnlWitness.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).BeginInit();
+            this.PnlRound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,6 +153,84 @@
             this.PnlHelp.Size = new System.Drawing.Size(562, 244);
             this.PnlHelp.TabIndex = 40;
             this.PnlHelp.Visible = false;
+            // 
+            // PbxHelpCard8
+            // 
+            this.PbxHelpCard8.BackgroundImage = global::MrJack.Properties.Resources.CardWatson;
+            this.PbxHelpCard8.Location = new System.Drawing.Point(429, 134);
+            this.PbxHelpCard8.Name = "PbxHelpCard8";
+            this.PbxHelpCard8.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard8.TabIndex = 34;
+            this.PbxHelpCard8.TabStop = false;
+            // 
+            // PbxHelpCard7
+            // 
+            this.PbxHelpCard7.BackgroundImage = global::MrJack.Properties.Resources.CardStealthy;
+            this.PbxHelpCard7.Location = new System.Drawing.Point(296, 134);
+            this.PbxHelpCard7.Name = "PbxHelpCard7";
+            this.PbxHelpCard7.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard7.TabIndex = 33;
+            this.PbxHelpCard7.TabStop = false;
+            // 
+            // PbxHelpCard6
+            // 
+            this.PbxHelpCard6.BackgroundImage = global::MrJack.Properties.Resources.CardGull;
+            this.PbxHelpCard6.Image = global::MrJack.Properties.Resources.CardGoodley;
+            this.PbxHelpCard6.Location = new System.Drawing.Point(163, 134);
+            this.PbxHelpCard6.Name = "PbxHelpCard6";
+            this.PbxHelpCard6.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard6.TabIndex = 32;
+            this.PbxHelpCard6.TabStop = false;
+            // 
+            // PbxHelpCard5
+            // 
+            this.PbxHelpCard5.BackgroundImage = global::MrJack.Properties.Resources.CardGoodley;
+            this.PbxHelpCard5.Image = global::MrJack.Properties.Resources.CardGull;
+            this.PbxHelpCard5.Location = new System.Drawing.Point(20, 134);
+            this.PbxHelpCard5.Name = "PbxHelpCard5";
+            this.PbxHelpCard5.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard5.TabIndex = 31;
+            this.PbxHelpCard5.TabStop = false;
+            // 
+            // PbxHelpCard4
+            // 
+            this.PbxHelpCard4.BackgroundImage = global::MrJack.Properties.Resources.CardSmith;
+            this.PbxHelpCard4.Image = global::MrJack.Properties.Resources.CardSmith;
+            this.PbxHelpCard4.Location = new System.Drawing.Point(429, 20);
+            this.PbxHelpCard4.Name = "PbxHelpCard4";
+            this.PbxHelpCard4.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard4.TabIndex = 30;
+            this.PbxHelpCard4.TabStop = false;
+            // 
+            // PbxHelpCard3
+            // 
+            this.PbxHelpCard3.BackgroundImage = global::MrJack.Properties.Resources.CardLestrade;
+            this.PbxHelpCard3.Image = global::MrJack.Properties.Resources.CardLestrade;
+            this.PbxHelpCard3.Location = new System.Drawing.Point(296, 20);
+            this.PbxHelpCard3.Name = "PbxHelpCard3";
+            this.PbxHelpCard3.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard3.TabIndex = 29;
+            this.PbxHelpCard3.TabStop = false;
+            // 
+            // PbxHelpCard2
+            // 
+            this.PbxHelpCard2.BackgroundImage = global::MrJack.Properties.Resources.CardBert;
+            this.PbxHelpCard2.Image = global::MrJack.Properties.Resources.CardBert;
+            this.PbxHelpCard2.Location = new System.Drawing.Point(163, 20);
+            this.PbxHelpCard2.Name = "PbxHelpCard2";
+            this.PbxHelpCard2.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard2.TabIndex = 28;
+            this.PbxHelpCard2.TabStop = false;
+            // 
+            // PbxHelpCard1
+            // 
+            this.PbxHelpCard1.BackgroundImage = global::MrJack.Properties.Resources.CardHolmes;
+            this.PbxHelpCard1.Image = global::MrJack.Properties.Resources.CardHolmes;
+            this.PbxHelpCard1.Location = new System.Drawing.Point(20, 20);
+            this.PbxHelpCard1.Name = "PbxHelpCard1";
+            this.PbxHelpCard1.Size = new System.Drawing.Size(119, 90);
+            this.PbxHelpCard1.TabIndex = 27;
+            this.PbxHelpCard1.TabStop = false;
             // 
             // PnlJack
             // 
@@ -186,6 +264,15 @@
             this.LblJackName.TabIndex = 38;
             this.LblJackName.Text = "Watson";
             this.LblJackName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PbxJack
+            // 
+            this.PbxJack.Image = global::MrJack.Properties.Resources.JackWatson;
+            this.PbxJack.Location = new System.Drawing.Point(59, 13);
+            this.PbxJack.Name = "PbxJack";
+            this.PbxJack.Size = new System.Drawing.Size(58, 52);
+            this.PbxJack.TabIndex = 39;
+            this.PbxJack.TabStop = false;
             // 
             // LblInfo
             // 
@@ -367,6 +454,15 @@
             this.BtnTabMoves.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnTabMoves.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnTabMoves_MouseDown);
             // 
+            // PbxTab
+            // 
+            this.PbxTab.Image = global::MrJack.Properties.Resources.TabMoves;
+            this.PbxTab.Location = new System.Drawing.Point(0, 227);
+            this.PbxTab.Name = "PbxTab";
+            this.PbxTab.Size = new System.Drawing.Size(135, 26);
+            this.PbxTab.TabIndex = 72;
+            this.PbxTab.TabStop = false;
+            // 
             // PnlNotes
             // 
             this.PnlNotes.Controls.Add(this.TbxNotes);
@@ -493,6 +589,74 @@
             this.PnlCards.Size = new System.Drawing.Size(130, 415);
             this.PnlCards.TabIndex = 80;
             // 
+            // PbxCard4
+            // 
+            this.PbxCard4.Image = global::MrJack.Properties.Resources.CardHolmes;
+            this.PbxCard4.Location = new System.Drawing.Point(5, 318);
+            this.PbxCard4.Name = "PbxCard4";
+            this.PbxCard4.Size = new System.Drawing.Size(119, 90);
+            this.PbxCard4.TabIndex = 83;
+            this.PbxCard4.TabStop = false;
+            // 
+            // PbxCard3
+            // 
+            this.PbxCard3.Image = global::MrJack.Properties.Resources.CardGull;
+            this.PbxCard3.Location = new System.Drawing.Point(5, 214);
+            this.PbxCard3.Name = "PbxCard3";
+            this.PbxCard3.Size = new System.Drawing.Size(119, 90);
+            this.PbxCard3.TabIndex = 82;
+            this.PbxCard3.TabStop = false;
+            // 
+            // PbxCard2
+            // 
+            this.PbxCard2.Image = global::MrJack.Properties.Resources.CardGoodley;
+            this.PbxCard2.Location = new System.Drawing.Point(5, 110);
+            this.PbxCard2.Name = "PbxCard2";
+            this.PbxCard2.Size = new System.Drawing.Size(119, 90);
+            this.PbxCard2.TabIndex = 81;
+            this.PbxCard2.TabStop = false;
+            // 
+            // PbxCard1
+            // 
+            this.PbxCard1.Image = global::MrJack.Properties.Resources.CardBert;
+            this.PbxCard1.Location = new System.Drawing.Point(5, 6);
+            this.PbxCard1.Name = "PbxCard1";
+            this.PbxCard1.Size = new System.Drawing.Size(119, 90);
+            this.PbxCard1.TabIndex = 80;
+            this.PbxCard1.TabStop = false;
+            // 
+            // PbxCardSelect3
+            // 
+            this.PbxCardSelect3.Location = new System.Drawing.Point(0, 208);
+            this.PbxCardSelect3.Name = "PbxCardSelect3";
+            this.PbxCardSelect3.Size = new System.Drawing.Size(130, 103);
+            this.PbxCardSelect3.TabIndex = 84;
+            this.PbxCardSelect3.TabStop = false;
+            // 
+            // PbxCardSelect1
+            // 
+            this.PbxCardSelect1.Location = new System.Drawing.Point(0, 0);
+            this.PbxCardSelect1.Name = "PbxCardSelect1";
+            this.PbxCardSelect1.Size = new System.Drawing.Size(130, 103);
+            this.PbxCardSelect1.TabIndex = 85;
+            this.PbxCardSelect1.TabStop = false;
+            // 
+            // PbxCardSelect2
+            // 
+            this.PbxCardSelect2.Location = new System.Drawing.Point(0, 104);
+            this.PbxCardSelect2.Name = "PbxCardSelect2";
+            this.PbxCardSelect2.Size = new System.Drawing.Size(130, 103);
+            this.PbxCardSelect2.TabIndex = 86;
+            this.PbxCardSelect2.TabStop = false;
+            // 
+            // PbxCardSelect4
+            // 
+            this.PbxCardSelect4.Location = new System.Drawing.Point(0, 312);
+            this.PbxCardSelect4.Name = "PbxCardSelect4";
+            this.PbxCardSelect4.Size = new System.Drawing.Size(130, 103);
+            this.PbxCardSelect4.TabIndex = 87;
+            this.PbxCardSelect4.TabStop = false;
+            // 
             // BtnHostGame
             // 
             this.BtnHostGame.ActiveLinkColor = System.Drawing.Color.White;
@@ -540,7 +704,7 @@
             this.BtnObserveGame.TabStop = true;
             this.BtnObserveGame.Text = "Observe Game";
             this.BtnObserveGame.VisitedLinkColor = System.Drawing.Color.White;
-            this.BtnObserveGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnObserveGame_MouseDown);
+            this.BtnObserveGame.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnObserveGame_LinkClicked);
             // 
             // BtnLoadReplay
             // 
@@ -742,6 +906,23 @@
             this.PnlWitness.Size = new System.Drawing.Size(69, 103);
             this.PnlWitness.TabIndex = 98;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::MrJack.Properties.Resources.CardWitness;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(59, 91);
+            this.pictureBox1.TabIndex = 83;
+            this.pictureBox1.TabStop = false;
+            // 
+            // PbxWintessSelect
+            // 
+            this.PbxWintessSelect.Location = new System.Drawing.Point(0, 0);
+            this.PbxWintessSelect.Name = "PbxWintessSelect";
+            this.PbxWintessSelect.Size = new System.Drawing.Size(69, 103);
+            this.PbxWintessSelect.TabIndex = 84;
+            this.PbxWintessSelect.TabStop = false;
+            // 
             // PnlRound
             // 
             this.PnlRound.Controls.Add(this.PbxRound);
@@ -769,187 +950,6 @@
             this.PbxSubRound.Size = new System.Drawing.Size(58, 15);
             this.PbxSubRound.TabIndex = 85;
             this.PbxSubRound.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::MrJack.Properties.Resources.CardWitness;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 91);
-            this.pictureBox1.TabIndex = 83;
-            this.pictureBox1.TabStop = false;
-            // 
-            // PbxWintessSelect
-            // 
-            this.PbxWintessSelect.Location = new System.Drawing.Point(0, 0);
-            this.PbxWintessSelect.Name = "PbxWintessSelect";
-            this.PbxWintessSelect.Size = new System.Drawing.Size(69, 103);
-            this.PbxWintessSelect.TabIndex = 84;
-            this.PbxWintessSelect.TabStop = false;
-            // 
-            // PbxCard4
-            // 
-            this.PbxCard4.Image = global::MrJack.Properties.Resources.CardHolmes;
-            this.PbxCard4.Location = new System.Drawing.Point(5, 318);
-            this.PbxCard4.Name = "PbxCard4";
-            this.PbxCard4.Size = new System.Drawing.Size(119, 90);
-            this.PbxCard4.TabIndex = 83;
-            this.PbxCard4.TabStop = false;
-            // 
-            // PbxCard3
-            // 
-            this.PbxCard3.Image = global::MrJack.Properties.Resources.CardGull;
-            this.PbxCard3.Location = new System.Drawing.Point(5, 214);
-            this.PbxCard3.Name = "PbxCard3";
-            this.PbxCard3.Size = new System.Drawing.Size(119, 90);
-            this.PbxCard3.TabIndex = 82;
-            this.PbxCard3.TabStop = false;
-            // 
-            // PbxCard2
-            // 
-            this.PbxCard2.Image = global::MrJack.Properties.Resources.CardGoodley;
-            this.PbxCard2.Location = new System.Drawing.Point(5, 110);
-            this.PbxCard2.Name = "PbxCard2";
-            this.PbxCard2.Size = new System.Drawing.Size(119, 90);
-            this.PbxCard2.TabIndex = 81;
-            this.PbxCard2.TabStop = false;
-            // 
-            // PbxCard1
-            // 
-            this.PbxCard1.Image = global::MrJack.Properties.Resources.CardBert;
-            this.PbxCard1.Location = new System.Drawing.Point(5, 6);
-            this.PbxCard1.Name = "PbxCard1";
-            this.PbxCard1.Size = new System.Drawing.Size(119, 90);
-            this.PbxCard1.TabIndex = 80;
-            this.PbxCard1.TabStop = false;
-            // 
-            // PbxCardSelect3
-            // 
-            this.PbxCardSelect3.Location = new System.Drawing.Point(0, 208);
-            this.PbxCardSelect3.Name = "PbxCardSelect3";
-            this.PbxCardSelect3.Size = new System.Drawing.Size(130, 103);
-            this.PbxCardSelect3.TabIndex = 84;
-            this.PbxCardSelect3.TabStop = false;
-            // 
-            // PbxCardSelect1
-            // 
-            this.PbxCardSelect1.Location = new System.Drawing.Point(0, 0);
-            this.PbxCardSelect1.Name = "PbxCardSelect1";
-            this.PbxCardSelect1.Size = new System.Drawing.Size(130, 103);
-            this.PbxCardSelect1.TabIndex = 85;
-            this.PbxCardSelect1.TabStop = false;
-            // 
-            // PbxCardSelect2
-            // 
-            this.PbxCardSelect2.Location = new System.Drawing.Point(0, 104);
-            this.PbxCardSelect2.Name = "PbxCardSelect2";
-            this.PbxCardSelect2.Size = new System.Drawing.Size(130, 103);
-            this.PbxCardSelect2.TabIndex = 86;
-            this.PbxCardSelect2.TabStop = false;
-            // 
-            // PbxCardSelect4
-            // 
-            this.PbxCardSelect4.Location = new System.Drawing.Point(0, 312);
-            this.PbxCardSelect4.Name = "PbxCardSelect4";
-            this.PbxCardSelect4.Size = new System.Drawing.Size(130, 103);
-            this.PbxCardSelect4.TabIndex = 87;
-            this.PbxCardSelect4.TabStop = false;
-            // 
-            // PbxTab
-            // 
-            this.PbxTab.Image = global::MrJack.Properties.Resources.TabMoves;
-            this.PbxTab.Location = new System.Drawing.Point(0, 227);
-            this.PbxTab.Name = "PbxTab";
-            this.PbxTab.Size = new System.Drawing.Size(135, 26);
-            this.PbxTab.TabIndex = 72;
-            this.PbxTab.TabStop = false;
-            // 
-            // PbxJack
-            // 
-            this.PbxJack.Image = global::MrJack.Properties.Resources.JackWatson;
-            this.PbxJack.Location = new System.Drawing.Point(59, 13);
-            this.PbxJack.Name = "PbxJack";
-            this.PbxJack.Size = new System.Drawing.Size(58, 52);
-            this.PbxJack.TabIndex = 39;
-            this.PbxJack.TabStop = false;
-            // 
-            // PbxHelpCard8
-            // 
-            this.PbxHelpCard8.BackgroundImage = global::MrJack.Properties.Resources.CardWatson;
-            this.PbxHelpCard8.Location = new System.Drawing.Point(429, 134);
-            this.PbxHelpCard8.Name = "PbxHelpCard8";
-            this.PbxHelpCard8.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard8.TabIndex = 34;
-            this.PbxHelpCard8.TabStop = false;
-            // 
-            // PbxHelpCard7
-            // 
-            this.PbxHelpCard7.BackgroundImage = global::MrJack.Properties.Resources.CardStealthy;
-            this.PbxHelpCard7.Location = new System.Drawing.Point(296, 134);
-            this.PbxHelpCard7.Name = "PbxHelpCard7";
-            this.PbxHelpCard7.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard7.TabIndex = 33;
-            this.PbxHelpCard7.TabStop = false;
-            // 
-            // PbxHelpCard6
-            // 
-            this.PbxHelpCard6.BackgroundImage = global::MrJack.Properties.Resources.CardGull;
-            this.PbxHelpCard6.Image = global::MrJack.Properties.Resources.CardGoodley;
-            this.PbxHelpCard6.Location = new System.Drawing.Point(163, 134);
-            this.PbxHelpCard6.Name = "PbxHelpCard6";
-            this.PbxHelpCard6.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard6.TabIndex = 32;
-            this.PbxHelpCard6.TabStop = false;
-            // 
-            // PbxHelpCard5
-            // 
-            this.PbxHelpCard5.BackgroundImage = global::MrJack.Properties.Resources.CardGoodley;
-            this.PbxHelpCard5.Image = global::MrJack.Properties.Resources.CardGull;
-            this.PbxHelpCard5.Location = new System.Drawing.Point(20, 134);
-            this.PbxHelpCard5.Name = "PbxHelpCard5";
-            this.PbxHelpCard5.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard5.TabIndex = 31;
-            this.PbxHelpCard5.TabStop = false;
-            // 
-            // PbxHelpCard4
-            // 
-            this.PbxHelpCard4.BackgroundImage = global::MrJack.Properties.Resources.CardSmith;
-            this.PbxHelpCard4.Image = global::MrJack.Properties.Resources.CardSmith;
-            this.PbxHelpCard4.Location = new System.Drawing.Point(429, 20);
-            this.PbxHelpCard4.Name = "PbxHelpCard4";
-            this.PbxHelpCard4.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard4.TabIndex = 30;
-            this.PbxHelpCard4.TabStop = false;
-            // 
-            // PbxHelpCard3
-            // 
-            this.PbxHelpCard3.BackgroundImage = global::MrJack.Properties.Resources.CardLestrade;
-            this.PbxHelpCard3.Image = global::MrJack.Properties.Resources.CardLestrade;
-            this.PbxHelpCard3.Location = new System.Drawing.Point(296, 20);
-            this.PbxHelpCard3.Name = "PbxHelpCard3";
-            this.PbxHelpCard3.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard3.TabIndex = 29;
-            this.PbxHelpCard3.TabStop = false;
-            // 
-            // PbxHelpCard2
-            // 
-            this.PbxHelpCard2.BackgroundImage = global::MrJack.Properties.Resources.CardBert;
-            this.PbxHelpCard2.Image = global::MrJack.Properties.Resources.CardBert;
-            this.PbxHelpCard2.Location = new System.Drawing.Point(163, 20);
-            this.PbxHelpCard2.Name = "PbxHelpCard2";
-            this.PbxHelpCard2.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard2.TabIndex = 28;
-            this.PbxHelpCard2.TabStop = false;
-            // 
-            // PbxHelpCard1
-            // 
-            this.PbxHelpCard1.BackgroundImage = global::MrJack.Properties.Resources.CardHolmes;
-            this.PbxHelpCard1.Image = global::MrJack.Properties.Resources.CardHolmes;
-            this.PbxHelpCard1.Location = new System.Drawing.Point(20, 20);
-            this.PbxHelpCard1.Name = "PbxHelpCard1";
-            this.PbxHelpCard1.Size = new System.Drawing.Size(119, 90);
-            this.PbxHelpCard1.TabIndex = 27;
-            this.PbxHelpCard1.TabStop = false;
             // 
             // PbxLogo
             // 
@@ -1019,37 +1019,6 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.PnlHelp.ResumeLayout(false);
-            this.PnlJack.ResumeLayout(false);
-            this.PnlOption.ResumeLayout(false);
-            this.PnlOption.PerformLayout();
-            this.PnlComment.ResumeLayout(false);
-            this.PnlPlayer.ResumeLayout(false);
-            this.PnlPlayer.PerformLayout();
-            this.PnlRecords.ResumeLayout(false);
-            this.PnlNotes.ResumeLayout(false);
-            this.PnlNotes.PerformLayout();
-            this.PnlMoves.ResumeLayout(false);
-            this.PnlCards.ResumeLayout(false);
-            this.PnlInput.ResumeLayout(false);
-            this.PnlInput.PerformLayout();
-            this.PnlInputHeader.ResumeLayout(false);
-            this.PnlInputHeader.PerformLayout();
-            this.PnlWitness.ResumeLayout(false);
-            this.PnlRound.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCard1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxTab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxJack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard6)).EndInit();
@@ -1058,6 +1027,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHelpCard1)).EndInit();
+            this.PnlJack.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbxJack)).EndInit();
+            this.PnlOption.ResumeLayout(false);
+            this.PnlOption.PerformLayout();
+            this.PnlComment.ResumeLayout(false);
+            this.PnlPlayer.ResumeLayout(false);
+            this.PnlPlayer.PerformLayout();
+            this.PnlRecords.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbxTab)).EndInit();
+            this.PnlNotes.ResumeLayout(false);
+            this.PnlNotes.PerformLayout();
+            this.PnlMoves.ResumeLayout(false);
+            this.PnlCards.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCard1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCardSelect4)).EndInit();
+            this.PnlInput.ResumeLayout(false);
+            this.PnlInput.PerformLayout();
+            this.PnlInputHeader.ResumeLayout(false);
+            this.PnlInputHeader.PerformLayout();
+            this.PnlWitness.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).EndInit();
+            this.PnlRound.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSubRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

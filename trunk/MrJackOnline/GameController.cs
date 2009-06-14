@@ -30,7 +30,7 @@ namespace MrJack
         }
 
         public void CheckMessage(string msg) {
-            this.GameStatus = GameTypes.GameStatusPlayerJoined;
+            this.game.PlaySoundNew();
         }
     }
 }
