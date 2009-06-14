@@ -88,7 +88,7 @@ namespace MrJack
                 }
             }
         }
-        public void PlaySound(string path) {
+        private void PlaySound(string path) {
             if(path != string.Empty && this.enableSound) {
                 if(this.gameSound == null) {
                     if(File.Exists(path)) {
@@ -115,6 +115,12 @@ namespace MrJack
                     File.Delete(this.SndTurnPath);
                 }
             } catch(Exception) { }
+        }
+        public void PlaySoundNew() {
+            this.PlaySound(sndNewName);
+        }
+        public void PlaySoundTurn() {
+            this.PlaySound(sndTurnName);
         }
 
         public void SetInfoText(string text) {
@@ -213,10 +219,6 @@ namespace MrJack
             }
         }
 
-        private void BtnObserveGame_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-        }
-
         private void BtnJoinGame_MouseDown(object sender, MouseEventArgs e) {
             this.Board.Focus();
         }
@@ -281,6 +283,10 @@ namespace MrJack
 
         private void BtnJoinGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             this.network.SendMessage("127.0.0.1", "Hello!");
+        }
+
+        private void BtnObserveGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.network.StopHost();
         }
     }
 }
