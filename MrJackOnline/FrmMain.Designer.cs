@@ -736,6 +736,7 @@
             this.BtnHelp.TabStop = true;
             this.BtnHelp.Text = "Help";
             this.BtnHelp.VisitedLinkColor = System.Drawing.Color.White;
+            this.BtnHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnHelp_LinkClicked);
             // 
             // BtnAbout
             // 
