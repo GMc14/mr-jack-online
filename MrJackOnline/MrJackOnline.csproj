@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1691A854-C600-41BA-923D-C0B76FFF3A6F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -107,6 +107,7 @@
   <ItemGroup>
     <EmbeddedResource Include="CtlBoard.resx">
       <DependentUpon>CtlBoard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
@@ -114,10 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -236,12 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\g_Z.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\new.mid" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\turn.mid" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\r1.png" />
@@ -407,6 +404,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newg.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\turn.mid" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MCStrategy\" />
