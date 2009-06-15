@@ -103,6 +103,158 @@ namespace MrJack
             }
         }
 
+        public GameHex GetClickedHex(int mouseX, int mouseY) {
+            this.HexClickHandler(mouseX, mouseY);
+            if(this.SelectedHex != null) {
+                return this.SelectedHex;
+            } else {
+                return null;
+            }
+        }
+
+        #region Board's Drawing Methods
+        private void DrawCharacter(Graphics g, int x, int y, int character) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
+            Bitmap person = Properties.Resources.None;
+            switch(character) {
+                case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
+                case GameTypes.CharacterBertInnocent: person = Properties.Resources.BertInnocent; break;
+                case GameTypes.CharacterGoodley: person = Properties.Resources.Goodley; break;
+                case GameTypes.CharacterGoodleyInnocent: person = Properties.Resources.GoodleyInnocent; break;
+                case GameTypes.CharacterGull: person = Properties.Resources.Gull; break;
+                case GameTypes.CharacterGullInnocent: person = Properties.Resources.GullInnocent; break;
+                case GameTypes.CharacterHolmes: person = Properties.Resources.Holmes; break;
+                case GameTypes.CharacterHolmesInnocent: person = Properties.Resources.HolmesInnocent; break;
+                case GameTypes.CharacterLestrade: person = Properties.Resources.Lestrade; break;
+                case GameTypes.CharacterLestradeInnocent: person = Properties.Resources.LestradeInnocent; break;
+                case GameTypes.CharacterSmith: person = Properties.Resources.Smith; break;
+                case GameTypes.CharacterSmithInnocent: person = Properties.Resources.SmithInnocent; break;
+                case GameTypes.CharacterStealthy: person = Properties.Resources.Stealthy; break;
+                case GameTypes.CharacterStealthyInnocent: person = Properties.Resources.StealthyInnocent; break;
+                case GameTypes.CharacterWatson1: person = Properties.Resources.Watson1; break;
+                case GameTypes.CharacterWatsonInnocent1: person = Properties.Resources.WatsonInnocent1; break;
+                case GameTypes.CharacterWatson2: person = Properties.Resources.Watson2; break;
+                case GameTypes.CharacterWatsonInnocent2: person = Properties.Resources.WatsonInnocent2; break;
+                case GameTypes.CharacterWatson3: person = Properties.Resources.Watson3; break;
+                case GameTypes.CharacterWatsonInnocent3: person = Properties.Resources.WatsonInnocent3; break;
+                case GameTypes.CharacterWatson4: person = Properties.Resources.Watson4; break;
+                case GameTypes.CharacterWatsonInnocent4: person = Properties.Resources.WatsonInnocent4; break;
+                case GameTypes.CharacterWatson5: person = Properties.Resources.Watson5; break;
+                case GameTypes.CharacterWatsonInnocent5: person = Properties.Resources.WatsonInnocent5; break;
+                case GameTypes.CharacterWatson6: person = Properties.Resources.Watson6; break;
+                case GameTypes.CharacterWatsonInnocent6: person = Properties.Resources.WatsonInnocent6; break;
+                default: person = Properties.Resources.None; break;
+            }
+            g.DrawImage(person, rect);
+        }
+
+        private void DrawGasslight(Graphics g, int x, int y, int gasslight) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
+            Bitmap light;
+            switch(gasslight) {
+                case GameTypes.Gasslight1: light = Properties.Resources.Light1; break;
+                case GameTypes.Gasslight2: light = Properties.Resources.Light2; break;
+                case GameTypes.Gasslight3: light = Properties.Resources.Light3; break;
+                case GameTypes.Gasslight4: light = Properties.Resources.Light4; break;
+                case GameTypes.Gasslight5:
+                case GameTypes.Gasslight6: light = Properties.Resources.LightAlways; break;
+                default: light = Properties.Resources.None; break;
+            }
+            g.DrawImage(light, rect);
+        }
+
+        private void DrawCordon(Graphics g, int direction) {
+            Rectangle rect = new Rectangle();
+            switch(direction) {
+                case GameTypes.ExitNW: rect = new Rectangle(27, 24, 52, 29); break;
+                case GameTypes.ExitNE: rect = new Rectangle(536, 24, 52, 29); break;
+                case GameTypes.ExitSW: rect = new Rectangle(52, 448, 52, 29); break;
+                case GameTypes.ExitSE: rect = new Rectangle(546, 446, 52, 29); break;
+            }
+            g.DrawImage(Properties.Resources.Cordon, rect);
+        }
+
+        private void DrawCordonPath(Graphics g, int direction) {
+            Rectangle rect = new Rectangle();
+            switch(direction) {
+                case GameTypes.ExitNW: rect = new Rectangle(25, 22, 56, 33); break;
+                case GameTypes.ExitNE: rect = new Rectangle(534, 22, 56, 33); break;
+                case GameTypes.ExitSW: rect = new Rectangle(50, 446, 56, 33); break;
+                case GameTypes.ExitSE: rect = new Rectangle(544, 444, 56, 33); break;
+            }
+            g.DrawImage(Properties.Resources.CordonPath, rect);
+        }
+
+        private void DrawCover(Graphics g, int x, int y) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
+            g.DrawImage(Properties.Resources.Cover, rect);
+        }
+
+        private void DrawPathFrom(Graphics g, int x, int y) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
+            g.DrawImage(Properties.Resources.HexFrom, rect);
+        }
+
+        private void DrawPathVia(Graphics g, int x, int y) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
+            g.DrawImage(Properties.Resources.HexVia, rect);
+        }
+
+        private void DrawPathTo(Graphics g, int x, int y) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
+            g.DrawImage(Properties.Resources.HexTo, rect);
+        }
+
+        private void DrawEscape(Graphics g, int charactor, int direction) {
+            Rectangle rect = new Rectangle();
+            Rectangle rectShape = new Rectangle();
+            switch(direction) {
+                case GameTypes.ExitNW: rect = new Rectangle(23, 14, 58, 52); rectShape = new Rectangle(23, 11, 59, 59); break;
+                case GameTypes.ExitNE: rect = new Rectangle(536, 12, 58, 52); rectShape = new Rectangle(536, 9, 59, 59); break;
+                case GameTypes.ExitSW: rect = new Rectangle(49, 438, 58, 52); rectShape = new Rectangle(49, 435, 59, 59); break;
+                case GameTypes.ExitSE: rect = new Rectangle(546, 436, 58, 52); rectShape = new Rectangle(546, 433, 59, 59); break;
+            }
+            Bitmap person = Properties.Resources.None;
+            switch(charactor) {
+                case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
+                default: person = Properties.Resources.None; break;
+            }
+            g.DrawImage(person, rect);
+            g.DrawImage(Properties.Resources.Escape, rectShape);
+        }
+        #endregion
+
+        #region Boards's Coordinate Oprations
+        private int GetCoordXByCoordName(string name) {
+            try {
+                char numChar = char.Parse(name.Substring(0, 1));
+                int x = (int)numChar - 97;
+                return x;
+            } catch(Exception) { }
+            return -1;
+        }
+
+        private int GetCoordYByCoordName(string name) {
+            if(name != string.Empty) {
+                string numStr = name.Substring(1);
+                try {
+                    int y = Int32.Parse(numStr) - 1;
+                    return y;
+                } catch(Exception) { }
+            }
+            return -1;
+        }
+
+        private int GetExitCoordByCoordName(string name) {
+            switch(name) {
+                case "NE": return GameTypes.ExitNE;
+                case "NW": return GameTypes.ExitNW;
+                case "SE": return GameTypes.ExitSE;
+                case "SW": return GameTypes.ExitSW;
+                default: return -1;
+            }
+        }
+
         private Point GetClickedRectanglePos(int mouseX, int mouseY) {
             int dx = mouseX - LeftPos;
             int dy = mouseY - TopPos;
@@ -177,146 +329,6 @@ namespace MrJack
                 this.SelectedHex = null;
             }
         }
-
-        public GameHex GetClickedHex(int mouseX, int mouseY) {
-            this.HexClickHandler(mouseX, mouseY);
-            if(this.SelectedHex != null) {
-                return this.SelectedHex;
-            } else {
-                return null;
-            }
-        }
-
-        private void DrawCharacter(Graphics g, int x, int y, int character) {
-            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
-            Bitmap person = Properties.Resources.None;
-            switch(character) {
-                case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
-                case GameTypes.CharacterBertInnocent: person = Properties.Resources.BertInnocent; break;
-                case GameTypes.CharacterGoodley: person = Properties.Resources.Goodley; break;
-                case GameTypes.CharacterGoodleyInnocent: person = Properties.Resources.GoodleyInnocent; break;
-                case GameTypes.CharacterGull: person = Properties.Resources.Gull; break;
-                case GameTypes.CharacterGullInnocent: person = Properties.Resources.GullInnocent; break;
-                case GameTypes.CharacterHolmes: person = Properties.Resources.Holmes; break;
-                case GameTypes.CharacterHolmesInnocent: person = Properties.Resources.HolmesInnocent; break;
-                case GameTypes.CharacterLestrade: person = Properties.Resources.Lestrade; break;
-                case GameTypes.CharacterLestradeInnocent: person = Properties.Resources.LestradeInnocent; break;
-                case GameTypes.CharacterSmith: person = Properties.Resources.Smith; break;
-                case GameTypes.CharacterSmithInnocent: person = Properties.Resources.SmithInnocent; break;
-                case GameTypes.CharacterStealthy: person = Properties.Resources.Stealthy; break;
-                case GameTypes.CharacterStealthyInnocent: person = Properties.Resources.StealthyInnocent; break;
-                case GameTypes.CharacterWatson1: person = Properties.Resources.Watson1; break;
-                case GameTypes.CharacterWatsonInnocent1: person = Properties.Resources.WatsonInnocent1; break;
-                case GameTypes.CharacterWatson2: person = Properties.Resources.Watson2; break;
-                case GameTypes.CharacterWatsonInnocent2: person = Properties.Resources.WatsonInnocent2; break;
-                case GameTypes.CharacterWatson3: person = Properties.Resources.Watson3; break;
-                case GameTypes.CharacterWatsonInnocent3: person = Properties.Resources.WatsonInnocent3; break;
-                case GameTypes.CharacterWatson4: person = Properties.Resources.Watson4; break;
-                case GameTypes.CharacterWatsonInnocent4: person = Properties.Resources.WatsonInnocent4; break;
-                case GameTypes.CharacterWatson5: person = Properties.Resources.Watson5; break;
-                case GameTypes.CharacterWatsonInnocent5: person = Properties.Resources.WatsonInnocent5; break;
-                case GameTypes.CharacterWatson6: person = Properties.Resources.Watson6; break;
-                case GameTypes.CharacterWatsonInnocent6: person = Properties.Resources.WatsonInnocent6; break;
-                default: person = Properties.Resources.None; break;
-            }
-            g.DrawImage(person, rect);
-        }
-        private void DrawGasslight(Graphics g, int x, int y, int gasslight) {
-            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
-            Bitmap light;
-            switch(gasslight) {
-                case GameTypes.Gasslight1: light = Properties.Resources.Light1; break;
-                case GameTypes.Gasslight2: light = Properties.Resources.Light2; break;
-                case GameTypes.Gasslight3: light = Properties.Resources.Light3; break;
-                case GameTypes.Gasslight4: light = Properties.Resources.Light4; break;
-                case GameTypes.Gasslight5:
-                case GameTypes.Gasslight6: light = Properties.Resources.LightAlways; break;
-                default: light = Properties.Resources.None; break;
-            }
-            g.DrawImage(light, rect);
-        }
-        private void DrawCordon(Graphics g, int direction) {
-            Rectangle rect = new Rectangle();
-            switch(direction) {
-                case GameTypes.ExitNW: rect = new Rectangle(27, 24, 52, 29); break;
-                case GameTypes.ExitNE: rect = new Rectangle(536, 24, 52, 29); break;
-                case GameTypes.ExitSW: rect = new Rectangle(52, 448, 52, 29); break;
-                case GameTypes.ExitSE: rect = new Rectangle(546, 446, 52, 29); break;
-            }
-            g.DrawImage(Properties.Resources.Cordon, rect);
-        }
-        private void DrawCordonPath(Graphics g, int direction) {
-            Rectangle rect = new Rectangle();
-            switch(direction) {
-                case GameTypes.ExitNW: rect = new Rectangle(25, 22, 56, 33); break;
-                case GameTypes.ExitNE: rect = new Rectangle(534, 22, 56, 33); break;
-                case GameTypes.ExitSW: rect = new Rectangle(50, 446, 56, 33); break;
-                case GameTypes.ExitSE: rect = new Rectangle(544, 444, 56, 33); break;
-            }
-            g.DrawImage(Properties.Resources.CordonPath, rect);
-        }
-        private void DrawCover(Graphics g, int x, int y) {
-            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
-            g.DrawImage(Properties.Resources.Cover, rect);
-        }
-        private void DrawPathFrom(Graphics g, int x, int y) {
-            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
-            g.DrawImage(Properties.Resources.HexFrom, rect);
-        }
-        private void DrawPathVia(Graphics g, int x, int y) {
-            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
-            g.DrawImage(Properties.Resources.HexVia, rect);
-        }
-        private void DrawPathTo(Graphics g, int x, int y) {
-            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
-            g.DrawImage(Properties.Resources.HexTo, rect);
-        }
-        private void DrawEscape(Graphics g, int charactor, int direction) {
-            Rectangle rect = new Rectangle();
-            Rectangle rectShape = new Rectangle();
-            switch(direction) {
-                case GameTypes.ExitNW: rect = new Rectangle(23, 14, 58, 52); rectShape = new Rectangle(23, 11, 59, 59); break;
-                case GameTypes.ExitNE: rect = new Rectangle(536, 12, 58, 52); rectShape = new Rectangle(536, 9, 59, 59); break;
-                case GameTypes.ExitSW: rect = new Rectangle(49, 438, 58, 52); rectShape = new Rectangle(49, 435, 59, 59); break;
-                case GameTypes.ExitSE: rect = new Rectangle(546, 436, 58, 52); rectShape = new Rectangle(546, 433, 59, 59); break;
-            }
-            Bitmap person = Properties.Resources.None;
-            switch(charactor) {
-                case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
-                default: person = Properties.Resources.None; break;
-            }
-            g.DrawImage(person, rect);
-            g.DrawImage(Properties.Resources.Escape, rectShape);
-        }
-
-        private int GetCoordXByCoordName(string name) {
-            try {
-                char numChar = char.Parse(name.Substring(0, 1));
-                int x = (int)numChar - 97;
-                return x;
-            } catch(Exception) { }
-            return -1;
-        }
-
-        private int GetCoordYByCoordName(string name) {
-            if(name != string.Empty) {
-                string numStr = name.Substring(1);
-                try {
-                    int y = Int32.Parse(numStr) - 1;
-                    return y;
-                } catch(Exception) { }
-            }
-            return -1;
-        }
-
-        private int GetExitCoordByCoordName(string name) {
-            switch(name) {
-                case "NE": return GameTypes.ExitNE;
-                case "NW": return GameTypes.ExitNW;
-                case "SE": return GameTypes.ExitSE;
-                case "SW": return GameTypes.ExitSW;
-                default: return -1;
-            }
-        }
+        #endregion
     }
 }

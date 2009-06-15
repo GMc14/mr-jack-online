@@ -27,13 +27,13 @@ namespace MrJack
             set { this.opponentIP = value; }
         }
 
-        public List<string> Observers;
+        public List<string> ObserverIPs;
 
         private GameController gCtrl = null;
 
         public GameNetwork(GameController gc) {
             this.gCtrl = gc;
-            this.Observers = new List<string>();
+            this.ObserverIPs = new List<string>();
             this.client = new UdpClient();
         }
 
@@ -56,38 +56,38 @@ namespace MrJack
 
         public void StopHost() {
             if(this.theadServer != null && this.theadServer.IsAlive) {
-                this.server.Close();
                 this.theadServer.Abort();
+                this.server.Close();
             }
         }
 
-        private void SendMessage(string host, string msg, int port) {
-            byte[] bytes = Encoding.UTF8.GetBytes(msg);
-            this.client.Send(bytes, bytes.Length, host, port);
+        private void SendMessage(string host, GameMessage msg, int port) {
+            //byte[] bytes = Encoding.UTF8.GetBytes(msg);
+            //this.client.Send(bytes, bytes.Length, host, port);
         }
-        public void SendMessageToHost(string msg, int port) {
+        public void SendMessageToHost(GameMessage msg, int port) {
             if(this.hostIP != string.Empty) {
                 this.SendMessage(this.hostIP, msg, port);
             }
         }
-        public void SendMessageToHost(string msg) {
+        public void SendMessageToHost(GameMessage msg) {
             this.SendMessageToHost(msg, DefaultPort);
         }
-        public void SendMessageToOpponent(string msg, int port) {
+        public void SendMessageToOpponent(GameMessage msg, int port) {
             if(this.opponentIP != string.Empty) {
                 this.SendMessage(this.opponentIP, msg, port);
             }
         }
-        public void SendMessageToOpponent(string msg) {
-            this.SendMessageToOpponent(this.opponentIP, DefaultPort);
+        public void SendMessageToOpponent(GameMessage msg) {
+            this.SendMessageToOpponent(msg, DefaultPort);
         }
-        public void SendMessageToObservers(string msg, int port) {
-            foreach(string observer in this.Observers) {
+        public void SendMessageToObservers(GameMessage msg, int port) {
+            foreach(string observer in this.ObserverIPs) {
                 this.SendMessage(observer, msg, port);
             }
         }
-        public void SendMessageToObservers(string msg) {
-            foreach(string observer in this.Observers) {
+        public void SendMessageToObservers(GameMessage msg) {
+            foreach(string observer in this.ObserverIPs) {
                 this.SendMessage(observer, msg, DefaultPort);
             }
         }

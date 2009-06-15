@@ -61,11 +61,30 @@ namespace MrJack
         }
 
         private void FrmMain_Load(object sender, EventArgs e) {
-            //try {
             this.LoadSounds();
-            //} catch(Exception) { }
         }
 
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) {
+            this.DeleteSounds();
+            this.network.StopHost();
+        }
+
+        #region Game's FixUI Methods
+        private void FixLinkLableTabStop() {
+            this.BtnHostGame.TabStop = false;
+            this.BtnJoinGame.TabStop = false;
+            this.BtnObserveGame.TabStop = false;
+            this.BtnLoadReplay.TabStop = false;
+            this.BtnHelp.TabStop = false;
+            this.BtnAbout.TabStop = false;
+        }
+        #endregion
+
+        public void SetInfoText(string text) {
+            this.LblInfo.Text = text;
+        }
+
+        #region Game's [Sound] Operations
         private void LoadSounds() {
             string path = Path.GetTempPath();
             FileStream fs = null;
@@ -89,6 +108,7 @@ namespace MrJack
                 }
             }
         }
+
         private void PlaySound(string path) {
             if(path != string.Empty && this.enableSound) {
                 if(this.gameSound == null) {
@@ -100,11 +120,13 @@ namespace MrJack
                 }
             }
         }
+
         private void StopSound() {
             if(this.gameSound != null && this.gameSound.Playing) {
                 this.gameSound.Stop();
             }
         }
+
         private void DeleteSounds() {
             try {
                 if(File.Exists(this.SndNewPath)) {
@@ -115,17 +137,85 @@ namespace MrJack
                 }
             } catch(Exception) { }
         }
+        #endregion
+
         public void PlaySoundNew() {
             this.PlaySound(SndNewPath);
         }
+
         public void PlaySoundTurn() {
             this.PlaySound(SndNewPath);
         }
 
-        public void SetInfoText(string text) {
-            this.LblInfo.Text = text;
+        #region Game's [Option Panel] Event Handlers
+        private void CbxShowCoordinates_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            bool value = !(sender as CheckBox).Checked;
+            (sender as CheckBox).Checked = value;
+            this.Board.ShowCoordinates = value;
         }
 
+        private void CbxHightlightMoves_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            bool value = !(sender as CheckBox).Checked;
+            (sender as CheckBox).Checked = value;
+            this.Board.HighlightMoves = value;
+        }
+
+        private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
+            this.Board.Focus();
+            bool value = (sender as CheckBox).Checked;
+            if(value) {
+                this.StopSound();
+            }
+            this.enableSound = !value;
+            (sender as CheckBox).Checked = !value;
+        }
+        #endregion
+
+        #region Game's [Menu] Event Handlers
+        private void BtnHostGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.Board.Focus();
+            this.network.StartHost();
+        }
+
+        private void BtnJoinGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.network.HostIP = "127.0.0.1";
+            this.network.SendMessageToHost(new GameMessage());
+        }
+
+        private void BtnObserveGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.network.StopHost();
+        }
+
+        private void BtnLoadReplay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.Board.Focus();
+            DialogResult result = OfgReplay.ShowDialog();
+            if(result == DialogResult.OK) {
+                //XmlSerializer xSerial = new XmlSerializer(typeof(GameReplay));
+                //FileStream fs = new FileStream(OfgReplay.FileName, FileMode.Open);
+                //try {
+                //    this.replay = (GameReplay)xSerial.Deserialize(fs);
+                //} catch(Exception) {
+                //    MessageBox.Show("Error loading \"" + OfgReplay.SafeFileName + "\",\nThis file is not a vaild Mr. Jack replay file.", "Mr. Jack", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //} finally {
+                //    fs.Close();
+                //}
+            }
+        }
+
+        private void BtnHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+
+        }
+
+        private void BtnAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            this.Board.Focus();
+            FrmAbout frmAbout = new FrmAbout();
+            frmAbout.ShowDialog(this);
+        }
+        #endregion
+
+        #region Game's [Board] Event Handlers
         private void Board_MouseLeave(object sender, EventArgs e) {
             this.PnlHelp.Visible = false;
         }
@@ -144,17 +234,10 @@ namespace MrJack
                 MessageBox.Show(hex.Name);
             }
         }
+        #endregion
 
-        private void FixLinkLableTabStop() {
-            this.BtnHostGame.TabStop = false;
-            this.BtnJoinGame.TabStop = false;
-            this.BtnObserveGame.TabStop = false;
-            this.BtnLoadReplay.TabStop = false;
-            this.BtnHelp.TabStop = false;
-            this.BtnAbout.TabStop = false;
-        }
-
-        public void SelectTabMoves() {
+        #region Game's [Record Panel] Event Handlers
+        private void SelectTabMoves() {
             this.PbxTab.Image = Properties.Resources.TabMoves;
             this.BtnTabNotes.BackColor = Color.FromArgb(20, 39, 48);
             this.BtnTabNotes.ForeColor = Color.FromArgb(132, 132, 132);
@@ -166,7 +249,7 @@ namespace MrJack
             this.WbrMovesList.Document.Focus();
         }
 
-        public void SelectTabNotes() {
+        private void SelectTabNotes() {
             this.PbxTab.Image = Properties.Resources.TabNotes;
             this.BtnTabMoves.BackColor = Color.FromArgb(20, 39, 48);
             this.BtnTabMoves.ForeColor = Color.FromArgb(132, 132, 132);
@@ -185,34 +268,16 @@ namespace MrJack
         private void BtnTabNotes_MouseDown(object sender, MouseEventArgs e) {
             this.SelectTabNotes();
         }
+        #endregion
 
-        private void CbxShowCoordinates_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-            bool value = !(sender as CheckBox).Checked;
-            (sender as CheckBox).Checked = value;
-            this.Board.ShowCoordinates = value;
-        }
-
+        #region Game's [Input Panel] Event Handlers
         private void CbxPrivateComment_MouseDown(object sender, MouseEventArgs e) {
             this.TbxComment.Focus();
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
+        #endregion
 
-        private void CbxEnableSound_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-            bool value = (sender as CheckBox).Checked;
-            if(value) {
-                this.StopSound();
-            }
-            this.enableSound = !value;
-            (sender as CheckBox).Checked = !value;
-        }
-
-        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) {
-            this.DeleteSounds();
-            this.network.StopHost();
-        }
-
+        #region Game's [Round Panel] Event Handlers
         private void PbxRound_Paint(object sender, PaintEventArgs e) {
             if(this.gameBoard != null) {
                 Graphics g = e.Graphics;
@@ -238,59 +303,6 @@ namespace MrJack
                 );
             }
         }
-
-        private void CbxHightlightMoves_MouseDown(object sender, MouseEventArgs e) {
-            this.Board.Focus();
-            bool value = !(sender as CheckBox).Checked;
-            (sender as CheckBox).Checked = value;
-            this.Board.HighlightMoves = value;
-        }
-
-        private void BtnHostGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            this.Board.Focus();
-            this.network.StartHost();
-        }
-
-        private void BtnAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            this.Board.Focus();
-            FrmAbout frmAbout = new FrmAbout();
-            frmAbout.ShowDialog(this);
-        }
-
-        private void BtnJoinGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            this.network.HostIP = "127.0.0.1";
-            this.network.SendMessageToHost("Hello!");
-        }
-
-        private void BtnObserveGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            this.network.StopHost();
-        }
-
-        private void BtnLoadReplay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            this.Board.Focus();
-            DialogResult result = OfgReplay.ShowDialog();
-            if(result == DialogResult.OK) {
-                //XmlSerializer xSerial = new XmlSerializer(typeof(GameReplay));
-                //FileStream fs = new FileStream(OfgReplay.FileName, FileMode.Open);
-                //try {
-                //    this.replay = (GameReplay)xSerial.Deserialize(fs);
-                //} catch(Exception) {
-                //    MessageBox.Show("Error loading \"" + OfgReplay.SafeFileName + "\",\nThis file is not a vaild Mr. Jack replay file.", "Mr. Jack", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //} finally {
-                //    fs.Close();
-                //}
-            }
-        }
-
-        private void SetAllPanelsVisible(bool value) {
-            this.PnlWitness.Visible = value;
-            this.PnlRound.Visible = value;
-            this.PnlCards.Visible = value;
-            this.PnlPlayer.Visible = value;
-            this.PnlRecords.Visible = value;
-            this.PnlComment.Visible = value;
-            this.PnlInput.Visible = value;
-            this.PnlJack.Visible = value;
-        }
+        #endregion
     }
 }
