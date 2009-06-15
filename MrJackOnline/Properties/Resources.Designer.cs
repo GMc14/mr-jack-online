@@ -627,6 +627,13 @@ namespace MrJack.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap WatsonDir {
+            get {
+                object obj = ResourceManager.GetObject("WatsonDir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap WatsonInnocent1 {
             get {
                 object obj = ResourceManager.GetObject("WatsonInnocent1", resourceCulture);

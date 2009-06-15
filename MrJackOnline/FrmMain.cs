@@ -62,6 +62,8 @@ namespace MrJack
 
         private void FrmMain_Load(object sender, EventArgs e) {
             this.LoadSounds();
+            this.gCtrl.UpdateCards();
+            this.gCtrl.UpdateHelpCards();
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) {
@@ -215,7 +217,6 @@ namespace MrJack
         }
         #endregion
 
-        #region Game's [Board] Event Handlers
         private void Board_MouseLeave(object sender, EventArgs e) {
             this.PnlHelp.Visible = false;
         }
@@ -234,7 +235,6 @@ namespace MrJack
                 MessageBox.Show(hex.Name);
             }
         }
-        #endregion
 
         #region Game's [Record Panel] Event Handlers
         private void SelectTabMoves() {
@@ -304,5 +304,97 @@ namespace MrJack
             }
         }
         #endregion
+
+        private Bitmap GetCardImageByCharacter(int character) {
+            Bitmap img = null;
+            switch(character) {
+                case GameTypes.CharacterNone: img = Properties.Resources.CardBack; break;
+                case GameTypes.CharacterBert: img = Properties.Resources.CardBert; break;
+                case GameTypes.CharacterGoodley: img = Properties.Resources.CardGoodley; break;
+                case GameTypes.CharacterGull: img = Properties.Resources.CardGull; break;
+                case GameTypes.CharacterHolmes: img = Properties.Resources.CardHolmes; break;
+                case GameTypes.CharacterLestrade: img = Properties.Resources.CardLestrade; break;
+                case GameTypes.CharacterSmith: img = Properties.Resources.CardSmith; break;
+                case GameTypes.CharacterStealthy: img = Properties.Resources.CardStealthy; break;
+                case GameTypes.CharacterWatson1: img = Properties.Resources.CardWatson; break;
+                default: img = Properties.Resources.None; break;
+            }
+            return img;
+        }
+
+        public void SetGameCardCharacter(int index, int character) {
+            PictureBox pbx = null;
+            switch(index) {
+                case 1: pbx = PbxCard1; break;
+                case 2: pbx = PbxCard2; break;
+                case 3: pbx = PbxCard3; break;
+                case 4: pbx = PbxCard4; break;
+            }
+            if(pbx != null) {
+                Bitmap img = this.GetCardImageByCharacter(character);
+                pbx.Image = img;
+            }
+        }
+
+        public void SetHelpCardsCharacter(int[] cards) {
+            if(cards.Length < 8) return;
+            this.PbxHelpCard1.Image = this.GetCardImageByCharacter(cards[0]);
+            this.PbxHelpCard2.Image = this.GetCardImageByCharacter(cards[1]);
+            this.PbxHelpCard3.Image = this.GetCardImageByCharacter(cards[2]);
+            this.PbxHelpCard4.Image = this.GetCardImageByCharacter(cards[3]);
+            this.PbxHelpCard5.Image = this.GetCardImageByCharacter(cards[4]);
+            this.PbxHelpCard6.Image = this.GetCardImageByCharacter(cards[5]);
+            this.PbxHelpCard7.Image = this.GetCardImageByCharacter(cards[6]);
+            this.PbxHelpCard8.Image = this.GetCardImageByCharacter(cards[7]);
+        }
+
+        private void SelectAGameCardSelectByIndex(int index, int side) {
+            PictureBox pbx = null;
+            switch(index) {
+                case 1: pbx = PbxCardSelect1; break;
+                case 2: pbx = PbxCardSelect2; break;
+                case 3: pbx = PbxCardSelect3; break;
+                case 4: pbx = PbxCardSelect4; break;
+            }
+            if(pbx != null) {
+                if(side == GameTypes.SideInspector) {
+                    pbx.Image = Properties.Resources.CardSelectInspector;
+                } else {
+                    pbx.Image = Properties.Resources.CardSelectJack;
+                }
+            }
+        }
+
+        public void SelectAGameCardByCharacter(int character, int side) {
+            for(int i = 0; i < 4; i++) {
+                if(this.gameBoard.CurCards[i] == character) {
+                    this.SelectAGameCardSelectByIndex(i + 1, side);
+                    break;
+                }
+            }
+        }
+
+        public void UnselectAllCards() {
+            PbxCardSelect1.Image = null;
+            PbxCardSelect2.Image = null;
+            PbxCardSelect3.Image = null;
+            PbxCardSelect4.Image = null;
+        }
+
+        public void SelectWitnessCard() {
+            this.PbxWintessSelect.Image = Properties.Resources.CardSelectWintess;
+        }
+
+        public void UnselectWitnessCard() {
+            this.PbxWintessSelect.Image = null;
+        }
+
+        public void SetWitnessCard(int type) {
+            if(type == GameTypes.JackWitness) {
+                this.PbxWitness.Image = Properties.Resources.CardWitness;
+            } else {
+                this.PbxWitness.Image = Properties.Resources.CardNoWitness;
+            }
+        }
     }
 }

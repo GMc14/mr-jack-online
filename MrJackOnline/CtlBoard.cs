@@ -7,6 +7,8 @@ namespace MrJack
 {
     public partial class CtlBoard : UserControl
     {
+        private const int NullCoord = -22;
+
         private const int TopPos = -10;
         private const int LeftPos = -26;
 
@@ -50,7 +52,10 @@ namespace MrJack
         private bool highlightMoves;
         public bool HighlightMoves {
             get { return this.highlightMoves; }
-            set { this.highlightMoves = value; }
+            set { 
+                this.highlightMoves = value;
+                this.Invalidate();
+            }
         }
 
         public BoardStatus Game;
@@ -67,22 +72,38 @@ namespace MrJack
             if(this.Game != null) {
                 for(int i = 0; i < this.Game.Covers.Length; i++) {
                     hexName = this.Game.Covers[i];
-                    this.DrawCover(g, this.GetCoordXByCoordName(this.Game.Covers[i]), this.GetCoordYByCoordName(this.Game.Covers[i]));
+                    this.DrawCover(g, this.GetCoordXByCoordName(hexName), this.GetCoordYByCoordName(hexName));
                 }
                 for(int i = 0; i < this.Game.Gasslights.Length; i++) {
                     hexName = this.Game.Gasslights[i];
                     if(hexName != string.Empty) {
-                        this.DrawGasslight(g, this.GetCoordXByCoordName(this.Game.Gasslights[i]), this.GetCoordYByCoordName(this.Game.Gasslights[i]), i + 1);
+                        this.DrawGasslight(g, this.GetCoordXByCoordName(hexName), this.GetCoordYByCoordName(hexName), i + 1);
                     }
                 }
                 for(int i = 0; i < this.Game.Cordons.Length; i++) {
                     hexName = this.Game.Cordons[i];
-                    this.DrawCordon(g, this.GetExitCoordByCoordName(this.Game.Cordons[i]));
+                    this.DrawCordon(g, this.GetExitCoordByCoordName(hexName));
                 }
                 for(int i = 0; i < this.Game.Characters.Length; i++) {
                     hexName = this.Game.Characters[i];
                     if(hexName != string.Empty) {
-                        this.DrawCharacter(g, this.GetCoordXByCoordName(this.Game.Characters[i]), this.GetCoordYByCoordName(this.Game.Characters[i]), i);
+                        this.DrawCharacter(g, this.GetCoordXByCoordName(hexName), this.GetCoordYByCoordName(hexName), i);
+                    }
+                }
+                if(this.Game.NeedSelectWatsonDir) {
+                    this.DrawWatsonDir(g, this.Game.NeedSelectWatsonDirX, this.Game.NeedSelectWatsonDirY, false);
+                }
+                if(this.highlightMoves && this.Game.CurPath != "") {
+                    string[] curPath = this.Game.CurPath.Split(',');
+                    for(int i = 0; i < curPath.Length; i++) {
+                        hexName = curPath[i];
+                        if(i == 0) {
+                            this.DrawPathFrom(g, this.GetCoordXByCoordName(hexName), this.GetCoordYByCoordName(hexName));
+                        } else if(i == curPath.Length - 1) {
+                            this.DrawPathTo(g, this.GetCoordXByCoordName(hexName), this.GetCoordYByCoordName(hexName));
+                        } else {
+                            this.DrawPathVia(g, this.GetCoordXByCoordName(hexName), this.GetCoordYByCoordName(hexName));
+                        }
                     }
                 }
             }
@@ -112,8 +133,8 @@ namespace MrJack
             }
         }
 
-        #region Board's Drawing Methods
         private void DrawCharacter(Graphics g, int x, int y, int character) {
+            if(x == NullCoord || y == NullCoord) return;
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
             Bitmap person = Properties.Resources.None;
             switch(character) {
@@ -149,6 +170,7 @@ namespace MrJack
         }
 
         private void DrawGasslight(Graphics g, int x, int y, int gasslight) {
+            if(x == NullCoord || y == NullCoord) return;
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
             Bitmap light;
             switch(gasslight) {
@@ -164,6 +186,7 @@ namespace MrJack
         }
 
         private void DrawCordon(Graphics g, int direction) {
+            if(direction == NullCoord) return;
             Rectangle rect = new Rectangle();
             switch(direction) {
                 case GameTypes.ExitNW: rect = new Rectangle(27, 24, 52, 29); break;
@@ -175,6 +198,7 @@ namespace MrJack
         }
 
         private void DrawCordonPath(Graphics g, int direction) {
+            if(direction == NullCoord) return;
             Rectangle rect = new Rectangle();
             switch(direction) {
                 case GameTypes.ExitNW: rect = new Rectangle(25, 22, 56, 33); break;
@@ -186,26 +210,31 @@ namespace MrJack
         }
 
         private void DrawCover(Graphics g, int x, int y) {
+            if(x == NullCoord || y == NullCoord) return;
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 58, 52);
             g.DrawImage(Properties.Resources.Cover, rect);
         }
 
         private void DrawPathFrom(Graphics g, int x, int y) {
+            if(x == NullCoord || y == NullCoord) return;
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
             g.DrawImage(Properties.Resources.HexFrom, rect);
         }
 
         private void DrawPathVia(Graphics g, int x, int y) {
+            if(x == NullCoord || y == NullCoord) return;
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
             g.DrawImage(Properties.Resources.HexVia, rect);
         }
 
         private void DrawPathTo(Graphics g, int x, int y) {
+            if(x == NullCoord || y == NullCoord) return;
             Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2, HexTopPos - y * 52 + x * 26, 59, 53);
             g.DrawImage(Properties.Resources.HexTo, rect);
         }
 
         private void DrawEscape(Graphics g, int charactor, int direction) {
+            if(direction == NullCoord) return;
             Rectangle rect = new Rectangle();
             Rectangle rectShape = new Rectangle();
             switch(direction) {
@@ -217,32 +246,55 @@ namespace MrJack
             Bitmap person = Properties.Resources.None;
             switch(charactor) {
                 case GameTypes.CharacterBert: person = Properties.Resources.Bert; break;
+                case GameTypes.CharacterGoodley: person = Properties.Resources.Goodley; break;
+                case GameTypes.CharacterGull: person = Properties.Resources.Gull; break;
+                case GameTypes.CharacterHolmes: person = Properties.Resources.Holmes; break;
+                case GameTypes.CharacterLestrade: person = Properties.Resources.Lestrade; break;
+                case GameTypes.CharacterSmith: person = Properties.Resources.Smith; break;
+                case GameTypes.CharacterStealthy: person = Properties.Resources.Stealthy; break;
+                case GameTypes.CharacterWatson1: person = Properties.Resources.Watson1; break;
+                case GameTypes.CharacterWatson2: person = Properties.Resources.Watson2; break;
+                case GameTypes.CharacterWatson3: person = Properties.Resources.Watson3; break;
+                case GameTypes.CharacterWatson4: person = Properties.Resources.Watson4; break;
+                case GameTypes.CharacterWatson5: person = Properties.Resources.Watson5; break;
+                case GameTypes.CharacterWatson6: person = Properties.Resources.Watson6; break;
                 default: person = Properties.Resources.None; break;
             }
             g.DrawImage(person, rect);
             g.DrawImage(Properties.Resources.Escape, rectShape);
         }
-        #endregion
 
-        #region Boards's Coordinate Oprations
+        private void DrawWatsonDir(Graphics g, int x, int y, bool isWatsonInnocent) {
+            Rectangle rect = new Rectangle(HexLeftPos + x * 44 - 2 - 8, HexTopPos - y * 52 + x * 26 - 16, 75, 85);
+            if(!isWatsonInnocent) {
+                g.DrawImage(Properties.Resources.WatsonDir, rect);
+            } else {
+                g.DrawImage(Properties.Resources.WatsonDir, rect);
+            }
+        }
+
         private int GetCoordXByCoordName(string name) {
-            try {
-                char numChar = char.Parse(name.Substring(0, 1));
-                int x = (int)numChar - 97;
-                return x;
-            } catch(Exception) { }
-            return -1;
+            if(name != string.Empty) {
+                try {
+                    int x = (int)(char.Parse(name.Substring(0, 1))) - 97;
+                    return x;
+                } catch(Exception) {
+                    return NullCoord;
+                }
+            }
+            return NullCoord;
         }
 
         private int GetCoordYByCoordName(string name) {
             if(name != string.Empty) {
-                string numStr = name.Substring(1);
                 try {
-                    int y = Int32.Parse(numStr) - 1;
+                    int y = Int32.Parse(name.Substring(1)) - 1;
                     return y;
-                } catch(Exception) { }
+                } catch(Exception) {
+                    return NullCoord;
+                }
             }
-            return -1;
+            return NullCoord;
         }
 
         private int GetExitCoordByCoordName(string name) {
@@ -251,7 +303,7 @@ namespace MrJack
                 case "NW": return GameTypes.ExitNW;
                 case "SE": return GameTypes.ExitSE;
                 case "SW": return GameTypes.ExitSW;
-                default: return -1;
+                default: return NullCoord;
             }
         }
 
@@ -329,6 +381,5 @@ namespace MrJack
                 this.SelectedHex = null;
             }
         }
-        #endregion
     }
 }

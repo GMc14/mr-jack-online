@@ -93,7 +93,7 @@
             this.CbxPrivateComment = new System.Windows.Forms.CheckBox();
             this.LblInputCaption = new System.Windows.Forms.Label();
             this.PnlWitness = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PbxWitness = new System.Windows.Forms.PictureBox();
             this.PbxWintessSelect = new System.Windows.Forms.PictureBox();
             this.PnlRound = new System.Windows.Forms.Panel();
             this.PbxRound = new System.Windows.Forms.PictureBox();
@@ -130,7 +130,7 @@
             this.PnlInput.SuspendLayout();
             this.PnlInputHeader.SuspendLayout();
             this.PnlWitness.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxWitness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).BeginInit();
             this.PnlRound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).BeginInit();
@@ -900,21 +900,21 @@
             // 
             // PnlWitness
             // 
-            this.PnlWitness.Controls.Add(this.pictureBox1);
+            this.PnlWitness.Controls.Add(this.PbxWitness);
             this.PnlWitness.Controls.Add(this.PbxWintessSelect);
             this.PnlWitness.Location = new System.Drawing.Point(3, 50);
             this.PnlWitness.Name = "PnlWitness";
             this.PnlWitness.Size = new System.Drawing.Size(69, 103);
             this.PnlWitness.TabIndex = 98;
             // 
-            // pictureBox1
+            // PbxWitness
             // 
-            this.pictureBox1.BackgroundImage = global::MrJack.Properties.Resources.CardWitness;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 91);
-            this.pictureBox1.TabIndex = 83;
-            this.pictureBox1.TabStop = false;
+            this.PbxWitness.BackgroundImage = global::MrJack.Properties.Resources.CardWitness;
+            this.PbxWitness.Location = new System.Drawing.Point(5, 6);
+            this.PbxWitness.Name = "PbxWitness";
+            this.PbxWitness.Size = new System.Drawing.Size(59, 91);
+            this.PbxWitness.TabIndex = 83;
+            this.PbxWitness.TabStop = false;
             // 
             // PbxWintessSelect
             // 
@@ -970,7 +970,7 @@
             this.Board.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Board.BackgroundImage")));
             this.Board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Board.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Board.HighlightMoves = false;
+            this.Board.HighlightMoves = true;
             this.Board.Location = new System.Drawing.Point(143, 58);
             this.Board.Name = "Board";
             this.Board.ShowCoordinates = false;
@@ -1054,7 +1054,7 @@
             this.PnlInputHeader.ResumeLayout(false);
             this.PnlInputHeader.PerformLayout();
             this.PnlWitness.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxWitness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxWintessSelect)).EndInit();
             this.PnlRound.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbxRound)).EndInit();
@@ -1136,7 +1136,7 @@
         private System.Windows.Forms.Label LblInputCaption;
         private System.Windows.Forms.CheckBox CbxEnableSound;
         private System.Windows.Forms.Panel PnlWitness;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PbxWitness;
         private System.Windows.Forms.PictureBox PbxWintessSelect;
         private System.Windows.Forms.Panel PnlRound;
         private System.Windows.Forms.PictureBox PbxRound;
