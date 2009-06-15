@@ -67,18 +67,17 @@ namespace MrJack
         }
 
         private void LoadSounds() {
-            string pathDir = Path.GetTempPath();
-            string path = string.Empty;
+            string path = Path.GetTempPath();
             FileStream fs = null;
             try {
-                path = pathDir + "new.mid";
+                path += "new.mid";
                 fs = new FileStream(path, FileMode.Create);
                 fs.Write(Properties.Resources.SndNewGame, 0, Properties.Resources.SndNewGame.Length);
                 this.SndNewPath = path;
                 fs.Close();
                 fs.Dispose();
 
-                path = pathDir + "turn.mid";
+                path += "turn.mid";
                 fs = new FileStream(path, FileMode.Create);
                 fs.Write(Properties.Resources.SndTurn, 0, Properties.Resources.SndTurn.Length);
                 this.SndTurnPath = path;
@@ -95,11 +94,9 @@ namespace MrJack
                 if(this.gameSound == null) {
                     if(File.Exists(path)) {
                         this.gameSound = new Audio(path, true);
-                        this.gameSound.Volume = 0;
                     }
                 } else {
                     this.gameSound.Open(path, true);
-                    this.gameSound.Volume = 0;
                 }
             }
         }
@@ -119,10 +116,10 @@ namespace MrJack
             } catch(Exception) { }
         }
         public void PlaySoundNew() {
-            this.PlaySound(sndNewName);
+            this.PlaySound(SndNewPath);
         }
         public void PlaySoundTurn() {
-            this.PlaySound(sndTurnName);
+            this.PlaySound(SndNewPath);
         }
 
         public void SetInfoText(string text) {
