@@ -29,8 +29,7 @@
             // 
             // CtlBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(61)))), ((int)(((byte)(70)))));
             this.BackgroundImage = global::MrJack.Properties.Resources.Board;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;

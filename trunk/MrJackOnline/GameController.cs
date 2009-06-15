@@ -17,5 +17,14 @@ namespace MrJack
         public void CheckMessage(string msg) {
             this.game.PlaySoundNew();
         }
+
+        public void UpdateCards() {
+            for(int i = 0; i < 4; i++) {
+                this.game.SetGameCardCharacter(i + 1, this.gameBoard.CurCards[i]);
+            }
+        }
+        public void UpdateHelpCards() {
+            this.game.SetHelpCardsCharacter(this.gameBoard.Cards);
+        }
     }
 }

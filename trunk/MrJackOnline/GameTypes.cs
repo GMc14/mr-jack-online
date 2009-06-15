@@ -61,5 +61,8 @@ namespace MrJack
         public const int ResultCaughtWrong = 2;
         public const int ResultSlipAway = 3;
         public const int ResultTimeout = 4;
+
+        public const int JackWitness = 0;
+        public const int JackNoWitness = 1;
     }
 }

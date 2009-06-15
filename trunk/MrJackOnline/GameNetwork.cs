@@ -62,8 +62,9 @@ namespace MrJack
         }
 
         private void SendMessage(string host, GameMessage msg, int port) {
-            //byte[] bytes = Encoding.UTF8.GetBytes(msg);
-            //this.client.Send(bytes, bytes.Length, host, port);
+            string msgg = "dd";
+            byte[] bytes = Encoding.UTF8.GetBytes(msgg);
+            this.client.Send(bytes, bytes.Length, host, port);
         }
         public void SendMessageToHost(GameMessage msg, int port) {
             if(this.hostIP != string.Empty) {

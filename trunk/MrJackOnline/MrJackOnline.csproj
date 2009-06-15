@@ -412,6 +412,9 @@
     <None Include="Resources\turn.mid" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\q_wdir.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="MCStrategy\" />
   </ItemGroup>
 </Project>
