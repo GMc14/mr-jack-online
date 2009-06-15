@@ -269,7 +269,7 @@ namespace MrJack
             if(!isWatsonInnocent) {
                 g.DrawImage(Properties.Resources.WatsonDir, rect);
             } else {
-                g.DrawImage(Properties.Resources.WatsonDir, rect);
+                g.DrawImage(Properties.Resources.WatsonInnocentDir, rect);
             }
         }
 
